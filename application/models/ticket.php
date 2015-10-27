@@ -1,11 +1,18 @@
 <?php
 
 /**
- * The Event Model
+ * The Ticket Model
  *
  * @author Hemant Mann
  */
-class Event extends Shared\Model {
+class Ticket extends Shared\Model {
+    /**
+     * @column
+     * @readwrite
+     * @type integer
+     * @index
+     */
+    protected $_event_id;
 
     /**
      * @column
@@ -14,7 +21,7 @@ class Event extends Shared\Model {
      * @length 255
      * @index
      */
-    protected $_title;
+    protected $_name;
 
     /**
      * @column
@@ -23,9 +30,9 @@ class Event extends Shared\Model {
      * @length 100
      * @index
      *
-     * @label business/technology
+     * @label 0 => Free
      */
-    protected $_category;
+    protected $_price;
 
     /**
      * @column
@@ -34,9 +41,9 @@ class Event extends Shared\Model {
      * @length 100
      * @index
      *
-     * @label ticekting/conference
+     * @label INR/USD
      */
-    protected $_type;
+    protected $_currency;
 
     /**
      * @column
@@ -62,42 +69,19 @@ class Event extends Shared\Model {
     /**
      * @column
      * @readwrite
-     * @type text
+     * @type boolean
      */
-    protected $_listingImage;
+    protected $_allowCancellation;
 
     /**
      * @column
      * @readwrite
      * @type text
-     */
-    protected $_headerImage;
-
-    /**
-     * @column
-     * @readwrite
-     * @type integer
-     * @index
-     */
-    protected $_location_id;
-
-    /**
-     * @column
-     * @readwrite
-     * @type integer
-     * @index
-     */
-    protected $_zone_id;
-
-    /**
-     * @column
-     * @readwrite
-     * @type text
-     * @length 100
-     * @index
      *
-     * @label public/private
+     * @label 1|2|3
+     * [1: Absorb the fees into the ticket price, 2: Absorb gateway 
+     * fee and pass on Explara fee to the buyer, 3: Pass on the fees to the buyer]
      */
-    protected $_visibility;
+    protected $_serviceFee;
 
 }
