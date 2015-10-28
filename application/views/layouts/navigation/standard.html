@@ -1,25 +1,97 @@
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">SwiftMVC Framework</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#">Features</a>
-                </li>
+<!-- HEADER -->
+<header class="header fixed">
+
+    <!-- Top Line -->
+    <div class="top-line">
+        <div class="container">
+            <ul class="user-menu">
+                <li><a href="index.html#popup-login"  data-toggle="modal"><i class="fa fa-file-text-o"></i> Register Now</a></li>
+                <li><a href="index.html#popup-login" data-toggle="modal"><i class="fa fa-user"></i> Login</a></li>
             </ul>
+            <div class="hot-line"><span><i class="fa fa-calendar"></i> <strong>Latest Event:</strong></span>  Standart Event Name Here  "15 October at 20:00 - 22:00 on Manhattan / New York"</div>
         </div>
-        <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
-</nav>
+    <!-- /Top Line -->
+
+    <div class="container">
+        <div class="header-wrapper clearfix">
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href="index.html" class="scroll-to">
+                    <span class="fa-stack">
+                        <i class="fa logo-hex fa-stack-2x"></i>
+                        <i class="fa logo-fa fa-map-marker fa-stack-1x"></i>
+                    </span>
+                    im Event
+                </a>
+            </div>
+            <!-- /Logo -->
+
+            <!-- Navigation -->
+            <div id="mobile-menu"></div>
+            <nav class="navigation closed clearfix">
+                <a href="index.html#" class="menu-toggle btn"><i class="fa fa-bars"></i></a>
+                <ul class="sf-menu nav">
+                    <li class="active">
+                        <a href="index.html">Home</a>
+                        <ul>
+                            <li><a href="index.html">Home</a>
+                                <ul>
+                                    <li><a href="index.html#">sub 1</a>
+                                        <ul>
+                                            <li><a href="index.html#">sub 3</a></li>
+                                            <li><a href="index.html#">sub 4</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="index.html#">sub 2</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="index-2.html">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="event-list.html">Events</a>
+                        <ul>
+                            <li><a href="event-list.html">Event List</a></li>
+                            <li><a href="event-grid.html">Event Grid</a></li>
+                            <li><a href="event-single.html">Single Event</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a href="gallery-col-4.html">Gallery</a>
+                        <ul>
+                            <li><a href="gallery-col-2.html">Gallery Col 2</a></li>
+                            <li><a href="gallery-col-3.html">Gallery Col 3</a></li>
+                            <li><a href="gallery-col-4.html">Gallery Col 4</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="blog.html">Pages</a>
+                        <ul>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="blog-single.html">Blog Single</a></li>
+                            <li><a href="search-results.html">Search Results</a></li>
+                            <li><a href="coming-soon-1.html">Coming Soon 1</a></li>
+                            <li><a href="coming-soon-2.html">Coming Soon 2</a></li>
+                            <li><a href="coming-soon-3.html">Coming Soon 3</a></li>
+                            <li><a href="error-page.html">404</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li class="header-search-wrapper">
+                        <form action="index.html#" class="header-search-form">
+                            <input type="text" class="form-control header-search" placeholder="Search"/>
+                            <input type="submit" hidden="hidden"/>
+                        </form>
+                    </li>
+                    <li><a href="index.html#" class="btn-search-toggle"><i class="fa fa-search"></i></a></li>
+                    <li><a href="index.html#" class="btn btn-theme btn-submit-event">SUBMIT EVENT <i class="fa fa-plus-circle"></i></a></li>
+                </ul>
+            </nav>
+            <!-- /Navigation -->
+
+        </div>
+    </div>
+</header>
+<!-- /HEADER -->

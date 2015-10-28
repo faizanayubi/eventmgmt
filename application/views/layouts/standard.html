@@ -1,45 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="SwiftMVC Framework">
-    <meta name="author" content="Faizan Ayubi">
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SwiftMVC Framework</title>
+        <title>EVENT Management</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <!-- Favicons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{echo CDN}ico/apple-touch-icon-144-precomposed.png">
+        <link rel="shortcut icon" href="{echo CDN}ico/favicon.ico">
 
-    <!-- Custom CSS -->
-    <style>
-    body {
-        padding-top: 70px;
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
-    </style>
+        <!-- CSS Global -->
+        <link href="{echo CDN}plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{echo CDN}plugins/jquery-ui-1.11.4.custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
+        <link href="{echo CDN}plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet">
+        <link href="{echo CDN}plugins/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{echo CDN}plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <link href="{echo CDN}plugins/owlcarousel2/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="{echo CDN}plugins/owlcarousel2/assets/owl.theme.default.min.css" rel="stylesheet">        
+        <link href="{echo CDN}plugins/animate/animate.min.css" rel="stylesheet">
+        <link href="{echo CDN}plugins/countdown/jquery.countdown.css" rel="stylesheet">
 
-</head>
+        <link href="{echo CDN}css/theme.css" rel="stylesheet">
+        <link href="{echo CDN}css/custom.css" rel="stylesheet">
 
-<body>
+        <!--[if lt IE 9]>
+        <script src="{echo CDN}plugins/iesupport/html5shiv.js"></script>
+        <script src="{echo CDN}plugins/iesupport/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body id="home" class="wide body-light multipage">
 
-    {include layouts/navigation/standard.html}
-    {ayield action}
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="spinner"></div>
+            </div>
+        </div>
 
-    <!-- jQuery Version 1.11.1 -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <!-- Wrap all content -->
+        <div class="wrapper">
+            {include layouts/navigation/standard.html}
+            {ayield action}
+            <!-- FOOTER -->
+            <footer class="footer">
+                <div class="footer-meta">
+                    <div class="container text-center">
+                        <div class="clearfix">
+                            <ul class="social-line list-inline">
+                                <li data-animation="flipInY" data-animation-delay="100"><a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li data-animation="flipInY" data-animation-delay="200"><a href="index.html#" class="dribbble"><i class="fa fa-dribbble"></i></a></li>
+                                <li data-animation="flipInY" data-animation-delay="300"><a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li data-animation="flipInY" data-animation-delay="400"><a href="index.html#" class="google"><i class="fa fa-google-plus"></i></a></li>
+                                <li data-animation="flipInY" data-animation-delay="500"><a href="index.html#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                <li data-animation="flipInY" data-animation-delay="600"><a href="index.html#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                                <li data-animation="flipInY" data-animation-delay="700"><a href="index.html#" class="skype"><i class="fa fa-skype"></i></a></li>
+                            </ul>
+                        </div>
+                        <span class="copyright" data-animation="fadeInUp" data-animation-delay="100">&copy; 2015 im Event &#8212; The Event Manager Theme made with passion by jThemes Studio</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- /FOOTER -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+            <div class="to-top"><i class="fa fa-angle-up"></i></div>
 
-</body>
+
+        </div> <!-- /Wrap all content -->
+        <!-- Popup: Login -->
+        <div class="modal fade login-register" id="popup-login" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg" id="main-slider">                 
+                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="form-background">
+                    <div class="col-sm-6 popup-form">
+                        <div class="form-header color">
+                            <h1 class="section-title">
+                                <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-ticket fa-stack-1x"></i></span></span>
+                                <span class="title-inner">Login</span>
+                            </h1>
+                        </div>
+                        <form method="post" action="index.html#" class="registration-form alt" name="registration-form-alt" id="registration-form-alt">
+                            <div class="row">
+                                <div class="col-sm-12 form-alert"></div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="User Name" title="" data-toggle="tooltip" class="form-control input-name" data-original-title="Name is required">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="text"  placeholder="Password"  title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Password">
+                                    </div>
+                                </div>                                  
+                                <div class="col-sm-12">
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-theme btn-block submit-button" data-animation-delay="100" data-animation="flipInY"> Log in <i class="fa fa-arrow-circle-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>     
+                        <div class="form-footer color">
+                            <a href="index.html#" class="popup-password"> Lost your password?</a>                        
+                        </div>
+                    </div> 
+
+                    <div class="popup-form col-sm-6">
+                        <div class="form-header color">
+                            <h1 class="section-title">
+                                <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-ticket fa-stack-1x"></i></span></span>
+                                <span class="title-inner">Register</span>
+                            </h1>
+                        </div>
+                        <form method="post" action="index.html#" class="registration-form alt" name="registration-form-alt" id="registration-form-alt">
+                            <div class="row">
+                                <div class="col-sm-12 form-alert"></div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="User Name" title="" data-toggle="tooltip" class="form-control input-name" data-original-title="Name is required">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <input type="text"  placeholder="E-mail"  title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Password">
+                                    </div>
+                                </div>                                  
+                                <div class="col-sm-12">
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-theme btn-block submit-button" data-animation-delay="100" data-animation="flipInY"> Register Now <i class="fa fa-arrow-circle-right"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>                         
+                    </div> 
+
+                </div>
+            </div>
+
+        </div>
+        <!-- /Popup: Login -->
+
+        <!-- JS Global -->
+
+        <!--[if lt IE 9]><script src="{echo CDN}plugins/jquery/jquery-1.11.1.min.js"></script><![endif]-->
+        
+        <script src="{echo CDN}plugins/jquery/jquery-2.1.1.min.js"></script>
+        <script src="{echo CDN}plugins/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
+        <script src="{echo CDN}plugins/modernizr.custom.js"></script>
+        <script src="{echo CDN}plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="{echo CDN}plugins/bootstrap-select/bootstrap-select.min.js"></script>
+        <script src="{echo CDN}plugins/superfish/js/superfish.js"></script>
+        <script src="{echo CDN}plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+        <script src="{echo CDN}plugins/placeholdem.min.js"></script>
+        <script src="{echo CDN}plugins/jquery.smoothscroll.min.js"></script>
+        <script src="{echo CDN}plugins/jquery.easing.min.js"></script>
+        <script src="{echo CDN}plugins/smooth-scrollbar.min.js"></script>
+
+        <!-- JS Page Level -->
+        <script src="{echo CDN}plugins/owlcarousel2/owl.carousel.min.js"></script>
+        <script src="{echo CDN}plugins/waypoints/waypoints.min.js"></script>
+        <script src="{echo CDN}plugins/countdown/jquery.plugin.min.js"></script>
+        <script src="{echo CDN}plugins/countdown/jquery.countdown.min.js"></script>
+        <script src="{echo CDN}plugins/isotope/jquery.isotope.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+
+        <!--<script src="{echo CDN}js/theme-ajax-mail.js"></script>-->
+        <script src="{echo CDN}js/theme.js"></script>
+        
+
+
+        <script type="text/javascript">
+            "use strict";
+            jQuery(document).ready(function () {
+                theme.init();
+                theme.initMainSlider();
+                theme.initCountDown();
+                theme.initPartnerSlider();
+                theme.initTestimonials();
+                theme.initCorouselSlider4();
+                theme.initCorouselSlider3();
+                theme.initGoogleMap();
+            });
+            jQuery(window).load(function () {
+                theme.initAnimation();
+            });
+
+            jQuery(window).load(function () {
+                jQuery("body").scrollspy({offset: 100, target: ".navigation"});
+            });
+            jQuery(window).load(function () {
+                jQuery("body").scrollspy("refresh");
+            });
+            jQuery(window).resize(function () {
+                jQuery("body").scrollspy("refresh");
+            });
+
+            jQuery(document).ready(function () {
+                theme.onResize();
+            });
+            jQuery(window).load(function () {
+                theme.onResize();
+            });
+            jQuery(window).resize(function () {
+                theme.onResize();
+            });
+
+            jQuery(window).load(function () {
+                if (location.hash != "") {
+                    var hash = "#" + window.location.hash.substr(1);
+                    if (hash.length) {
+                        jQuery("html,body").delay(0).animate({
+                            scrollTop: jQuery(hash).offset().top - 44 + "px"
+                        }, {
+                            duration: 1200,
+                            easing: "easeInOutExpo"
+                        });
+                    }
+                }
+            });
+
+        </script>
+
+    </body>
 
 </html>
