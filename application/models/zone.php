@@ -21,7 +21,15 @@ class Zone extends Shared\Model {
      * @type text
      * @length 255
      */
-    protected $_city;    
+    protected $_city;
+
+    /**
+     * @column
+     * @readwrite
+     * @type text
+     * @length 255
+     */
+    protected $_country;    
 
     /**
      * @column
