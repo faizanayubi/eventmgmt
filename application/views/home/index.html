@@ -1,75 +1,42 @@
 <!-- Content area -->
 <div class="content-area">
-
     <div id="main">
         <!-- SLIDER -->
         <section class="page-section no-padding background-img-slider">
             <div class="container">
-
-                <div id="main-slider" class="owl-carousel owl-theme">
-                    <!-- Slide -->
-                    <div class="item page text-center slide5">
-                        <div class="caption">
-                            <div class="container">
-                                <div class="div-table">
-                                    <div class="div-cell">
-                                        <p class="text-center avatar"><img src="{echo CDN}img/preview/slider-4-avatar.png" style="width: auto;" alt=""/></p>
-                                        <h2 data-animation="fadeInDown" data-animation-delay="100"><span>15 October at 20:00 - 22:00</span></h2>
-                                        <h3 class="caption-subtitle" data-animation="fadeInUp" data-animation-delay="300">PHP Conference ın Manhattan</h3>
-                                        <div class="countdown-wrapper">
-                                            <div id="defaultCountdown" class="defaultCountdown clearfix"></div>
+                <div class="div-table">
+                    <div class="div-cell">
+                        <h3 class="caption-subtitle">We are Event professionals</h3>
+                        <h4><span>You Can Find "<a href="index.html#">Festivals</a>, <a href="index.html#">Parties</a>, <a href="index.html#">Conference</a>, <a href="index.html#">Fairs</a>, <a href="index.html#">Exhibitions</a>, <a href="index.html#">Speakers</a> and more</span></h4>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <form action="index.html#" class="location-search">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control text" placeholder="FIND EXPERIENCES" />
+                                            <select class="selectpicker">
+                                                <option>LOCATION</option>
+                                                <option>LOCATION</option>
+                                                <option>LOCATION</option>
+                                            </select>
+                                            <button class="form-control button-search"><i class="fa fa-search"></i></button>
                                         </div>
-                                        <p class="caption-text">
-                                            <a class="btn btn-theme btn-theme scroll-to" href="index.html#" data-animation="flipInY" data-animation-delay="600">Register</a>
-                                        </p>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
+                        <p class="caption-text">
+                            <a class="btn btn-theme btn-theme btn-theme-dark scroll-to" href="index.html#" data-animation="flipInY" data-animation-delay="600">Popular Events</a>
+                            <!--
+                                            -->
+                            <a class="btn btn-theme btn-theme btn-theme-transparent-white" href="http://www.youtube.com/watch?v=O-zpOMYRi0w" rel="prettyPhoto" data-animation="flipInY" data-animation-delay="900">Latest Events</a>
+                        </p>
                     </div>
-
-                    <!-- Slide -->
-                    <div class="item page text-center slide4">
-                        <div class="caption">
-                            <div class="container">
-                                <div class="div-table">
-                                    <div class="div-cell">
-                                        <h3 class="caption-subtitle">We are Event professionals</h3>
-                                        <h4><span>You Can Find "<a href="index.html#">Festivals</a>, <a href="index.html#">Parties</a>, <a href="index.html#">Conference</a>, <a href="index.html#">Fairs</a>, <a href="index.html#">Exhibitions</a>, <a href="index.html#">Speakers</a> and more</span></h4>
-                                        <div class="row">
-                                            <div class="col-md-8 col-md-offset-2">
-                                                <form action="index.html#" class="location-search">
-                                                    <div class="form-group">
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control text" placeholder="FIND EXPERIENCES"/>
-                                                            <select class="selectpicker">
-                                                                <option>LOCATION</option>
-                                                                <option>LOCATION</option>
-                                                                <option>LOCATION</option>
-                                                            </select>
-                                                            <button class="form-control button-search"><i class="fa fa-search"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <p class="caption-text">
-                                            <a class="btn btn-theme btn-theme btn-theme-dark scroll-to" href="index.html#" data-animation="flipInY" data-animation-delay="600">Popular Events</a><!--
-                                            --><a class="btn btn-theme btn-theme btn-theme-transparent-white" href="http://www.youtube.com/watch?v=O-zpOMYRi0w"  rel="prettyPhoto" data-animation="flipInY" data-animation-delay="900">Latest Events</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-
             </div>
         </section>
         <!-- /SLIDER -->
     </div>
-
     <!-- Featured Event -->
     <section class="page-section light featured-line xs-padding">
         <div class="container">
@@ -92,25 +59,29 @@
         </div>
     </section>
     <!-- /Featured Event -->
-
     <!-- PAGE -->
     <section class="page-section">
         <div class="container">
-
             <div class="clear clearfix overflowed">
                 <div class="section-title pull-left" style="width: auto;">
                     <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-star fa-stack-1x"></i></span></span>
                 </div>
                 <ul id="filtrable-events" class="filtrable clearfix">
-                    <li class="all"><a href="index.html#" data-filter="*">All</a></li>
-                    <li class="festival current"><a href="index.html#" data-filter=".festival">Festival</a></li>
-                    <li class="playground"><a href="index.html#" data-filter=".playground">Playground</a></li>
-                    <li class="conferance"><a href="index.html#" data-filter=".conference">Conference</a></li>
+                    <li class="all">
+                        <a href="index.html#" data-filter="*">All</a>
+                    </li>
+                    <li class="festival current">
+                        <a href="index.html#" data-filter=".festival">Festival</a>
+                    </li>
+                    <li class="playground">
+                        <a href="index.html#" data-filter=".playground">Playground</a>
+                    </li>
+                    <li class="conferance">
+                        <a href="index.html#" data-filter=".conference">Conference</a>
+                    </li>
                 </ul>
             </div>
-
             <div class="row thumbnails events vertical isotope isotope-items">
-
                 <div class="col-md-6 col-sm-6 isotope-item festival">
                     <div class="thumbnail no-border no-padding">
                         <div class="row">
@@ -123,17 +94,20 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standart Event Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standart Event Name Here</a>
+                                    </h3>
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> 15 October at 20:00 - 22:00 on Manhattan / New York</p>
                                     <p class="caption-price">Tickets from $49,99</p>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Tickets &amp; details</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Tickets &amp; details</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-sm-6 isotope-item conference">
                     <div class="thumbnail no-border no-padding">
                         <div class="row">
@@ -146,18 +120,20 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standart Event Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standart Event Name Here</a>
+                                    </h3>
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> 15 October at 20:00 - 22:00 on Manhattan / New York</p>
                                     <p class="caption-price">Tickets from $49,99</p>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Tickets &amp; details</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Tickets &amp; details</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
                 <div class="col-md-6 col-sm-6 isotope-item miscellaneous">
                     <div class="thumbnail no-border no-padding">
                         <div class="row">
@@ -170,17 +146,20 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standart Event Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standart Event Name Here</a>
+                                    </h3>
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> 15 October at 20:00 - 22:00 on Manhattan / New York</p>
                                     <p class="caption-price">Tickets from $49,99</p>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Tickets &amp; details</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Tickets &amp; details</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-sm-6 isotope-item festival playground">
                     <div class="thumbnail no-border no-padding">
                         <div class="row">
@@ -193,17 +172,20 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standart Event Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standart Event Name Here</a>
+                                    </h3>
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> 15 October at 20:00 - 22:00 on Manhattan / New York</p>
                                     <p class="caption-price">Tickets from $49,99</p>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Tickets &amp; details</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Tickets &amp; details</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-sm-6 isotope-item festival conference">
                     <div class="thumbnail no-border no-padding">
                         <div class="row">
@@ -216,17 +198,20 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standart Event Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standart Event Name Here</a>
+                                    </h3>
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> 15 October at 20:00 - 22:00 on Manhattan / New York</p>
                                     <p class="caption-price">Tickets from $49,99</p>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Tickets &amp; details</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Tickets &amp; details</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-sm-6 isotope-item conference playground">
                     <div class="thumbnail no-border no-padding">
                         <div class="row">
@@ -239,17 +224,20 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standart Event Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standart Event Name Here</a>
+                                    </h3>
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> 15 October at 20:00 - 22:00 on Manhattan / New York</p>
                                     <p class="caption-price">Tickets from $49,99</p>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Tickets &amp; details</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Tickets &amp; details</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-sm-6 isotope-item festival conference">
                     <div class="thumbnail no-border no-padding">
                         <div class="row">
@@ -262,17 +250,20 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standart Event Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standart Event Name Here</a>
+                                    </h3>
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> 15 October at 20:00 - 22:00 on Manhattan / New York</p>
                                     <p class="caption-price">Tickets from $49,99</p>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Tickets &amp; details</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Tickets &amp; details</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-6 col-sm-6 isotope-item playground">
                     <div class="thumbnail no-border no-padding">
                         <div class="row">
@@ -285,30 +276,30 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standart Event Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standart Event Name Here</a>
+                                    </h3>
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> 15 October at 20:00 - 22:00 on Manhattan / New York</p>
                                     <p class="caption-price">Tickets from $49,99</p>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Tickets &amp; details</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Tickets &amp; details</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="text-center margin-top">
                 <a data-animation="fadeInUp" data-animation-delay="100" href="index.html#" class="btn btn-theme btn-theme-grey-dark btn-theme-md"><i class="fa fa-file-text-o"></i> See all events</a>
             </div>
-
         </div>
     </section>
     <!-- /PAGE -->
-
     <!-- PAGE -->
     <section class="page-section light">
         <div class="container">
-
             <div class="row thumbnails info-thumbs clear">
                 <div class="col-sm-6 col-md-3" data-animation="fadeInUp" data-animation-delay="100">
                     <div class="thumbnail no-border no-padding text-center">
@@ -318,7 +309,9 @@
                                     <div class="rehex-inner">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn caption-link"><i class="fa fa-calendar"></i></a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn caption-link"><i class="fa fa-calendar"></i></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -328,7 +321,9 @@
                         <div class="caption">
                             <h3 class="caption-title">7/24 Event avaliable</h3>
                             <p class="caption-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
-                            <p class="caption-more"><a href="index.html#" class="btn btn-theme">Details</a></p>
+                            <p class="caption-more">
+                                <a href="index.html#" class="btn btn-theme">Details</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -341,7 +336,9 @@
                                     <div class="rehex-inner">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn caption-link"><i class="fa fa-map-marker"></i></a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn caption-link"><i class="fa fa-map-marker"></i></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -351,7 +348,9 @@
                         <div class="caption">
                             <h3 class="caption-title">Great Locations</h3>
                             <p class="caption-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
-                            <p class="caption-more"><a href="index.html#" class="btn btn-theme">Details</a></p>
+                            <p class="caption-more">
+                                <a href="index.html#" class="btn btn-theme">Details</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -364,7 +363,9 @@
                                     <div class="rehex-inner">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn caption-link"><i class="fa fa-users"></i></a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn caption-link"><i class="fa fa-users"></i></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -374,7 +375,9 @@
                         <div class="caption">
                             <h3 class="caption-title">More Then 200 Speakers</h3>
                             <p class="caption-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
-                            <p class="caption-more"><a href="index.html#" class="btn btn-theme">Details</a></p>
+                            <p class="caption-more">
+                                <a href="index.html#" class="btn btn-theme">Details</a>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -387,7 +390,9 @@
                                     <div class="rehex-inner">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn caption-link"><i class="fa fa-music"></i></a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn caption-link"><i class="fa fa-music"></i></a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -397,25 +402,23 @@
                         <div class="caption">
                             <h3 class="caption-title">Lets Party After Event</h3>
                             <p class="caption-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
-                            <p class="caption-more"><a href="index.html#" class="btn btn-theme">Details</a></p>
+                            <p class="caption-more">
+                                <a href="index.html#" class="btn btn-theme">Details</a>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
     <!-- /PAGE -->
-
     <!-- PAGE -->
     <section class="page-section">
         <div class="container">
-
             <h1 class="section-title">
                 <span data-animation="flipInY" data-animation-delay="300" class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-h-square fa-stack-1x"></i></span></span>
                 <span data-animation="fadeInRight" data-animation-delay="500" class="title-inner">HOTELS <small> / dont forget book your room</small></span>
             </h1>
-
             <div class=" thumbnails hotels">
                 <div class="carousel-slider">
                     <div class="owl-carousel slide-4">
@@ -426,26 +429,35 @@
                                     <div class="caption hovered">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standard Hotel Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standard Hotel Name Here</a>
+                                    </h3>
                                     <div class="caption-rating rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
+                                        <span class="star"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
                                         --><span class="star active"></span>
                                     </div>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Book</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Book</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div class="thumbnail no-border no-padding">
                                 <div class="media">
@@ -453,26 +465,35 @@
                                     <div class="caption hovered">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standard Hotel Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standard Hotel Name Here</a>
+                                    </h3>
                                     <div class="caption-rating rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
+                                        <span class="star"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
                                         --><span class="star active"></span>
                                     </div>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Book</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Book</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div class="thumbnail no-border no-padding">
                                 <div class="media">
@@ -480,26 +501,35 @@
                                     <div class="caption hovered">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standard Hotel Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standard Hotel Name Here</a>
+                                    </h3>
                                     <div class="caption-rating rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
+                                        <span class="star"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
                                         --><span class="star active"></span>
                                     </div>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Book</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Book</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div class="thumbnail no-border no-padding">
                                 <div class="media">
@@ -507,26 +537,35 @@
                                     <div class="caption hovered">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standard Hotel Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standard Hotel Name Here</a>
+                                    </h3>
                                     <div class="caption-rating rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
+                                        <span class="star"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
                                         --><span class="star active"></span>
                                     </div>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Book</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Book</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div class="thumbnail no-border no-padding">
                                 <div class="media">
@@ -534,26 +573,35 @@
                                     <div class="caption hovered">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standard Hotel Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standard Hotel Name Here</a>
+                                    </h3>
                                     <div class="caption-rating rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
+                                        <span class="star"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
                                         --><span class="star active"></span>
                                     </div>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Book</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Book</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div class="thumbnail no-border no-padding">
                                 <div class="media">
@@ -561,26 +609,35 @@
                                     <div class="caption hovered">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standard Hotel Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standard Hotel Name Here</a>
+                                    </h3>
                                     <div class="caption-rating rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
+                                        <span class="star"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
                                         --><span class="star active"></span>
                                     </div>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Book</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Book</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
                         <div>
                             <div class="thumbnail no-border no-padding">
                                 <div class="media">
@@ -588,37 +645,44 @@
                                     <div class="caption hovered">
                                         <div class="caption-wrapper div-table">
                                             <div class="caption-inner div-cell">
-                                                <p class="caption-buttons"><a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a></p>
+                                                <p class="caption-buttons">
+                                                    <a href="index.html#" class="btn btn-theme caption-link"><i class="fa fa-file-text"></i> Details</a>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="caption">
-                                    <h3 class="caption-title"><a href="index.html#">Standard Hotel Name Here</a></h3>
+                                    <h3 class="caption-title">
+                                        <a href="index.html#">Standard Hotel Name Here</a>
+                                    </h3>
                                     <div class="caption-rating rating">
-                                        <span class="star"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
-                                        --><span class="star active"></span><!--
+                                        <span class="star"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
+                                        --><span class="star active"></span>
+                                        <!--
                                         --><span class="star active"></span>
                                     </div>
                                     <p class="caption-text">Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.</p>
-                                    <p class="caption-more"><a href="index.html#" class="btn btn-theme">Book</a></p>
+                                    <p class="caption-more">
+                                        <a href="index.html#" class="btn btn-theme">Book</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="text-center margin-top">
                 <a data-animation="fadeInUp" data-animation-delay="100" href="index.html#" class="btn btn-theme btn-theme-grey-dark btn-theme-md"><i class="fa fa-h-square"></i> See all hotels</a>
             </div>
-
         </div>
     </section>
     <!-- /PAGE -->
-
     <!-- PAGE -->
     <section class="page-section color">
         <div class="container">
@@ -626,80 +690,64 @@
                 <span data-animation="flipInY" data-animation-delay="300" class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-comments-o fa-stack-1x"></i></span></span>
                 <span data-animation="fadeInRight" data-animation-delay="500" class="title-inner">Testimonials <small> / See What People Say About Us</small></span>
             </h1>
-
             <!-- Testimonials -->
             <div id="testimonials" class="owl-carousel testimonials" data-animation="fadeInUp" data-animation-delay="100">
-
                 <div class="media testimonial">
                     <div class="media-object pull-right" data-animation="flipInY" data-animation-delay="300">
                         <div class="rehex testimonial-avatar">
                             <div class="rehex-deg">
                                 <div class="rehex-deg">
                                     <div class="rehex-inner">
-                                        <img class="img-responsive" src="{echo CDN}img/preview/avatar-1.jpg" alt=""/>
+                                        <img class="img-responsive" src="{echo CDN}img/preview/avatar-1.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="media-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae diam metus. Donec
-                            cursus magna eget sem convallis facilisis. Vestibulum dictum nibh at ullamcorper
-                            tincidunt. Phasellus scelerisque nisl non ullamcorper pellentesque. Nunc sagittis, felis
-                            in feugiat mollis, libero eros</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae diam metus. Donec cursus magna eget sem convallis facilisis. Vestibulum dictum nibh at ullamcorper tincidunt. Phasellus scelerisque nisl non ullamcorper pellentesque. Nunc sagittis, felis in feugiat mollis, libero eros</p>
                         <h4 class="media-heading">by jThemes Studio</h4>
                     </div>
                 </div>
-
                 <div class="media testimonial">
                     <div class="media-object pull-right" data-animation="flipInY" data-animation-delay="300">
                         <div class="rehex testimonial-avatar">
                             <div class="rehex-deg">
                                 <div class="rehex-deg">
                                     <div class="rehex-inner">
-                                        <img class="img-responsive" src="{echo CDN}img/preview/avatar-2.jpg" alt=""/>
+                                        <img class="img-responsive" src="{echo CDN}img/preview/avatar-2.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="media-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae diam metus. Donec
-                            cursus magna eget sem convallis facilisis. Vestibulum dictum nibh at ullamcorper
-                            tincidunt. Phasellus scelerisque nisl non ullamcorper pellentesque. Nunc sagittis, felis
-                            in feugiat mollis, libero eros</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae diam metus. Donec cursus magna eget sem convallis facilisis. Vestibulum dictum nibh at ullamcorper tincidunt. Phasellus scelerisque nisl non ullamcorper pellentesque. Nunc sagittis, felis in feugiat mollis, libero eros</p>
                         <h4 class="media-heading">by jThemes Studio</h4>
                     </div>
                 </div>
-
                 <div class="media testimonial">
                     <div class="media-object pull-right" data-animation="flipInY" data-animation-delay="300">
                         <div class="rehex testimonial-avatar">
                             <div class="rehex-deg">
                                 <div class="rehex-deg">
                                     <div class="rehex-inner">
-                                        <img class="img-responsive" src="{echo CDN}img/preview/avatar-3.jpg" alt=""/>
+                                        <img class="img-responsive" src="{echo CDN}img/preview/avatar-3.jpg" alt="" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="media-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae diam metus. Donec
-                            cursus magna eget sem convallis facilisis. Vestibulum dictum nibh at ullamcorper
-                            tincidunt. Phasellus scelerisque nisl non ullamcorper pellentesque. Nunc sagittis, felis
-                            in feugiat mollis, libero eros</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae diam metus. Donec cursus magna eget sem convallis facilisis. Vestibulum dictum nibh at ullamcorper tincidunt. Phasellus scelerisque nisl non ullamcorper pellentesque. Nunc sagittis, felis in feugiat mollis, libero eros</p>
                         <h4 class="media-heading">by jThemes Studio</h4>
                     </div>
                 </div>
-
             </div>
             <!-- Testimonials -->
-
         </div>
     </section>
     <!-- /PAGE -->
-
     <!-- PAGE -->
     <section class="page-section no-padding-bottom">
         <div class="container">
@@ -707,30 +755,35 @@
                 <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-picture-o fa-stack-1x"></i></span></span>
             </div>
             <ul id="filtrable-gallery" class="filtrable clearfix">
-                <li class="all current"><a href="index.html#" data-filter="*">All</a></li>
-                <li class="photos"><a href="index.html#" data-filter=".photos">Photos</a></li>
-                <li class="videos"><a href="index.html#" data-filter=".videos">Videos</a></li>
-                <li class="gallery"><a href="index.html#" data-filter=".gallery">Gallery</a></li>
+                <li class="all current">
+                    <a href="index.html#" data-filter="*">All</a>
+                </li>
+                <li class="photos">
+                    <a href="index.html#" data-filter=".photos">Photos</a>
+                </li>
+                <li class="videos">
+                    <a href="index.html#" data-filter=".videos">Videos</a>
+                </li>
+                <li class="gallery">
+                    <a href="index.html#" data-filter=".gallery">Gallery</a>
+                </li>
             </ul>
             <div class="clear clearfix overflowed"></div>
         </div>
     </section>
-
     <section class="page-section no-padding-top light">
         <div class="container full-width">
-
             <div class="row thumbnails no-padding gallery isotope isotope-items">
-
                 <div class="col-md-3 col-sm-6 col-xs-12 isotope-item photos ">
                     <div class="thumbnail no-border no-padding">
                         <div class="media">
-                            <img src="{echo CDN}img/preview/latest-1a.jpg" alt="" >
+                            <img src="{echo CDN}img/preview/latest-1a.jpg" alt="">
                             <div class="caption hovered">
                                 <div class="caption-wrapper div-table">
                                     <div class="caption-inner div-cell">
                                         <p class="caption-buttons">
                                             <a href="index.html#" class="btn caption-zoom"><i class="fa fa-heart"></i></a>
-                                            <a href="{echo CDN}img/preview/latest-1.jpg"    rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
+                                            <a href="{echo CDN}img/preview/latest-1.jpg" rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -746,7 +799,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-xs-12 isotope-item videos">
                     <div class="thumbnail no-border no-padding">
                         <div class="media">
@@ -756,7 +808,7 @@
                                     <div class="caption-inner div-cell">
                                         <p class="caption-buttons">
                                             <a href="index.html#" class="btn caption-zoom"><i class="fa fa-heart"></i></a>
-                                            <a  href="{echo CDN}img/preview/latest-2.jpg"   rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY"  class="btn caption-link"><i class="fa fa-plus"></i></a>
+                                            <a href="{echo CDN}img/preview/latest-2.jpg" rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -772,7 +824,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-xs-12 isotope-item gallery">
                     <div class="thumbnail no-border no-padding">
                         <div class="media">
@@ -782,7 +833,7 @@
                                     <div class="caption-inner div-cell">
                                         <p class="caption-buttons">
                                             <a href="index.html#" class="btn caption-zoom"><i class="fa fa-heart"></i></a>
-                                            <a  href="{echo CDN}img/preview/latest-3.jpg"   rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
+                                            <a href="{echo CDN}img/preview/latest-3.jpg" rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -798,7 +849,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-xs-12 isotope-item photos gallery">
                     <div class="thumbnail no-border no-padding">
                         <div class="media">
@@ -808,7 +858,7 @@
                                     <div class="caption-inner div-cell">
                                         <p class="caption-buttons">
                                             <a href="index.html#" class="btn caption-zoom"><i class="fa fa-heart"></i></a>
-                                            <a  href="{echo CDN}img/preview/latest-4.jpg"   rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
+                                            <a href="{echo CDN}img/preview/latest-4.jpg" rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -824,7 +874,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-xs-12 isotope-item photos videos">
                     <div class="thumbnail no-border no-padding">
                         <div class="media">
@@ -834,7 +883,7 @@
                                     <div class="caption-inner div-cell">
                                         <p class="caption-buttons">
                                             <a href="index.html#" class="btn caption-zoom"><i class="fa fa-heart"></i></a>
-                                            <a  href="{echo CDN}img/preview/latest-5.jpg"   rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
+                                            <a href="{echo CDN}img/preview/latest-5.jpg" rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -850,7 +899,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-xs-12 isotope-item videos gallery">
                     <div class="thumbnail no-border no-padding">
                         <div class="media">
@@ -860,7 +908,7 @@
                                     <div class="caption-inner div-cell">
                                         <p class="caption-buttons">
                                             <a href="index.html#" class="btn caption-zoom"><i class="fa fa-heart"></i></a>
-                                            <a  href="{echo CDN}img/preview/latest-6.jpg"   rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
+                                            <a href="{echo CDN}img/preview/latest-6.jpg" rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -876,7 +924,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-xs-12 isotope-item photos videos">
                     <div class="thumbnail no-border no-padding">
                         <div class="media">
@@ -886,7 +933,7 @@
                                     <div class="caption-inner div-cell">
                                         <p class="caption-buttons">
                                             <a href="index.html#" class="btn caption-zoom"><i class="fa fa-heart"></i></a>
-                                            <a  href="{echo CDN}img/preview/latest-7.jpg"   rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
+                                            <a href="{echo CDN}img/preview/latest-7.jpg" rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -902,7 +949,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-md-3 col-sm-6 col-xs-12 isotope-item gallery">
                     <div class="thumbnail no-border no-padding">
                         <div class="media">
@@ -912,7 +958,7 @@
                                     <div class="caption-inner div-cell">
                                         <p class="caption-buttons">
                                             <a href="index.html#" class="btn caption-zoom"><i class="fa fa-heart"></i></a>
-                                            <a  href="{echo CDN}img/preview/latest-8.jpg"   rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
+                                            <a href="{echo CDN}img/preview/latest-8.jpg" rel="prettyPhoto[gallery2]" title="CONFERENCE PARTY" class="btn caption-link"><i class="fa fa-plus"></i></a>
                                         </p>
                                     </div>
                                 </div>
@@ -928,16 +974,13 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="text-center margin-top">
                 <a data-animation="flipInY" data-animation-delay="500" href="index.html#" class="btn btn-theme btn-theme-grey-dark btn-theme-md"><i class="fa fa-photo"></i> See All Gallery</a>
             </div>
-
         </div>
     </section>
     <!-- /PAGE -->
-
     <!-- PAGE SPONSORS -->
     <section class="page-section" id="sponsors">
         <div class="container">
@@ -947,18 +990,66 @@
             </h1>
             <div class="partners-carousel" data-animation="fadeInUp" data-animation-delay="300">
                 <div class="owl-carousel">
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-1.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-2.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-3.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-4.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-5.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-6.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-1.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-2.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-3.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-4.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-5.png" alt=""/></a></div>
-                    <div><a href="index.html#"><img src="{echo CDN}img/partner/light/partner-6.png" alt=""/></a></div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-1.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-2.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-3.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-4.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-5.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-6.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-1.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-2.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-3.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-4.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-5.png" alt="" />
+                        </a>
+                    </div>
+                    <div>
+                        <a href="index.html#">
+                            <img src="{echo CDN}img/partner/light/partner-6.png" alt="" />
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="text-center margin-top">
@@ -967,7 +1058,6 @@
         </div>
     </section>
     <!-- /PAGE SPONSORS -->
-
     <!-- PAGE SPEAKERS -->
     <section class="page-section light" id="speakers">
         <div class="container">
@@ -975,7 +1065,6 @@
                 <span data-animation="flipInY" data-animation-delay="300" class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-user fa-stack-1x"></i></span></span>
                 <span data-animation="fadeInUp" data-animation-delay="500" class="title-inner">Event Speakers <small> / meet with greaters</small></span>
             </h1>
-
             <!-- Speakers row -->
             <div class="thumbnails clear">
                 <div class="carousel-slider">
@@ -991,7 +1080,9 @@
                                                     <div class="caption hovered">
                                                         <div class="caption-wrapper div-table">
                                                             <div class="caption-inner div-cell">
-                                                                <p class="caption-buttons"><a href="index.html#" class="btn caption-link"><i class="fa fa-link"></i></a></p>
+                                                                <p class="caption-buttons">
+                                                                    <a href="index.html#" class="btn caption-link"><i class="fa fa-link"></i></a>
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1007,17 +1098,27 @@
                                 <div class="caption">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
                                     <ul class="social-line list-inline text-center">
-                                        <li><a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="index.html#" class="google"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="index.html#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="index.html#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li>
+                                            <a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="google"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <!-- -->
-                        <div  data-animation="fadeInUp" data-animation-delay="300">
+                        <div data-animation="fadeInUp" data-animation-delay="300">
                             <div class="thumbnail no-border no-padding text-center">
                                 <div class="rehex speaker-avatar">
                                     <div class="rehex-deg">
@@ -1028,7 +1129,9 @@
                                                     <div class="caption hovered">
                                                         <div class="caption-wrapper div-table">
                                                             <div class="caption-inner div-cell">
-                                                                <p class="caption-buttons"><a href="index.html#" class="btn caption-link"><i class="fa fa-link"></i></a></p>
+                                                                <p class="caption-buttons">
+                                                                    <a href="index.html#" class="btn caption-link"><i class="fa fa-link"></i></a>
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1044,11 +1147,21 @@
                                 <div class="caption">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
                                     <ul class="social-line list-inline text-center">
-                                        <li><a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="index.html#" class="google"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="index.html#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="index.html#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li>
+                                            <a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="google"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -1065,7 +1178,9 @@
                                                     <div class="caption hovered">
                                                         <div class="caption-wrapper div-table">
                                                             <div class="caption-inner div-cell">
-                                                                <p class="caption-buttons"><a href="index.html#" class="btn caption-link"><i class="fa fa-link"></i></a></p>
+                                                                <p class="caption-buttons">
+                                                                    <a href="index.html#" class="btn caption-link"><i class="fa fa-link"></i></a>
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1081,11 +1196,21 @@
                                 <div class="caption">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
                                     <ul class="social-line list-inline text-center">
-                                        <li><a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="index.html#" class="google"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="index.html#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="index.html#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li>
+                                            <a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="google"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -1102,7 +1227,9 @@
                                                     <div class="caption hovered">
                                                         <div class="caption-wrapper div-table">
                                                             <div class="caption-inner div-cell">
-                                                                <p class="caption-buttons"><a href="index.html#" class="btn caption-link"><i class="fa fa-link"></i></a></p>
+                                                                <p class="caption-buttons">
+                                                                    <a href="index.html#" class="btn caption-link"><i class="fa fa-link"></i></a>
+                                                                </p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1118,28 +1245,35 @@
                                 <div class="caption">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed vel velit</p>
                                     <ul class="social-line list-inline text-center">
-                                        <li><a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="index.html#" class="google"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a href="index.html#" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="index.html#" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li>
+                                            <a href="index.html#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="google"><i class="fa fa-google-plus"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="index.html#" class="instagram"><i class="fa fa-instagram"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
             <!-- /Speakers row -->
-
             <div class="text-center margin-top">
                 <a data-animation="fadeInUp" data-animation-delay="100" href="index.html#" class="btn btn-theme btn-theme-grey-dark btn-theme-md"><i class="fa fa-user"></i> See all speakers</a>
             </div>
         </div>
     </section>
     <!-- /PAGE SPEAKERS -->
-
     <!-- PAGE -->
     <section class="page-section color">
         <div class="container">
@@ -1154,7 +1288,6 @@
         </div>
     </section>
     <!-- /PAGE -->
-
     <!-- PAGE -->
     <section class="page-section">
         <div class="container">
@@ -1172,16 +1305,18 @@
                                     <div class="post-type">
                                         <i class="fa fa-video-camera"></i>
                                     </div>
-                                    <img src="{echo CDN}img/preview/recent-post-1.jpg" alt=""/>
+                                    <img src="{echo CDN}img/preview/recent-post-1.jpg" alt="" />
                                 </div>
                                 <div class="post-header">
-                                    <h2 class="post-title"><a href="index.html#">Standart Blog Post Header Here</a></h2>
+                                    <h2 class="post-title">
+                                        <a href="index.html#">Standart Blog Post Header Here</a>
+                                    </h2>
                                     <div class="post-meta">
                                         <span class="post-date">
                                             Posted on
                                             <span class="day">17th</span>
-                                            <span class="month">May</span>
-                                            <span class="year">2015</span>
+                                        <span class="month">May</span>
+                                        <span class="year">2015</span>
                                         </span>
                                         <span class="pull-right">
                                             <i class="fa fa-comment"></i> <a href="index.html#">12</a>
@@ -1196,7 +1331,6 @@
                                 <div class="post-footer"></div>
                             </article>
                         </div>
-
                         <!-- -->
                         <div>
                             <article class="post-wrap" data-animation="fadeInUp" data-animation-delay="300">
@@ -1204,16 +1338,18 @@
                                     <div class="post-type">
                                         <i class="fa fa-photo"></i>
                                     </div>
-                                    <img src="{echo CDN}img/preview/recent-post-2.jpg" alt=""/>
+                                    <img src="{echo CDN}img/preview/recent-post-2.jpg" alt="" />
                                 </div>
                                 <div class="post-header">
-                                    <h2 class="post-title"><a href="index.html#">Standart Blog Post Header Here</a></h2>
+                                    <h2 class="post-title">
+                                        <a href="index.html#">Standart Blog Post Header Here</a>
+                                    </h2>
                                     <div class="post-meta">
                                         <span class="post-date">
                                             Posted on
                                             <span class="day">17th</span>
-                                            <span class="month">May</span>
-                                            <span class="year">2015</span>
+                                        <span class="month">May</span>
+                                        <span class="year">2015</span>
                                         </span>
                                         <span class="pull-right">
                                             <i class="fa fa-comment"></i> <a href="index.html#">12</a>
@@ -1228,7 +1364,6 @@
                                 <div class="post-footer"></div>
                             </article>
                         </div>
-
                         <!-- -->
                         <div>
                             <article class="post-wrap" data-animation="fadeInUp" data-animation-delay="500">
@@ -1236,16 +1371,18 @@
                                     <div class="post-type">
                                         <i class="fa fa-music"></i>
                                     </div>
-                                    <img src="{echo CDN}img/preview/recent-post-3.jpg" alt=""/>
+                                    <img src="{echo CDN}img/preview/recent-post-3.jpg" alt="" />
                                 </div>
                                 <div class="post-header">
-                                    <h2 class="post-title"><a href="index.html#">Standart Blog Post Header Here</a></h2>
+                                    <h2 class="post-title">
+                                        <a href="index.html#">Standart Blog Post Header Here</a>
+                                    </h2>
                                     <div class="post-meta">
                                         <span class="post-date">
                                             Posted on
                                             <span class="day">17th</span>
-                                            <span class="month">May</span>
-                                            <span class="year">2015</span>
+                                        <span class="month">May</span>
+                                        <span class="year">2015</span>
                                         </span>
                                         <span class="pull-right">
                                             <i class="fa fa-comment"></i> <a href="index.html#">12</a>
@@ -1260,7 +1397,6 @@
                                 <div class="post-footer"></div>
                             </article>
                         </div>
-
                         <!-- -->
                         <div>
                             <article class="post-wrap" data-animation="fadeInUp" data-animation-delay="500">
@@ -1268,16 +1404,18 @@
                                     <div class="post-type">
                                         <i class="fa fa-music"></i>
                                     </div>
-                                    <img src="{echo CDN}img/preview/recent-post-1.jpg" alt=""/>
+                                    <img src="{echo CDN}img/preview/recent-post-1.jpg" alt="" />
                                 </div>
                                 <div class="post-header">
-                                    <h2 class="post-title"><a href="index.html#">Standart Blog Post Header Here</a></h2>
+                                    <h2 class="post-title">
+                                        <a href="index.html#">Standart Blog Post Header Here</a>
+                                    </h2>
                                     <div class="post-meta">
                                         <span class="post-date">
                                             Posted on
                                             <span class="day">17th</span>
-                                            <span class="month">May</span>
-                                            <span class="year">2015</span>
+                                        <span class="month">May</span>
+                                        <span class="year">2015</span>
                                         </span>
                                         <span class="pull-right">
                                             <i class="fa fa-comment"></i> <a href="index.html#">12</a>
@@ -1292,7 +1430,6 @@
                                 <div class="post-footer"></div>
                             </article>
                         </div>
-
                         <!-- -->
                         <div>
                             <article class="post-wrap" data-animation="fadeInUp" data-animation-delay="500">
@@ -1300,16 +1437,18 @@
                                     <div class="post-type">
                                         <i class="fa fa-music"></i>
                                     </div>
-                                    <img src="{echo CDN}img/preview/recent-post-2.jpg" alt=""/>
+                                    <img src="{echo CDN}img/preview/recent-post-2.jpg" alt="" />
                                 </div>
                                 <div class="post-header">
-                                    <h2 class="post-title"><a href="index.html#">Standart Blog Post Header Here</a></h2>
+                                    <h2 class="post-title">
+                                        <a href="index.html#">Standart Blog Post Header Here</a>
+                                    </h2>
                                     <div class="post-meta">
                                         <span class="post-date">
                                             Posted on
                                             <span class="day">17th</span>
-                                            <span class="month">May</span>
-                                            <span class="year">2015</span>
+                                        <span class="month">May</span>
+                                        <span class="year">2015</span>
                                         </span>
                                         <span class="pull-right">
                                             <i class="fa fa-comment"></i> <a href="index.html#">12</a>
@@ -1324,7 +1463,6 @@
                                 <div class="post-footer"></div>
                             </article>
                         </div>
-
                         <!-- -->
                         <div>
                             <article class="post-wrap" data-animation="fadeInUp" data-animation-delay="500">
@@ -1332,16 +1470,18 @@
                                     <div class="post-type">
                                         <i class="fa fa-music"></i>
                                     </div>
-                                    <img src="{echo CDN}img/preview/recent-post-3.jpg" alt=""/>
+                                    <img src="{echo CDN}img/preview/recent-post-3.jpg" alt="" />
                                 </div>
                                 <div class="post-header">
-                                    <h2 class="post-title"><a href="index.html#">Standart Blog Post Header Here</a></h2>
+                                    <h2 class="post-title">
+                                        <a href="index.html#">Standart Blog Post Header Here</a>
+                                    </h2>
                                     <div class="post-meta">
                                         <span class="post-date">
                                             Posted on
                                             <span class="day">17th</span>
-                                            <span class="month">May</span>
-                                            <span class="year">2015</span>
+                                        <span class="month">May</span>
+                                        <span class="year">2015</span>
                                         </span>
                                         <span class="pull-right">
                                             <i class="fa fa-comment"></i> <a href="index.html#">12</a>
@@ -1365,43 +1505,41 @@
         </div>
     </section>
     <!-- /PAGE -->
-
     <!-- PAGE -->
     <section class="page-section light create-new-event">
         <div class="container text-center">
             <h1 class="section-title">Create Your Own New Event</h1>
             <p>Bring people together, or turn your passion into a business. Eventbrite gives you everything you need to host your best event yet.</p>
-            <div><a href="index.html#" class="btn btn-theme btn-theme-md">SUBMIT EVENT</a></div>
+            <div>
+                <a href="index.html#" class="btn btn-theme btn-theme-md">SUBMIT EVENT</a>
+            </div>
         </div>
     </section>
     <!-- /PAGE -->
-
     <!-- PAGE LOCATION -->
     <section class="page-section" id="location">
         <div class="container full-width gmap-background">
-
             <div class="container">
                 <div class="on-gmap color">
                     <h1 class="section-title">
                         <span data-animation="flipInY" data-animation-delay="100" class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-map-marker fa-stack-1x"></i></span></span>
                         <span data-animation="fadeInRight" data-animation-delay="100" class="title-inner">Event Location</span>
                     </h1>
-                    <p data-animation="fadeInUp" data-animation-delay="200" class="text-uppercase">Apple Store SOHO‎ <br/>
-                        103 Prince St New York, <br/>
-                        NY 10012, United States <br/>
-                        +1 212-226-3126</p>
-                    <p><a href="mailto:youremail@domain.com">hello@imevent.com</a></p>
-                    <a href="index.html#" class="btn btn-theme"
-                       data-animation="flipInY" data-animation-delay="300">Get Direction <i class="fa fa-arrow-circle-right"></i></a>
+                    <p data-animation="fadeInUp" data-animation-delay="200" class="text-uppercase">Apple Store SOHO‎
+                        <br/> 103 Prince St New York,
+                        <br/> NY 10012, United States
+                        <br/> +1 212-226-3126</p>
+                    <p>
+                        <a href="mailto:youremail@domain.com">hello@imevent.com</a>
+                    </p>
+                    <a href="index.html#" class="btn btn-theme" data-animation="flipInY" data-animation-delay="300">Get Direction <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-
             <!-- Google map -->
             <div class="google-map">
                 <div id="map-canvas"></div>
             </div>
             <!-- /Google map -->
-
         </div>
     </section>
     <!-- /PAGE LOCATION -->
