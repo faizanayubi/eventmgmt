@@ -1,0 +1,37 @@
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Linkedin Follower Analytics</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="form-inline text-center" role="form" id="followers">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label class="sr-only">From</label>
+                        <span class="add-on input-group-addon"><i class="fa fa-calendar fa-fw"></i> From</span>
+                        <input type="date" style="width: 200px" name="startdate" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <label class="sr-only">To</label>
+                        <span class="add-on input-group-addon"><i class="fa fa-calendar fa-fw"></i> To</span>
+                        <input type="date" style="width: 200px" name="enddate" class="form-control">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">View Analytics</button>
+            </form>
+            <hr>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <i class="fa fa-bullhorn fa-fw"></i> Reach
+                </div>
+                <div class="panel-body text-center">
+                    <img id="output" src="/employer/followerstats/{echo $week}/{echo $now}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
