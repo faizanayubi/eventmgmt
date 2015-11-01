@@ -287,6 +287,29 @@ class Organizer extends Controller {
         return FALSE;
     }
 
+    public function fbLogin() {
+        $this->noview();
+        $session = Registry::get("session");
+        if ((RequestMethods::post("action") == "fbLogin") && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')) {
+            // process the registration
+            $email = RequestMethods::post("email");
+            $user = User::first(array("email = ?" => $email));
+            if (!$user) {
+                $user = new User(array(
+                    "name" => RequestMethods::post("name"),
+                    "email" => $email,
+                    "password" => sha1(rand(1000, 99999)),
+                    "admin" => false
+                ));
+                $user->save();
+            }
+            $this->setUser($user);
+            echo "Success";
+        } else {
+            self::redirect("/404");
+        }
+    }
+
     public function changeLayout() {
         $this->defaultLayout = "layouts/employer";
         $this->setLayout();
