@@ -154,6 +154,7 @@ class Organizer extends Controller {
                     "name" => RequestMethods::post("name"),
                     "email" => $email,
                     "password" => sha1(rand(1000, 99999)),
+                    "phone" => "",
                     "admin" => false
                 ));
                 $user->save();

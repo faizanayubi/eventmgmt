@@ -1,27 +1,28 @@
 <div class="content-area">
     <div id="main">
-        <section class="page-section" style="padding: 170px;">
+        <section class="page-section" style="padding: 150px;">
             <div class="container">
-                <form method="post" action="" class="registration-form">
-                    <div class="row">
+                <div class="row">
+                    <h1 class="page-heading">Register With Us</h1>
+                    <form method="post" action="" class="registration-form">
                         <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
                             <div class="form-group">
-                                <input type="text" name="name" placeholder="Name" title="" data-toggle="tooltip" class="form-control input-name" data-original-title="Name is required">
+                                <input type="text" name="name" required="" placeholder="Name" title="" data-toggle="tooltip" class="form-control input-name" data-original-title="Name is required">
                             </div>
                         </div>
                         <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
                             <div class="form-group">
-                                <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Email is required">
+                                <input type="text" name="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Email is required">
                             </div>
                         </div>
                         <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
                             <div class="form-group">
-                                <input type="text" name="phone" pattern="[7-9]{1}[0-9]{9}" placeholder="Phone Number" title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Phone Number is required">
+                                <input type="text" name="phone" required="" pattern="[7-9]{1}[0-9]{9}" placeholder="Phone Number" title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Phone Number is required">
                             </div>
                         </div>
                         <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
                             <div class="form-group">
-                                <input type="password" name="password" placeholder="password" title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Password">
+                                <input type="password" name="password" required="" placeholder="password" title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Password">
                             </div>
                         </div>
                         <input type="hidden" name="action" value="register">
@@ -30,8 +31,17 @@
                                 <button type="submit" class="btn btn-theme btn-block submit-button" data-animation-delay="100" data-animation="flipInY"> Register Now <i class="fa fa-arrow-circle-right"></i></button>
                             </div>
                         </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 col-lg-10 col-md-10 col-xs-10">
+                        <h1 class="page-header text-center">Or</h1>
+                        <br>
+                        <div class="form-group text-center">
+                            <button id="fbLogin" type="submit" class="btn btn-theme btn-theme-dark btn-block submit-button" data-animation-delay="100" data-animation="flipInY"><i class="fa fa-facebook"></i> Login with facebook</button>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
     </div>

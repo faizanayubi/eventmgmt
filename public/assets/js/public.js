@@ -54,7 +54,7 @@ function getFBInfo() {
 			data: {action: 'fbLogin', email: response.email, name: response.name, token: ''},
 			callback: function (data) {
 				if (data == "Success") {
-					window.location.href = "/profile";
+					window.location.href = "/organizer/";
 				} else {
 					// $('#alertMessage').html("Something went wrong");
 					// $('#alertModal').modal('show');
