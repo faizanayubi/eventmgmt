@@ -23,22 +23,7 @@ class Admin extends Organizer {
     public function index() {
         $this->seo(array("title" => "Admin Panel", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
-        $now = strftime("%Y-%m-%d", strtotime('now'));
-
-        $users = User::count();
-        $organizations = Organization::count();
-        $opportunities = Opportunity::count();
-        $applications = Application::count();
-        $leads = Lead::count();
-        $resumes = Resume::count();
-
-        $view->set("now", $now);
-        $view->set("users", $users);
-        $view->set("organizations", $organizations);
-        $view->set("opportunities", $opportunities);
-        $view->set("applications", $applications);
-        $view->set("leads", $leads);
-        $view->set("resumes", $resumes);
+        
     }
 
     /**
@@ -226,39 +211,6 @@ class Admin extends Organizer {
         }
     }
 
-    /**
-     * @before _secure, changeLayout
-     */
-    public function support() {
-        $this->seo(array("title" => "Support Tickets", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
-        $view = $this->getActionView();
-        
-        if (RequestMethods::post('action') == 'support') {
-            $email = [RequestMethods::post('email')];
-            $this->notify(array(
-                "template" => "message",
-                "subject" => RequestMethods::post('subject'),
-                "emails" => [$email],
-                "message" => RequestMethods::post("body")
-            ));
-        }
-        
-        $inbox = Conversation::all(array("property = ?" => "email"), array("created", "property_id", "message_id"), "id", "desc");
-        $allinbox = [];
-        foreach ($inbox as $message) {
-            $body = Message::first(array("id = ?" => $message->message_id), array("body", "subject"));
-            $allinbox[] = [
-                "id" => $message->message_id,
-                "from" => $message->property_id,
-                "subject" => $body->subject,
-                "message" => $body->body,
-                "received" => \Framework\StringMethods::datetime_to_text($message->created)
-            ];
-        }
-        
-        $view->set("allinbox", \Framework\ArrayMethods::toObject($allinbox));
-    }
-
     protected function sync($model) {
         $this->noview();
         $db = Framework\Registry::get("database");
@@ -269,20 +221,9 @@ class Admin extends Organizer {
         $this->defaultLayout = "layouts/admin";
         $this->setLayout();
 
-        if ($this->user->type != 'admin') {
-            die('Not Admin');
+        if ($this->user->admin != 1) {
+            self::redirect("/404");
         }
-
-        $session = Registry::get("session");
-        $employer = $session->get("employer");
-        $member = $session->get("member");
-
-        $this->_employer = $employer;
-
-        $this->getActionView()->set("employer", $employer);
-        $this->getLayoutView()->set("employer", $employer);
-        $this->getActionView()->set("member", $member);
-        $this->getLayoutView()->set("member", $member);
     }
 
 }

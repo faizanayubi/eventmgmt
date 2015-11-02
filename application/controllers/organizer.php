@@ -8,6 +8,7 @@
 use Framework\Registry as Registry;
 use Framework\RequestMethods as RequestMethods;
 use Shared\Controller as Controller;
+use Shared\Markup as Markup;
 
 class Organizer extends Controller {
 
@@ -44,6 +45,26 @@ class Organizer extends Controller {
             "view" => $this->getLayoutView()
         ));
         $view = $this->getActionView();
+
+        if (RequestMethods::post("action") == "register") {
+            $email = RequestMethods::post("email");
+
+            $user = User::first(array("email = ?" => $email));
+            if (!$user) {
+                $password = RequestMethods::post("password");
+                $user = new User(array(
+                    "name" => RequestMethods::post("name"),
+                    "email" => RequestMethods::post("email"),
+                    "password" => Markup::encrypt($password),
+                    "admin" => false
+                ));
+
+                $user->save();
+                $view->set("success", "You are registered! Login to continue");
+            } else {
+                $view->set("error", "You are already registered! Login to continue");
+            }
+        }
         $view->set("url", "http://myeventgroup.com/");
     }
 
@@ -311,19 +332,8 @@ class Organizer extends Controller {
     }
 
     public function changeLayout() {
-        $this->defaultLayout = "layouts/employer";
+        $this->defaultLayout = "layouts/organizer";
         $this->setLayout();
-
-        $session = Registry::get("session");
-        $employer = $session->get("employer");
-        $member = $session->get("member");
-
-        $this->_employer = $employer;
-
-        $this->getActionView()->set("employer", $employer);
-        $this->getLayoutView()->set("employer", $employer);
-        $this->getActionView()->set("member", $member);
-        $this->getLayoutView()->set("member", $member);
     }
 
     protected function switchorg($organization_id) {
@@ -344,7 +354,8 @@ class Organizer extends Controller {
     public function _secure() {
         $user = $this->getUser();
         $session = Registry::get("session");
-        $member = $session->get("member");
+        // $member = $session->get("member");
+        $member = true;
 
         if (!$user || !$member) {
             header("Location: /home");

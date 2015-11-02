@@ -15,7 +15,7 @@
         <!-- SB Admin CSS - Include with every page -->
         <link href="{echo CDN}css/sb-admin.css" rel="stylesheet">
 
-        <script src="/public/assets/plugins/tinymce/tinymce.min.js"></script>
+        <script src="{echo CDN}plugins/tinymce/tinymce.min.js"></script>
         <script type="text/javascript">
             tinymce.init({
                 selector: ".editor",
@@ -38,7 +38,6 @@
     <body>
         <div id="wrapper">
             {include layouts/navigation/admin.html}
-            {include layouts/modal/message.html}
             
             {ayield action}
         </div>
@@ -49,7 +48,6 @@
         <script src="{echo CDN}plugins/bootbox/bootbox.min.js"></script>
         <script src="{echo CDN}plugins/metisMenu/jquery.metisMenu.js"></script>
         <script type="text/javascript" src="{echo CDN}js/model.js"></script>
-        <script src="{echo CDN}js/admin-3.0.js"></script>
 
         <!-- Plugin Scripts  -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>

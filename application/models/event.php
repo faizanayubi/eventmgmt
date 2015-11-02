@@ -101,7 +101,7 @@ class Event extends Shared\Model {
      * @column
      * @readwrite
      * @type integer
-     * @type index
+     * @index
      */
     protected $_user_id;
 
