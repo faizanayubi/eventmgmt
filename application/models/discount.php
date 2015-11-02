@@ -26,16 +26,30 @@ class Discount extends Shared\Model {
      * @column
      * @readwrite
      * @type text
-     * @index
+     * @length 255
+     *
+     * @label Discount Name (Optional)
      */
     protected $_name;
 
     /**
      * @column
      * @readwrite
-     * @type text
-     * @length 100
+     * @type integer
      * @index
+     *
+     * @label Amount of Discount (Numeric)
+     */
+    protected $_amount;
+
+    /**
+     * @column
+     * @readwrite
+     * @type text
+     * @length 10
+     * @index
+     *
+     * @label flat|bulk|code
      */
     protected $_category;
 
@@ -43,8 +57,10 @@ class Discount extends Shared\Model {
      * @column
      * @readwrite
      * @type text
-     * @length 100
+     * @length 15
      * @index
+     *
+     * @label fixed|percentage
      */
     protected $_type;
 
@@ -52,6 +68,8 @@ class Discount extends Shared\Model {
      * @column
      * @readwrite
      * @type datetime
+     *
+     * @label Default today's date (Optional)
      */
     protected $_start;
 
@@ -59,23 +77,46 @@ class Discount extends Shared\Model {
      * @column
      * @readwrite
      * @type datetime
+     *
+     * @label Default event end date (Optional)
      */
     protected $_end;
 
     /**
      * @column
      * @readwrite
-     * @type text
-     * @length 100
-     * @index
+     * @type integer
+     *
+     * @label Discount Limit (default: ticket quantity) (Optional)
      */
     protected $_limit;
 
     /**
      * @column
+     * @readwrtie
+     * @type integer
+     *
+     * @label From Quantity (Needed for bulk discount only)
+     */
+    protected $_from_quantity;
+
+    /**
+     * @column
+     * @readwrtie
+     * @type integer
+     *
+     * @label To Quantity (Needed for bulk discount only)
+     */
+    protected $_to_quantity;
+
+    /**
+     * @column
      * @readwrite
      * @type text
+     * @length 255
      * @index
+     *
+     * @label Needed for code discount only
      */
     protected $_code;
 }

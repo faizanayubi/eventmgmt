@@ -9,10 +9,21 @@ class Booking extends Shared\Model {
 	/**
 	 * @column
 	 * @readwrite
-	 * @type text
-	 * @index
+	 * @type decimal
+	 *
+	 * @label Amount to be collected from Customer (Mandatory)
 	 */
 	protected $_amount;
+
+	/**
+	 * @column
+	 * @readwrite
+	 * @type text
+	 * @length 3
+	 * 
+	 * @label Number of Tickets purchased
+	 */
+	protected $_tickets;
 
 	/**
 	 * @column
@@ -20,7 +31,15 @@ class Booking extends Shared\Model {
 	 * @type integer
 	 * @index
 	 */
-	protected $_order_id;
+	protected $_event_id;
+
+	/**
+	 * @column
+	 * @readwrite
+	 * @type text
+	 * @length 100
+	 */
+	protected $_status;
 
 	/**
 	 * @column
@@ -34,6 +53,7 @@ class Booking extends Shared\Model {
 	 * @column
 	 * @readwrite
 	 * @type text
+	 * @length 10
 	 *
 	 * @label Currency [INR|USD|EUR]
 	 */
@@ -43,6 +63,7 @@ class Booking extends Shared\Model {
 	 * @column
 	 * @readwrite
 	 * @type text
+	 * @length 50
 	 *
 	 * @label Payment Gateway [MASTER|MAESTRO, without MASTER|MAESTRO]
 	 */

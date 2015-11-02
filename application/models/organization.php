@@ -11,6 +11,7 @@ class Organization extends Shared\Model {
      * @column
      * @readwrite
      * @type text
+     * @length 255
      */
     protected $_name;
 
@@ -25,7 +26,7 @@ class Organization extends Shared\Model {
      * @column
      * @readwrite
      * @type text
-     * @length 45
+     * @length 255
      */
     protected $_website;
 
@@ -36,20 +37,12 @@ class Organization extends Shared\Model {
      * @length 255
      */
     protected $_email;
-
-    /**
-     * @column
-     * @readwrite
-     * @type text
-     * @length 15
-     */
-    protected $_phone;
     
     /**
      * @column
      * @readwrite
      * @type text
-     * @length 45
+     * @length 100
      */
     protected $_image;
 }

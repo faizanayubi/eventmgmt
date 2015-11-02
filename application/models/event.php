@@ -20,12 +20,12 @@ class Event extends Shared\Model {
      * @column
      * @readwrite
      * @type text
-     * @length 100
+     * @length 50
      * @index
      *
-     * @label business/technology
+     * @label ticekting|conference|charity|rsvp
      */
-    protected $_category;
+    protected $_type;
 
     /**
      * @column
@@ -34,9 +34,9 @@ class Event extends Shared\Model {
      * @length 100
      * @index
      *
-     * @label ticekting/conference
+     * @label business|technology|entertainment|sports|workshop|fundraising etc
      */
-    protected $_type;
+    protected $_category;
 
     /**
      * @column
@@ -49,6 +49,7 @@ class Event extends Shared\Model {
      * @column
      * @readwrite
      * @type datetime
+     * @index
      */
     protected $_start;
 
@@ -56,6 +57,7 @@ class Event extends Shared\Model {
      * @column
      * @readwrite
      * @type datetime
+     * @index
      */
     protected $_end;
 
@@ -63,6 +65,9 @@ class Event extends Shared\Model {
      * @column
      * @readwrite
      * @type text
+     * @length 100
+     *
+     * @label Listing Image Name
      */
     protected $_listingImage;
 
@@ -70,6 +75,9 @@ class Event extends Shared\Model {
      * @column
      * @readwrite
      * @type text
+     * @length 100
+     *
+     * @label Header Image Name
      */
     protected $_headerImage;
 
@@ -92,11 +100,19 @@ class Event extends Shared\Model {
     /**
      * @column
      * @readwrite
+     * @type integer
+     * @type index
+     */
+    protected $_user_id;
+
+    /**
+     * @column
+     * @readwrite
      * @type text
-     * @length 100
+     * @length 10
      * @index
      *
-     * @label public/private
+     * @label public|private
      */
     protected $_visibility;
 
