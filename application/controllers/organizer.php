@@ -53,19 +53,39 @@ class Organizer extends Controller {
                 ));
 
                 $user->save();
-                $view->set("success", "You are registered! Login to continue");
+                $this->setUser($user);
+                self::redirect("/organizer");
             } else {
                 $view->set("error", "You are already registered! Login to continue");
             }
         }
-        $view->set("url", "http://myeventgroup.com/");
     }
 
-    protected function login($info = array()) {
-        $this->user = $info["user"];
-        $session = Registry::get("session");
-        $session->set("organizer", Framework\ArrayMethods::toObject($info["members"][0]));
-        $session->set("member", Framework\ArrayMethods::toObject($info["members"]));
+    public function login() {
+        $this->seo(array(
+            "title" => "Login to EventGroup",
+            "keywords" => "post events, share events, create events",
+            "description" => "Register yourself with MyEventGroup and join the exciting world of Events",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
+
+        if (RequestMethods::post("action") == "login") {
+            $email = RequestMethods::post("email");
+            $password = RequestMethods::post("password");
+
+            $user = User::first(array("email = ?" => $email));
+            if ($user) {
+                if (Markup::checkHash($password, $user->password)) {
+                    $this->setUser($user);
+                    self::redirect("/organizer")
+                } else {
+                    $view->set("error", "Invalid email/password");    
+                }
+            } else {
+                $view->set("error", "Invalid email/password");    
+            }
+        }
     }
 
     /**

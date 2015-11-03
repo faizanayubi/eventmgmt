@@ -6,8 +6,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/employer">
-            <i class="fa fa-briefcase fa-fw"></i>{echo $employer->organization->name}
+        <a class="navbar-brand" href="/organizer">
+            <i class="fa fa-briefcase fa-fw"></i>{echo $organizer->organization->name}
         </a>
     </div>
     <!-- /.navbar-header -->
@@ -21,12 +21,12 @@
                 <i class="fa fa-user fa-fw"></i> {echo $user->name}  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="/employer/faq"><i class="fa fa-thumbs-up fa-fw"></i> Help</a></li>
-                <li><a href="/employer"><i class="fa fa-gear fa-fw"></i> Dashboard</a></li>
+                <li><a href="/organizer/faq"><i class="fa fa-thumbs-up fa-fw"></i> Help</a></li>
+                <li><a href="/organizer"><i class="fa fa-gear fa-fw"></i> Dashboard</a></li>
                 <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                 <li class="divider"></li>
                 {foreach $mem in $member}
-                <li><a href="/employer/index/{echo Framework\StringMethods::url($mem->organization->name)}/{echo $mem->organization->id}"><i class="fa fa-briefcase fa-fw"></i> {echo $mem->organization->name}</a></li>
+                <li><a href="/organizer/index/{echo Framework\StringMethods::url($mem->organization->name)}/{echo $mem->organization->id}"><i class="fa fa-briefcase fa-fw"></i> {echo $mem->organization->name}</a></li>
                 {/foreach}
             </ul>
         </li>
@@ -36,20 +36,20 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
-            <li><a href="/employer"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+            <li><a href="/organizer"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
             <li>
                 <a href="#"><i class="fa fa-user fa-fw"></i> Profile<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="/employer/settings">Settings</a></li>
-                    <li><a href="/employer/members">Members</a></li>
-                    <li><a href="/employer/messages">Messages</a></li>
+                    <li><a href="/organizer/settings">Settings</a></li>
+                    <li><a href="/organizer/members">Members</a></li>
+                    <li><a href="/organizer/messages">Messages</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-building-o fa-fw"></i> Company<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="/organization/{echo Framework\StringMethods::url($employer->organization->name)}/{echo $employer->organization->id}" target="_blank">View</a></li>
-                    <li><a href="https://www.linkedin.com/company/{echo $employer->organization->linkedin_id}" target="_blank">LinkedIn</a></li>
+                    <li><a href="/organization/{echo Framework\StringMethods::url($organizer->organization->name)}/{echo $organizer->organization->id}" target="_blank">View</a></li>
+                    <li><a href="https://www.linkedin.com/company/{echo $organizer->organization->linkedin_id}" target="_blank">LinkedIn</a></li>
                 </ul>
             </li>
             <li>
@@ -59,7 +59,7 @@
                     <li><a href="/internship/manage">Manage</a></li>
                 </ul>
             </li>
-            {if(($employer->organization->account == "training") || ($employer->organization->account == "competition"))}
+            {if(($organizer->organization->account == "training") || ($organizer->organization->account == "competition"))}
             <li>
                 <a href="#"><i class="fa fa-users fa-fw"></i> My Trainings<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -71,11 +71,11 @@
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Analytics<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="/employer/followers">Followers</a></li>
-                    <li><a href="/employer/reach">Reach</a></li>
+                    <li><a href="/organizer/followers">Followers</a></li>
+                    <li><a href="/organizer/reach">Reach</a></li>
                 </ul>
             </li>
-            <li><a href="/employer/resources"><i class="fa fa-wrench fa-fw"></i> Resources</a></li>
+            <li><a href="/organizer/resources"><i class="fa fa-wrench fa-fw"></i> Resources</a></li>
         </ul>
     </div>
 </nav>

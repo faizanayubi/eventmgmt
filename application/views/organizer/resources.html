@@ -20,13 +20,13 @@
                         </div>
                         
                         <div class="col-lg-6">
-                            <div id="swiftintern" data-org="{$employer->organization->id}"></div>
+                            <div id="swiftintern" data-org="{$organizer->organization->id}"></div>
                             <script type="text/javascript">
                             (function(d, s) {
                                 var useSSL = "https:" == document.location.protocol;
                                 var js, where = d.getElementsByTagName(s)[0],
                                 js = d.createElement(s);
-                                js.src = (useSSL ? "https:" : "http:") +  "//swiftintern.com/public/assets/js/siwidget.js?organization_id={$employer->organization->id}";
+                                js.src = (useSSL ? "https:" : "http:") +  "//swiftintern.com/public/assets/js/siwidget.js?organization_id={$organizer->organization->id}";
                                 try { where.parentNode.insertBefore(js, where); } catch (e) { if (typeof console !== "undefined" && console.log && e.stack) { console.log(e.stack); } }
                             }(document, "script"));
                             </script>

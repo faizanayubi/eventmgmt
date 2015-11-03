@@ -4,14 +4,20 @@
 
 $routes = array(
     array(
-        "pattern" => "features",
-        "controller" => "home",
-        "action" => "features"
-    ),
-    array(
         "pattern" => "home",
         "controller" => "home",
         "action" => "index"
+    ),
+    array(
+        "pattern" => "contact-us",
+        "controller" => "home",
+        "action" => "contact"
+    ),
+    
+    array(
+        "pattern" => "login",
+        "controller" => "organizer",
+        "action" => "login"
     )
 );
 

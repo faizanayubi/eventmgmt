@@ -44,19 +44,19 @@
         <form class="panel panel-default panel-body" method="post" action="">
             <div class="radio">
                 <label>
-                    <input type="radio" name="account" value="basic" {if($employer->organization->account == "basic")}checked{/if}>
+                    <input type="radio" name="account" value="basic" {if($organizer->organization->account == "basic")}checked{/if}>
                     BASIC
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="account" value="training" {if($employer->organization->account == "training")}checked{/if}>
+                    <input type="radio" name="account" value="training" {if($organizer->organization->account == "training")}checked{/if}>
                     TRAINING
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="account" value="competition" {if($employer->organization->account == "competition")}checked{/if}>
+                    <input type="radio" name="account" value="competition" {if($organizer->organization->account == "competition")}checked{/if}>
                     COMPETITION
                 </label>
             </div>
