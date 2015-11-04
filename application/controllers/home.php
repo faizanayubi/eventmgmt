@@ -19,4 +19,14 @@ class Home extends Controller {
         $view = $this->getActionView();
     }
 
+    public function contact() {
+    	$this->seo(array(
+            "title" => "Event Management",
+            "keywords" => "post events, share events, create events",
+            "description" => "Register yourself with MyEventGroup and join the exciting world of Events",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
+    }
+
 }
