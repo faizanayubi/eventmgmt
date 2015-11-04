@@ -22,6 +22,11 @@ $routes = array(
         "pattern" => "register",
         "controller" => "organizer",
         "action" => "register"
+    ),
+    array(
+        "pattern" => "logout",
+        "controller" => "organizer",
+        "action" => "logout"
     )
 );
 

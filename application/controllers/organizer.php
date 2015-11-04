@@ -86,6 +86,11 @@ class Organizer extends Controller {
         }
     }
 
+    public function logout() {
+        $this->setUser(false);
+        self::redirect("/login");
+    }
+
     /**
      * @before _secure, changeLayout
      */
