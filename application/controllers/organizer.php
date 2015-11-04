@@ -24,9 +24,7 @@ class Organizer extends Controller {
         $this->seo(array("title" => "Dashboard","keywords" => "dashboard","description" => "Contains all realtime stats","view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
-        if (isset($id)) { $this->switchorg($id);}
-
-        
+        // if (isset($id)) { $this->switchorg($id);}
     }
 
     public function register() {
@@ -78,7 +76,7 @@ class Organizer extends Controller {
             if ($user) {
                 if (Markup::checkHash($password, $user->password)) {
                     $this->setUser($user);
-                    self::redirect("/organizer")
+                    self::redirect("/organizer");
                 } else {
                     $view->set("error", "Invalid email/password");    
                 }
@@ -191,6 +189,7 @@ class Organizer extends Controller {
         $this->setLayout();
     }
 
+    /*
     protected function switchorg($organization_id) {
         $session = Registry::get("session");
         $member = $session->get("member");
@@ -201,7 +200,7 @@ class Organizer extends Controller {
                 self::redirect("/organizer");
             }
         }
-    }
+    }*/
 
     /**
      * @protected

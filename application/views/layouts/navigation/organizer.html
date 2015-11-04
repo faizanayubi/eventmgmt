@@ -7,13 +7,13 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/organizer">
-            <i class="fa fa-briefcase fa-fw"></i>{echo $organizer->organization->name}
+            <i class="fa fa-briefcase fa-fw"></i>Company Name
         </a>
     </div>
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
-        {if($user->type == "admin")}
+        {if ($user->admin == 1)}
             <li><a href="/admin"><i class="fa fa-user-secret fa-fw"></i> Admin Panel</a></li>
         {/if}
         <li class="dropdown">
@@ -25,9 +25,7 @@
                 <li><a href="/organizer"><i class="fa fa-gear fa-fw"></i> Dashboard</a></li>
                 <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                 <li class="divider"></li>
-                {foreach $mem in $member}
-                <li><a href="/organizer/index/{echo Framework\StringMethods::url($mem->organization->name)}/{echo $mem->organization->id}"><i class="fa fa-briefcase fa-fw"></i> {echo $mem->organization->name}</a></li>
-                {/foreach}
+                
             </ul>
         </li>
     </ul>
@@ -59,15 +57,6 @@
                     <li><a href="/internship/manage">Manage</a></li>
                 </ul>
             </li>
-            {if(($organizer->organization->account == "training") || ($organizer->organization->account == "competition"))}
-            <li>
-                <a href="#"><i class="fa fa-users fa-fw"></i> My Trainings<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="/training/post">Create</a></li>
-                    <li><a href="/training/manage">Manage</a></li>
-                </ul>
-            </li>
-            {/if}
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Analytics<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

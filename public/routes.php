@@ -13,11 +13,15 @@ $routes = array(
         "controller" => "home",
         "action" => "contact"
     ),
-    
     array(
         "pattern" => "login",
         "controller" => "organizer",
         "action" => "login"
+    ),
+    array(
+        "pattern" => "register",
+        "controller" => "organizer",
+        "action" => "register"
     )
 );
 
