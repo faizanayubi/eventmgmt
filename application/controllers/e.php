@@ -2,6 +2,7 @@
 
 use Framework\RequestMethods as RequestMethods;
 use Framework\ArrayMethods as ArrayMethods;
+use Shared\Markup as Markup;
 
 /**
  * The Events Controller
@@ -44,9 +45,6 @@ class E extends Organizer {
     	
     	if (RequestMethods::post('action') == 'createEvent') {
     		// code to upload file
-    		$listingImage = $this->_upload();
-    		$headerImage = $this->_upload();
-
     		$event = new Event(array(
     			"title" => RequestMethods::post("title"),
     			"type" => RequestMethods::post("type"),
@@ -54,13 +52,15 @@ class E extends Organizer {
     			"description" => RequestMethods::post("description", ""),
     			"start" => RequestMethods::post("start"),
     			"end" => RequestMethods::post("end"),
-    			"visibility" => "public",
+    			"visibility" => RequestMethods::post("visibility", "public"),
     			"user_id" => $this->user->id,
-    			"listingImage" => $listingImage,
-    			"headerImage" => $headerImage
+    			"listingImage" => $this->_upload("listingImage"),
+    			"headerImage" => $this->_upload("headerImage"),
+
     		));
 
-    		// $event->save();
+    		$event->save();
+            $view->set("success", true);
     	}
     }
 
@@ -154,8 +154,25 @@ class E extends Organizer {
         // search all the events and display them
     }
 
-    protected function _upload() {
-    	return "";
+    /**
+     * The method checks whether a file has been uploaded. If it has, the method attempts to move the file to a permanent location.
+     * @param string $name
+     * @param string $type files or images
+     *
+     * @return string|boolean Returns the file name on moving the file successfully else return false
+     */
+    protected function _upload($name, $type = "images") {
+    	if (isset($_FILES[$name])) {
+            $file = $_FILES[$name];
+            $path = APP_PATH . "/public/assets/uploads/{$type}/";
+            $extension = pathinfo($file["name"], PATHINFO_EXTENSION);
+            $filename = Markup::generateSalt() . ".{$extension}";
+            if (move_uploaded_file($file["tmp_name"], $path . $filename)) {
+                return $filename;
+            } else {
+                return FALSE;
+            }
+        }
     }
 
 }

@@ -7,9 +7,7 @@ use Framework\RequestMethods as RequestMethods;
  *
  * @author Hemant Mann
  */
-use Shared\Controller as Controller;
-
-class EventTicket extends Controller {
+class EventTicket extends E {
 
     public function index() {
         
@@ -38,7 +36,7 @@ class EventTicket extends Controller {
     }
 
     /**
-     * @before _secure
+     * @before _secure, changeLayout
      */
     public function update($evtId) {
     	$this->seo(array(
