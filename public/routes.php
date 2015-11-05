@@ -27,7 +27,13 @@ $routes = array(
         "pattern" => "logout",
         "controller" => "organizer",
         "action" => "logout"
+    ),
+    array(
+        "pattern" => "event-list",
+        "controller" => "e",
+        "action" => "all"
     )
+
 );
 
 // add defined routes

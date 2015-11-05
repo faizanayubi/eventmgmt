@@ -1,69 +1,86 @@
 <!-- HEADER -->
 <header class="header fixed">
-    <div class="container">
-        <div class="header-wrapper clearfix">
+	<div class="container">
+		<div class="header-wrapper clearfix">
 
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.html" class="scroll-to">
-                    <span class="fa-stack">
-                        <i class="fa logo-hex fa-stack-2x"></i>
-                        <i class="fa logo-fa fa-map-marker fa-stack-1x"></i>
-                    </span>
-                    im Event
-                </a>
-            </div>
-            <!-- /Logo -->
+			<!-- Logo -->
+			<div class="logo">
+				<a href="index.html" class="scroll-to">
+					<span class="fa-stack">
+						<i class="fa logo-hex fa-stack-2x"></i>
+						<i class="fa logo-fa fa-map-marker fa-stack-1x"></i>
+					</span>
+					im Event
+				</a>
+			</div>
+			<!-- /Logo -->
 
-            <!-- Navigation -->
-            <div id="mobile-menu"></div>
-            <nav class="navigation closed clearfix">
-                <a href="#" class="menu-toggle btn"><i class="fa fa-bars"></i></a>
-                <ul class="sf-menu nav">
-                    <li class="active">
-                        <a href="index.html">Home</a>
-                        <ul>
-                            <li><a href="index.html">Home</a>
-                                <ul>
-                                    <li><a href="#">sub 1</a>
-                                        <ul>
-                                            <li><a href="#">sub 3</a></li>
-                                            <li><a href="#">sub 4</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">sub 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index-2.html">Home 2</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="event-list.html">Events</a>
-                        <ul>
-                            <li><a href="#">Lists Popular Events</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" data-target="#popup-login" data-toggle="modal">Login</a>
-                    </li>
-                    <li>
-                        <a href="#" data-target="#popup-register" data-toggle="modal">Register</a>
-                    </li>
-                    <li><a href="/contact-us">Contact Us</a></li>
-                    <li class="header-search-wrapper">
-                        <form action="/e/search" method="post" class="header-search-form">
-                            <input type="text" name="q" class="form-control header-search" placeholder="Search"/>
-                            <input type="hidden" name="action" value="search">
-                            <input type="submit" hidden="hidden"/>
-                        </form>
-                    </li>
-                    <li><a href="#" class="btn-search-toggle"><i class="fa fa-search"></i></a></li>
-                    <li><a href="/e/create" class="btn btn-theme btn-submit-event">SUBMIT EVENT <i class="fa fa-plus-circle"></i></a></li>
-                </ul>
-            </nav>
-            <!-- /Navigation -->
+			<!-- Navigation -->
+			<div id="mobile-menu"></div>
+			<nav class="navigation closed clearfix">
+				<a href="#" class="menu-toggle btn"><i class="fa fa-bars"></i></a>
+				<ul class="sf-menu nav">
+					<li class="active">
+						<a href="index.html">Home</a>
+						<ul>
+							<li><a href="index.html">Home</a>
+								<ul>
+									<li><a href="#">sub 1</a>
+										<ul>
+											<li><a href="#">sub 3</a></li>
+											<li><a href="#">sub 4</a></li>
+										</ul>
+									</li>
+									<li><a href="#">sub 2</a></li>
+								</ul>
+							</li>
+							<li><a href="index-2.html">Home 2</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="event-list.html">Events</a>
+						<ul>
+							<li><a href="#">Lists Popular Events</a></li>
+						</ul>
+					</li>
+					{if !isset($user)}
+					<li>
+						<a href="#" data-target="#popup-login" data-toggle="modal">Login</a>
+					</li>
+					<li>
+						<a href="#" data-target="#popup-register" data-toggle="modal">Register</a>
+					</li>
+					{/if}
+					<li><a href="/contact-us">Contact Us</a></li>
+					<li class="header-search-wrapper">
+						<form action="/e/search" method="post" class="header-search-form">
+							<input type="text" name="q" class="form-control header-search" placeholder="Search"/>
+							<input type="hidden" name="action" value="search">
+							<input type="submit" hidden="hidden"/>
+						</form>
+					</li>
+					<li><a href="#" class="btn-search-toggle"><i class="fa fa-search"></i></a></li>
+					{if isset($user)}
+					<li>
+						<a href="#" class="btn btn-theme btn-submit-event">
+							<i class="fa fa-user"></i> {echo $user->name}
+						</a>
+						<ul>
+							<li><a href="/organizer">Dashboard</a></li>
+							<li><a href="/e/create">Create An Event</a></li>
+							<li><a href="/e/manage">Manage Events</a></li>
+							<li><a href="/organizer/settings">Settings</a></li>
+						</ul>
+					</li>
+					{/if}
+					{else}
+					<li><a href="/e/create" class="btn btn-theme btn-submit-event">SUBMIT EVENT <i class="fa fa-plus-circle"></i></a></li>
+					{/else}
+				</ul>
+			</nav>
+			<!-- /Navigation -->
 
-        </div>
-    </div>
+		</div>
+	</div>
 </header>
 <!-- /HEADER -->
