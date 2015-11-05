@@ -97,31 +97,6 @@ class Organizer extends Controller {
     /**
      * @before _secure, changeLayout
      */
-    public function members() {
-        $view = $this->getActionView();
-        $allmembers = array();
-        $session = Registry::get("session");
-        $this->seo(array("title" => "Members", "keywords" => "dashboard", "description" => "Contains all realtime stats", "view" => $this->getLayoutView()));
-
-        $employees = Member::all(array("organization_id = ?" => $this->organizer->organization->id, "live = ?" => true), array("user_id", "designation", "created"));
-        foreach ($employees as $emp) {
-            $user = User::first(array("id = ?" => $emp->user_id), array("name"));
-            $allmembers[] = [
-                "id" => $emp->id,
-                "user_id" => $emp->user_id,
-                "name" => $user->name,
-                "designation" => $emp->designation,
-                "created" => \Framework\StringMethods::datetime_to_text($emp->created)
-            ];
-        }
-
-        $view->set("allmembers", \Framework\ArrayMethods::toObject($allmembers));
-        $view->set("memberOf", $session->get("member"));
-    }
-
-    /**
-     * @before _secure, changeLayout
-     */
     public function settings() {
         $this->seo(array(
             "title" => "Settings",

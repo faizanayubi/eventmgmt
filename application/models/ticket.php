@@ -115,7 +115,7 @@ class Ticket extends Shared\Model {
      *
      * @label 1|2|3
      * [1: Absorb the fees into the ticket price, 2: Absorb gateway 
-     * fee and pass on Explara fee to the buyer, 3: Pass on the fees to the buyer]
+     * fee and pass on our fee to the buyer, 3: Pass on the fees to the buyer]
      */
     protected $_serviceFee;
 

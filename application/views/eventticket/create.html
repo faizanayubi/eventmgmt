@@ -1,0 +1,102 @@
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Create Ticket for the Event</h1>
+            <h3 class="page-heading text-center">
+                <a href="/e/details/{echo Framework\StringMethods::url($event->title)}/{echo $event->id}" target="_blank" >
+                    {echo $event->title}
+                </a>
+            </h3>
+            {if isset($message)}
+            <div class="alert alert-success alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                Ticket Created <strong>Successfully!</strong>. Go to <a href="/e/manage">Manage Events</a>
+            </div><br>
+            {/if}
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="panel panel-body">
+                    <div class="form-group">
+                        <label>Name </label>
+                        <input type="text" name="name" class="form-control" maxlength="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Price *</label>
+                        <input type="text" name="price" required="" class="form-control" maxlength="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Currency *</label>
+                        <select class="form-control" name="currency" required="">
+                            <option value="INR">INR</option>
+                            <option value="USD">USD</option>
+                        </select>
+                        <span class="help-block">Price of the ticket in which currency (INR = "Indian Rupee"), (USD = "US Dollar")</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Quantity *</label>
+                        <input type="text" name="quantity" required="" class="form-control" maxlength="11">
+                        <span class="help-block">Number of Tickets of the event available for purchase</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Minimum Quantity </label>
+                        <input type="text" name="minQuantity" class="form-control" maxlength="1" value="1">
+                        <span class="help-block">Minimum number of tickets a person has to buy</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Maximum Quantity </label>
+                        <input type="text" name="maxQuantity" class="form-control" value="10" maxlength="3">
+                        <span class="help-block">Maximum number of tickets a person can buy</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control editor" name="description" rows="5"></textarea>
+                        <span class="help-block">Description of the event</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-calendar fa-fw"></i> Start Date-Time</label>
+                        <input type="text" placeholder="YY-MM-DD HH:MM:SS" style="width: 500px" name="start" class="form-control" />
+                        <span class="help-block">Timings for starting ticket booking</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fa fa-calendar fa-fw"></i> End Date-Time</label>
+                        <input type="text" placeholder="YY-MM-DD HH:MM:SS" style="width: 500px" name="end" class="form-control" />
+                        <span class="help-block">Timings till the ticket can be booked</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="Visibility">Allow Cancellation</label>
+                        <div class="radio">
+                            <label><input type="radio" name="cancel" value="1">True</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="cancel" value="0" checked="">false</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Servie Fee *</label>
+                        <select class="form-control" name="type" required="">
+                            <option value="1">Absorb the fees into the ticket price</option>
+                            <option value="2">Absorb gateway fee and pass on our fee to the buyer</option>
+                            <option value="3">Pass on the fees to the buyer</option>
+                        </select>
+                        <span class="help-block">MyEventGroup.com Service Charges</span>
+                    </div>
+
+                    <input type="hidden" name="action" value="createTicket">
+                    <input type="hidden" name="eventId" value="{echo $event->id}">
+                    <p style="color: red; font-weight: bold;">* fields are required.</p>
+                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check-circle"></i> Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
