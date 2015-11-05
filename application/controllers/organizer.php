@@ -185,19 +185,4 @@ class Organizer extends Controller {
         }
     }*/
 
-    /**
-     * @protected
-     */
-    public function _secure() {
-        $user = $this->getUser();
-        $session = Registry::get("session");
-        // $member = $session->get("member");
-        $member = true;
-
-        if (!$user || !$member) {
-            header("Location: /home");
-            exit();
-        }
-    }
-
 }

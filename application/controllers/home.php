@@ -18,7 +18,7 @@ class Home extends Controller {
         ));
         $view = $this->getActionView();
 
-        $events = Event::all(array("live = ?" => true), array("*"), "created", desc, 50, 1);
+        $events = Event::all(array("live = ?" => true), array("*"), "created", "desc", 50, 1);
         $view->set("events", $events);
     }
 
