@@ -26,7 +26,7 @@ class E extends Organizer {
     	));
         $view = $this->getActionView();
 
-        $events = Events::all(array("user_id = ?" => $this->user->id));
+        $events = Event::all(array("user_id = ?" => $this->user->id));
         $view->set("events", $events);
     }
 
@@ -77,6 +77,10 @@ class E extends Organizer {
         $view = $this->getActionView();
     	$event = Event::first(array("id = ?" => $id));
 
+        if (!$event) {
+            self::redirect("/e/manage");
+        }
+
     	if (RequestMethods::post("action") == "editEvent") {
     		// update event details
     		// $event->save();
@@ -100,6 +104,9 @@ class E extends Organizer {
         $view = $this->getActionView();
 
         $bookings = Booking::all(array("event_id = ?" => $evtId));
+        if (empty($bookings)) {
+            self::redirect("/e/manage");
+        }
 
         $b = array();
         $total = 0;
@@ -128,7 +135,23 @@ class E extends Organizer {
         $view = $this->getActionView();
 
         $event = Event::first(array("id = ?" => $id));
+
+        if (!$event) {
+            self::redirect("/");
+        }
         $view->set("event", $event);
+    }
+
+    public function all() {
+        $this->seo(array(
+            "title" => "Events List",
+            "keywords" => "events, new events, event management, create event, event tickets, book event tickets",
+            "description" => "Display all the latest events. Filter the events by categories, location and much more. Register yourself to turn your passion into your business",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
+
+        // search all the events and display them
     }
 
     protected function _upload() {
