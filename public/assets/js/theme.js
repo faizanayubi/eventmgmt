@@ -187,7 +187,7 @@ var theme = function () {
          }*/
         if ($().isotope) {
             $('.isotope.events').isotope({// initialize isotope
-                filter: '.festival',
+                filter: '.ticketing',
                 itemSelector: '.isotope-item' // options...
                         //,transitionDuration: 0 // disable transition
             });
