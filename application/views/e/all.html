@@ -118,7 +118,7 @@
                                             </span>
                                         </a>
                                         <h3 class="caption-title">
-                                            <a href="event-list.html#">{$e->title}</a>
+                                            <a href="/e/details/{echo Framework\StringMethods::url($e->title)}/{echo $e->id}">{$e->title}</a>
                                         </h3>
                                         <p class="caption-category"><i class="fa fa-file-text-o"></i> {echo Framework\StringMethods::datetime_to_text($e->start)} - {echo Framework\StringMethods::datetime_to_text($e->end)}</p>
                                         {script $ticket = Ticket::first(array("event_id = ?" => $e->id), array("price", "currency"))}

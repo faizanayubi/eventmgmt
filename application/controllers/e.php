@@ -135,11 +135,17 @@ class E extends Organizer {
         $view = $this->getActionView();
 
         $event = Event::first(array("id = ?" => $id));
+        $location = Location::first(array("property = ?" => "event", "property_id = ?" => $event->id));
+        $organizer = User::first(array("id = ?" => $event->user_id));
+        $similar = Event::all(array("category = ?" => $event->category));
 
         if (!$event) {
             self::redirect("/");
         }
         $view->set("event", $event);
+        $view->set("location", $location);
+        $view->set("organizer", $organizer);
+        $view->set("similar", $similar);
     }
 
     public function all() {
