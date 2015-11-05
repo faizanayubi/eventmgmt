@@ -1,0 +1,167 @@
+<section class="page-section image breadcrumbs overlay">
+    <div class="container">
+        <h1>ALL EVENTs</h1>
+        <ul class="breadcrumb">
+            <li>
+                <a href="/home">Home</a>
+            </li>
+            <li>
+                <a href="/event-list.html">Events</a>
+            </li>
+            <li class="active">List Events</li>
+        </ul>
+    </div>
+</section>
+<!-- PAGE -->
+<section class="page-section with-sidebar sidebar-right first-section">
+    <div class="container">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar col-sm-4 col-md-3">
+            <div class="widget">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="event-list.html#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Event Type
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <a href="#">Ticketing</a><br>
+                                <a href="#">Conference</a><br>
+                                <a href="#">Charity</a><br>
+                                <a href="#">RSVP</a><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="event-list.html#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Categories
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                {include e/modals/categories.html}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="event-list.html#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Date
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <p>Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingFour">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="event-list.html#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Price
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                            <div class="panel-body">
+                                <p>Fusce pellentesque velvitae tincidunt egestas. Pellentesque habitant morbi.Proin gravida nibh vel velit auctor aliquet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- /Sidebar -->
+        <hr class="page-divider transparent visible-xs" />
+        <!-- Content -->
+        <section id="content" class="content col-sm-8 col-md-9">
+            <div class="listing-meta">
+                <div class="filters">
+                    <a href="event-list.html#">Business <i class="fa fa-times"></i></a>
+                    <a href="event-list.html#">Networking <i class="fa fa-times"></i></a>
+                    <a href="event-list.html#">Free <i class="fa fa-times"></i></a>
+                </div>
+                <div class="options">
+                    <a class="byrevelance" href="event-list.html#">Revelance</a>
+                    <a class="bydate active" href="event-list.html#">DATE</a>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="list-view" class="tab-pane fade active in" role="tabpanel">
+                    <div class="thumbnails events vertical">
+                        {foreach $e in $events}
+                        <div class="thumbnail no-border no-padding">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3 col-xs-4">
+                                    <div class="media">
+                                        <a href="event-list.html#" class="like"><i class="fa fa-heart"></i></a>
+                                        <img src="{echo CDN}uploads/images/{echo $e->listingImage}" alt="">
+                                        <div class="caption hovered"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8">
+                                    <div class="caption">
+                                        <a href="event-list.html#" class="pull-right">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-stack-2x fa-circle-thin"></i>
+                                                <i class="fa fa-stack-1x fa-share-alt"></i>
+                                            </span>
+                                        </a>
+                                        <h3 class="caption-title">
+                                            <a href="event-list.html#">{$e->title}</a>
+                                        </h3>
+                                        <p class="caption-category"><i class="fa fa-file-text-o"></i> {echo Framework\StringMethods::datetime_to_text($e->start)} - {echo Framework\StringMethods::datetime_to_text($e->end)}</p>
+                                        {script $ticket = Ticket::first(array("event_id = ?" => $e->id), array("price", "currency"))}
+                                        <p class="caption-price">Tickets from {echo $ticket->currency} {echo $ticket->price}</p>
+                                        <p class="caption-text">{echo $e->description}</p>
+                                        <p class="caption-more">
+                                            <a href="/tickets/event/{echo Framework\StringMethods::url($e->title)}/{echo $e->id}" class="btn btn-theme">Tickets &amp; details</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="page-divider half" />
+                        {/foreach}
+                    </div>
+                    <!-- Pagination -->
+                    <div class="pagination-wrapper">
+                        <ul class="pagination">
+                            <li class="disabled">
+                                <a href="event-list.html#"><i class="fa fa-chevron-left"></i></a>
+                            </li>
+                            <li class="active">
+                                <a href="event-list.html#">1 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li>
+                                <a href="event-list.html#">2</a>
+                            </li>
+                            <li>
+                                <a href="event-list.html#">3</a>
+                            </li>
+                            <li>
+                                <a href="event-list.html#">4</a>
+                            </li>
+                            <li>
+                                <a href="event-list.html#"><i class="fa fa-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /Pagination -->
+                </div>
+            </div>
+        </section>
+        <!-- /Content -->
+    </div>
+</section>
+<!-- /PAGE -->

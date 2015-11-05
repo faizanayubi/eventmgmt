@@ -151,7 +151,8 @@ class E extends Organizer {
         ));
         $view = $this->getActionView();
 
-        // search all the events and display them
+        $events = Event::all(array("live = ?" => true));
+        $view->set("events", $events);
     }
 
     /**
