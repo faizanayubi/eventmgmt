@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/organizer">
-            <i class="fa fa-briefcase fa-fw"></i>Company Name
+            <i class="fa fa-briefcase fa-fw"></i>MyEventGroup
         </a>
     </div>
     <!-- /.navbar-header -->
@@ -21,8 +21,8 @@
                 <i class="fa fa-user fa-fw"></i> {echo $user->name}  <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li><a href="/organizer/faq"><i class="fa fa-thumbs-up fa-fw"></i> Help</a></li>
                 <li><a href="/organizer"><i class="fa fa-gear fa-fw"></i> Dashboard</a></li>
+                <li><a href="/organizer/faq"><i class="fa fa-user fa-fw"></i> Contact</a></li>
                 <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                 <li class="divider"></li>
                 
@@ -39,29 +39,20 @@
                 <a href="#"><i class="fa fa-user fa-fw"></i> Profile<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li><a href="/organizer/settings">Settings</a></li>
-                    <li><a href="/organizer/members">Members</a></li>
                     <li><a href="/organizer/messages">Messages</a></li>
                 </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-building-o fa-fw"></i> Company<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="/organization/{echo Framework\StringMethods::url($organizer->organization->name)}/{echo $organizer->organization->id}" target="_blank">View</a></li>
-                    <li><a href="https://www.linkedin.com/company/{echo $organizer->organization->linkedin_id}" target="_blank">LinkedIn</a></li>
+                    <li><a href="/organizer/addCompany">Add</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> My Internships<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-graduation-cap fa-fw"></i> My Events<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
-                    <li><a href="/internship/post">Create</a></li>
-                    <li><a href="/internship/manage">Manage</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Analytics<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li><a href="/organizer/followers">Followers</a></li>
-                    <li><a href="/organizer/reach">Reach</a></li>
+                    <li><a href="/e/create">Create</a></li>
+                    <li><a href="/e/manage">Manage</a></li>
                 </ul>
             </li>
             <li><a href="/organizer/resources"><i class="fa fa-wrench fa-fw"></i> Resources</a></li>

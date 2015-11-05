@@ -8,7 +8,7 @@
         </div>
         {/if}
 
-        {if(isset($user->phone))}
+        {if (isset($user->phone))}
         <div class="alert alert-warning alert-dismissible fade in" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
             Please Enter your <strong>Phone Number</strong> for verification Call
@@ -39,36 +39,6 @@
             <input type="hidden" name="action" value="saveUser">
             <button type="submit" class="btn btn-success pull-right">Save <i class="fa fa-check-circle fa-fw"></i></button>
         </form><br>
-
-        <h3>Account Type</h3>
-        <form class="panel panel-default panel-body" method="post" action="">
-            <div class="radio">
-                <label>
-                    <input type="radio" name="account" value="basic" {if($organizer->organization->account == "basic")}checked{/if}>
-                    BASIC
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="account" value="training" {if($organizer->organization->account == "training")}checked{/if}>
-                    TRAINING
-                </label>
-            </div>
-            <div class="radio">
-                <label>
-                    <input type="radio" name="account" value="competition" {if($organizer->organization->account == "competition")}checked{/if}>
-                    COMPETITION
-                </label>
-            </div>
-            <input type="hidden" name="action" value="saveAccount">
-            <button type="submit" class="btn btn-success pull-right">Save <i class="fa fa-check-circle fa-fw"></i></button>
-        </form><br>
-
-        <h3>Newsletter</h3>
-        <ul class="list-group">
-            <li class="list-group-item">Monthly Summary <span class="badge"><input type="checkbox" checked=""></span></li>
-            <li class="list-group-item">Notification on Student Apply <span class="badge"><input type="checkbox" checked=""></span></li>
-        </ul>
 
     </div>
 </div>

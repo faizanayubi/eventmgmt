@@ -1,0 +1,41 @@
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Events</h1>
+            <div class="panel panel-default">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>S. No.</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Posted</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {script $i = 1}
+                        {foreach $e in $events}
+                        <tr>
+                            <td>{echo $i}</td>
+                            <td><a href="/e/details/{echo Framework\StringMethods::url($e->title)}/{echo $e->id}" target="_blank" >{echo $e->title}</a></td>
+                            <td>{echo $e->category}</td>
+                            <td>{echo $e->created}</td>
+                            <td>
+                                <a href="/eventticket/create/{echo $e->id}" class="btn btn-primary btn-xs"> Create Ticket</a>
+                                <a href="/eventticket/view/{echo $e->id}" class="btn btn-primary btn-xs"> View Ticket</a>
+                                <a href="/eventticket/update/{echo $e->id}" class="btn btn-info btn-xs"><i class="fa fa-fax"></i> Edit Ticket</a>
+                                
+                                <a href="/e/bookings/{echo $e->id}" class="btn btn-default btn-xs"><i class="fa fa-object-ungroup"></i> View Bookings</a>
+                                <a href="/e/edit/{echo $e->id}" class="btn btn-success btn-xs"><i class="fa fa-gg"></i> Edit Event </a>&nbsp;
+                            </td>
+                        </tr>
+                        {script ++$i}
+                        {/foreach}
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>

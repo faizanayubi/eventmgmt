@@ -24,6 +24,9 @@ class Organizer extends Controller {
         $this->seo(array("title" => "Dashboard","keywords" => "dashboard","description" => "Contains all realtime stats","view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
+        $events = Event::count(array("user_id = ?" => $this->user->id));
+        $view->set('events', $events);
+
         // if (isset($id)) { $this->switchorg($id);}
     }
 

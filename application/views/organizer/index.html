@@ -1,13 +1,20 @@
 <div id="page-wrapper">
     <div class="row col-lg-12">
         <h1 class="page-header text-center">Dashboard</h1>
-    
+
         <div class="col-lg-4">
             <div class="list-group">
                 <a class="list-group-item active text-center">
                     <i class="fa fa-line-chart"></i> Stats
                 </a>
-                <a href="#">Link</a>
+                <a href="#" class="list-group-item">
+                    Events
+                    <span class="badge">{echo $events}</span>
+                </a>
+                <a href="#" class="list-group-item">
+                    Tickets Sold
+                    <span class="badge">0</span>
+                </a>
             </div>
         </div>
 
@@ -16,8 +23,9 @@
                 <a class="list-group-item active text-center">
                     <i class="fa fa-link"></i> Quick Links
                 </a>
-                <a href="/internship/post" class="list-group-item"><i class="fa fa-edit fa-2x"></i> Post Internship</a>
-                <a class="list-group-item disabled"><i class="fa fa-plug fa-2x"></i> Add Features(Coming Soon)</a>
+                <a href="/e/create/" class="list-group-item"><i class="fa fa-edit fa-2x"></i> Create Event</a>
+                <a href="/organizer/settings" class="list-group-item"><i class="fa fa-cog fa-2x"></i> Settings</a>
+                <a href="/e/manage/" class="list-group-item"><i class="fa fa-object-ungroup fa-2x"></i> Manage Events</a>
             </div>
         </div>
 
@@ -26,9 +34,8 @@
                 <a class="list-group-item active text-center">
                     <i class="fa fa-support"></i> Support
                 </a>
-                <a href="https://www.youtube.com/watch?v=eFb62jX3WF4" target="_blank" class="list-group-item"><i class="fa fa-youtube-square fa-2x"></i>  How to Post Internship?</a>
-                <a href="/organizer/resources" class="list-group-item"><i class="fa fa-question-circle fa-2x"></i>  FAQs</a>
-                <a href="/contact" class="list-group-item"><i class="fa fa-exclamation-circle fa-2x"></i>  Report a Problem</a>
+                <a href="https://www.youtube.com/watch?v=eFb62jX3WF4" target="_blank" class="list-group-item"><i class="fa fa-youtube-square fa-2x"></i>  How to Create an Event?</a>
+                <a href="/contact-us" class="list-group-item"><i class="fa fa-exclamation-circle fa-2x"></i>  Report a Problem</a>
             </div>
         </div>
 
