@@ -3,8 +3,7 @@ $(document).ready(function () {
     theme.init();
     theme.initMainSlider();
     theme.initCountDown();
-    theme.initPartnerSlider();
-    theme.initTestimonials();
+    theme.initImageCarousel();
     theme.initCorouselSlider4();
     theme.initCorouselSlider3();
     theme.initGoogleMap();
@@ -14,7 +13,10 @@ $(window).load(function () {
 });
 
 $(window).load(function () {
-    $("body").scrollspy({offset: 100, target: ".navigation"});
+    $("body").scrollspy({
+        offset: 100,
+        target: ".navigation"
+    });
 });
 $(window).load(function () {
     $("body").scrollspy("refresh");
