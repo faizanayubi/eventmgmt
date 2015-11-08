@@ -28,9 +28,9 @@ class Ticket extends Shared\Model {
      * @type decimal
      * @index
      *
-     * @label 0 => Free
+     * @label 0.00 => Free
      */
-    protected $_price = 0;
+    protected $_price = 0.00;
 
     /**
      * @column

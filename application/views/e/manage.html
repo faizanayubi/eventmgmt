@@ -22,8 +22,13 @@
                             <td>{echo $e->category}</td>
                             <td>{echo $e->created}</td>
                             <td>
+                                {script $ticket = Ticket::first(array("event_id = ?" => $e->id))}
+                                {if !$ticket}
                                 <a href="/eventticket/create/{echo $e->id}" class="btn btn-primary btn-xs"> Create Ticket</a>
+                                {/if}
+                                {else}
                                 <a href="/eventticket/view/{echo $e->id}" class="btn btn-primary btn-xs"> View Ticket</a>
+                                {/else}
                                 <a href="/eventticket/update/{echo $e->id}" class="btn btn-info btn-xs"><i class="fa fa-fax"></i> Edit Ticket</a>
                                 
                                 <a href="/e/bookings/{echo $e->id}" class="btn btn-default btn-xs"><i class="fa fa-object-ungroup"></i> View Bookings</a>

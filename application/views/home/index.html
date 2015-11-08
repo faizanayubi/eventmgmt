@@ -114,7 +114,12 @@
                                         {echo Framework\StringMethods::datetime_to_text($e->start)}
                                     </p>
                                     {script $ticket = Ticket::first(array("event_id = ?" => $e->id), array("price", "currency"))}
+                                    {if $ticket->price == "0.00"}
+                                    <p class="caption-price">Tickets are <strong>Free!!</strong></p>
+                                    {/if}
+                                    {else}
                                     <p class="caption-price">Tickets from {echo $ticket->currency} {echo $ticket->price}</p>
+                                    {/else}
                                     <p class="caption-text">{echo $e->description}</p>
                                     <p class="caption-more">
                                         <a href="/tickets/event/{echo Framework\StringMethods::url($e->title)}/{echo $e->id}" class="btn btn-theme">Tickets &amp; details</a>
@@ -127,7 +132,7 @@
                 {/foreach}
             </div>
             <div class="text-center margin-top">
-                <a data-animation="fadeInUp" data-animation-delay="100" href="/e/all" class="btn btn-theme btn-theme-grey-dark btn-theme-md"><i class="fa fa-file-text-o"></i> See all events</a>
+                <a data-animation="fadeInUp" data-animation-delay="100" href="/event-list" class="btn btn-theme btn-theme-grey-dark btn-theme-md"><i class="fa fa-file-text-o"></i> See all events</a>
             </div>
         </div>
     </section>

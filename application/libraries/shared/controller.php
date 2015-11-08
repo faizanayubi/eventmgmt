@@ -53,7 +53,7 @@ namespace Shared {
         public function _secure() {
             $user = $this->getUser();
             if (!$user) {
-                header("Location: /login.html");
+                header("Location: /login");
                 exit();
             }
         }

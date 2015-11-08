@@ -283,7 +283,12 @@
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> {echo Framework\StringMethods::only_date($e->start)}</p>
                                     <p class="caption-category"> <i class="fa fa-map-marker"></i> Manhattan / New York</p>
                                     {script $ticket = Ticket::first(array("event_id = ?" => $e->id), array("price", "currency"))}
+                                    {if $ticket->price == 0}
+                                    <p class="caption-price">Tickets are <strong>Free!!</strong></p>
+                                    {/if}
+                                    {else}
                                     <p class="caption-price">Tickets from {echo $ticket->currency} {echo $ticket->price}</p>
+                                    {/else}
                                     <p class="caption-text">{$e->description}</p>
                                     <p class="caption-more">
                                         <a href="#" class="btn btn-theme">Tickets &amp; details</a>
