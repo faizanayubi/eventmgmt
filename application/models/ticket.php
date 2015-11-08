@@ -26,6 +26,7 @@ class Ticket extends Shared\Model {
      * @column
      * @readwrite
      * @type decimal
+     * @length 11,2
      * @index
      *
      * @label 0.00 => Free

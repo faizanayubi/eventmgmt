@@ -16,15 +16,19 @@ class EventTicket extends E {
     /**
      * @before _secure, changeLayout
      */
-    public function create($evntId) {
-    	$this->seo(array(
-    		"title" => "Dashboard | Create Event Ticket",
-    		"keywords" => "dashboard",
-    		"description" => "Contains all realtime stats",
-    		"view" => $this->getLayoutView()
-    	));
+    public function create() {
+    	$evntId = RequestMethods::get("event");
+        $event = \Event::first(array("id = ?" => $evntId), array("title", "id", "end"));
+        if (!$event) {
+            self::redirect("/e/manage");
+        }
+        $this->seo(array(
+            "title" => "Dashboard | Create Event Ticket",
+            "keywords" => "dashboard",
+            "description" => "Contains all realtime stats",
+            "view" => $this->getLayoutView()
+        ));
         $view = $this->getActionView();
-        $event = Event::first(array("id = ?" => $evntId), array("title", "id", "end"));
         $view->set("event", $event);
 
         if (RequestMethods::post("action") == "createTicket") {
@@ -32,21 +36,8 @@ class EventTicket extends E {
                 $view->set("message", "Invalid Request");
                 return;
             }
-            $ticket = new Ticket(array(
-                "name" => RequestMethods::post("name"),
-                "price" => RequestMethods::post("price"),
-                "currency" => RequestMethods::post("currency"),
-                "description" => RequestMethods::post("description"),
-                "start" => RequestMethods::post("start", date('Y-m-d H:i:s')),
-                "end" => RequestMethods::post("end", $event->end),
-                "allowCancellation" => RequestMethods::post("cancel"),
-                "serviceFee" => RequestMethods::post("serviceFee"),
-                "quantity" => RequestMethods::post("quantity"),
-                "min_quantity" => RequestMethods::post("minQuantity", "1"),
-                "max_quantity" => RequestMethods::post("maxQuantity", "10"),
-                "event_id" => $evntId
-            ));
-            $ticket->save();
+
+            $this->save($event);
             $view->set("message", 'Ticket Created <strong>Successfully!</strong>. Go to <a href="/e/manage">Manage Events</a>');
         }
     }
@@ -54,7 +45,13 @@ class EventTicket extends E {
     /**
      * @before _secure, changeLayout
      */
-    public function update($evtId) {
+    public function update() {
+        $evtId = RequestMethods::get("eventId");
+        $ticket = \Ticket::first(array("event_id = ?" => $evtId));
+        $event = \Event::first(array("id = ?" => $evtId), array("id", "end", "title"));
+        if (!$ticket || !$event) {
+            self::redirect("/e/manage");
+        }
     	$this->seo(array(
     		"title" => "Dashboard | Update Event Ticket",
     		"keywords" => "dashboard",
@@ -63,13 +60,12 @@ class EventTicket extends E {
     	));
         $view = $this->getActionView();
 
-        $ticket = Ticket::first(array("event_id = ?" => $evtId));
-
         if (RequestMethods::post("action") == "updateTicket") {
-        	// update ticket details
-        	// $ticket->save();
+        	$this->save($event, $ticket);
+            $view->set("message", 'Ticket Updated <strong>Successfully!</strong>. Go to <a href="/e/manage">Manage Events</a>');
         }
         $view->set("ticket", $ticket);
+        $view->set("event", $event);
     }
 
     /**
@@ -84,8 +80,30 @@ class EventTicket extends E {
     	));
         $view = $this->getActionView();
 
-        $ticket = Ticket::first(array("event_id = ?" => $evtId));
+        $ticket = \Ticket::first(array("event_id = ?" => $evtId));
         $view->set("ticket", $ticket);
+    }
+
+    protected function save($event, $ticket = null) {
+        if (!$ticket) {
+            $ticket = new \Ticket();
+        }
+
+        $ticket->name = RequestMethods::post("name");
+        $ticket->price = RequestMethods::post("price");
+        $ticket->currency = RequestMethods::post("currency");
+        $ticket->description = RequestMethods::post("description");
+        $ticket->start = RequestMethods::post("start", date('Y-m-d H:i:s'));
+        $ticket->end = RequestMethods::post("end", $event->end);
+        $ticket->allowCancellation = RequestMethods::post("cancel");
+        $ticket->serviceFee = RequestMethods::post("serviceFee");
+        $ticket->quantity = RequestMethods::post("quantity");
+        $ticket->min_quantity = RequestMethods::post("minQuantity", "1");
+        $ticket->max_quantity = RequestMethods::post("maxQuantity", "10");
+        $ticket->event_id = $event->id;
+
+        $ticket->save();
+        return $ticket;
     }
 
 }

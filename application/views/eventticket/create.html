@@ -10,7 +10,7 @@
             {if isset($message)}
             <div class="alert alert-success alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                Ticket Created <strong>Successfully!</strong>. Go to <a href="/e/manage">Manage Events</a>
+                {echo $message}
             </div><br>
             {/if}
             <form method="post" action="" enctype="multipart/form-data">
@@ -83,7 +83,7 @@
 
                     <div class="form-group">
                         <label>Servie Fee *</label>
-                        <select class="form-control" name="type" required="">
+                        <select class="form-control" name="serviceFee" required="">
                             <option value="1">Absorb the fees into the ticket price</option>
                             <option value="2">Absorb gateway fee and pass on our fee to the buyer</option>
                             <option value="3">Pass on the fees to the buyer</option>
@@ -94,6 +94,7 @@
                     <input type="hidden" name="action" value="createTicket">
                     <input type="hidden" name="eventId" value="{echo $event->id}">
                     <p style="color: red; font-weight: bold;">* fields are required.</p>
+                    <a href="/e/manage" class="btn btn-warning pull-right"><i class="fa fa-times"></i> Cancel</a>
                     <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check-circle"></i> Submit</button>
                 </div>
             </form>
