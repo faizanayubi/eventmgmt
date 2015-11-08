@@ -44,23 +44,8 @@ class E extends Organizer {
         $view = $this->getActionView();
     	
     	if (RequestMethods::post('action') == 'createEvent') {
-    		// code to upload file
-    		$event = new Event(array(
-    			"title" => RequestMethods::post("title"),
-    			"type" => RequestMethods::post("type"),
-    			"category" => RequestMethods::post("category"),
-    			"description" => RequestMethods::post("description", ""),
-    			"start" => RequestMethods::post("start"),
-    			"end" => RequestMethods::post("end"),
-    			"visibility" => RequestMethods::post("visibility", "public"),
-    			"user_id" => $this->user->id,
-    			"listingImage" => $this->_upload("listingImage"),
-    			"headerImage" => $this->_upload("headerImage"),
-
-    		));
-
-    		$event->save();
-            $view->set("success", true);
+    		$this->save();
+            $view->set("success", 'Event Created <strong>Successfully!</strong>. Go to <a href="/e/manage">Manage Events</a>');
     	}
     }
 
@@ -68,27 +53,25 @@ class E extends Organizer {
      * @before _secure, changeLayout
      */
     public function edit($id) {
-    	$this->seo(array(
-    		"title" => "Dashboard | Edit an Event",
-    		"keywords" => "dashboard, events, edit event",
-    		"description" => "Contains all realtime stats",
-    		"view" => $this->getLayoutView()
-    	));
-        $view = $this->getActionView();
-    	$event = Event::first(array("id = ?" => $id));
-
+    	$event = \Event::first(array("id = ?" => $id));
         if (!$event) {
             self::redirect("/e/manage");
         }
 
-    	if (RequestMethods::post("action") == "editEvent") {
-    		// update event details
-    		// $event->save();
+        $this->seo(array(
+            "title" => "Dashboard | Edit an Event",
+            "keywords" => "dashboard, events, edit event",
+            "description" => "Contains all realtime stats",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
 
-    		$view->set("success", "Event has been updated");
+    	if (RequestMethods::post("action") == "updateEvent") {
+    		$event = $this->save($event);
+    		$view->set("message", "Event has been updated");
     	}
 
-    	$view->set("event", $event);
+    	$view->set("e", $event);
     }
 
     /**
@@ -180,6 +163,27 @@ class E extends Organizer {
                 return FALSE;
             }
         }
+    }
+
+    protected function save($event = null) {
+        if (!$event) {
+            $event = new \Event(array(
+                "listingImage" => $this->_upload("listingImage"),
+                "headerImage" => $this->_upload("headerImage")
+            ));
+        }
+
+        $event->title = RequestMethods::post("title");
+        $event->type = RequestMethods::post("type");
+        $event->category = RequestMethods::post("category");
+        $event->description = RequestMethods::post("description", "");
+        $event->start = RequestMethods::post("start");
+        $event->end = RequestMethods::post("end");
+        $event->visibility = RequestMethods::post("visibility", "public");
+        $event->user_id = $this->user->id;
+        
+        $event->save();
+        return $event;
     }
 
 }
