@@ -32,11 +32,6 @@ $routes = array(
         "pattern" => "event-list",
         "controller" => "e",
         "action" => "all"
-    ),
-    array(
-        "pattern" => "tickets/event/:name/:id",
-        "controller" => "eventticket",
-        "action" => "view"
     )
 
 );

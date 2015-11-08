@@ -9,10 +9,6 @@ use Framework\RequestMethods as RequestMethods;
  */
 class EventTicket extends E {
 
-    public function index() {
-        
-    }
-
     /**
      * @before _secure, changeLayout
      */
@@ -66,22 +62,6 @@ class EventTicket extends E {
         }
         $view->set("ticket", $ticket);
         $view->set("event", $event);
-    }
-
-    /**
-     * @before _secure, changeLayout
-     */
-    public function view($evtId) {
-    	$this->seo(array(
-    		"title" => "Dashboard | Manage Event Ticket",
-    		"keywords" => "dashboard",
-    		"description" => "Contains all realtime stats",
-    		"view" => $this->getLayoutView()
-    	));
-        $view = $this->getActionView();
-
-        $ticket = \Ticket::first(array("event_id = ?" => $evtId));
-        $view->set("ticket", $ticket);
     }
 
     protected function save($event, $ticket = null) {

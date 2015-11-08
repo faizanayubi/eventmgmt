@@ -291,7 +291,7 @@
                                     {/else}
                                     <p class="caption-text">{$e->description}</p>
                                     <p class="caption-more">
-                                        <a href="#" class="btn btn-theme">Tickets &amp; details</a>
+                                        <a href="/e/details/{echo Framework\StringMethods::url($e->title)}/{echo $e->id}" class="btn btn-theme">Tickets &amp; details</a>
                                     </p>
                                 </div>
                             </div>
