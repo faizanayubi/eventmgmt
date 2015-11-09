@@ -131,17 +131,39 @@ class E extends Organizer {
         $view->set("similar", $similar);
     }
 
+    /**
+     * All Events List to public
+     */
     public function all() {
         $this->seo(array(
-            "title" => "Events List",
+            "title" => "All Events List",
             "keywords" => "events, new events, event management, create event, event tickets, book event tickets",
             "description" => "Display all the latest events. Filter the events by categories, location and much more. Register yourself to turn your passion into your business",
             "view" => $this->getLayoutView()
         ));
         $view = $this->getActionView();
 
-        $events = Event::all(array("live = ?" => true));
+        $title = RequestMethods::get("title", "");
+        $category = RequestMethods::get("category", "");
+        $type = RequestMethods::get("type", "");
+        $limit = RequestMethods::get("limit", 10);
+        $page = RequestMethods::get("page", 1);
+        $where = array(
+            "title LIKE ?" => "%{$title}%",
+            "category LIKE ?" => "%{$category}%",
+            "type LIKE ?" => "%{$type}%",
+            "live = ?" => true
+        );
+        $events = Event::all($where, array("*"), "created", "desc", $limit, $page);
+        $count = Event::count($where);
+
         $view->set("events", $events);
+        $view->set("limit", $limit);
+        $view->set("page", $page);
+        $view->set("count", $count);
+        $view->set("title", $title);
+        $view->set("type", $type);
+        $view->set("category", $category);
     }
 
     /**
