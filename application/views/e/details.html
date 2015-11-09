@@ -2,12 +2,8 @@
     <div class="container">
         <h1>EVENT DETAILs</h1>
         <ul class="breadcrumb">
-            <li>
-                <a href="/home">Home</a>
-            </li>
-            <li>
-                <a href="/event-list">Events</a>
-            </li>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/e/all">Events</a></li>
             <li class="active">{echo $event->title}</li>
         </ul>
     </div>
@@ -22,204 +18,16 @@
                     <img class="img-responsive" src="{echo CDN}uploads/images/{echo $event->headerImage}" alt="" />
                 </div>
             </div>
-            <!-- -->
             <hr class="page-divider transparent half" />
-            <!-- -->
+            
             <h1 class="section-title">
                 <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-star fa-stack-1x"></i></span></span>
                 <span class="title-inner">{echo $event->title}</small></span>
             </h1>
             <p class="font_roboto font_size16">{echo $event->description}</p>
-            <p class="btn-row">
-                <a href="/e/register/{echo $event->id}" class="btn btn-theme btn-theme-xl scroll-to">Register <i class="fa fa-arrow-circle-right"></i></a>
-                <a href="#" class="btn btn-theme btn-theme-xl btn-theme-transparent">Watch video</a>
-            </p>
-            <!-- -->
             <hr class="page-divider transparent" />
-            <!-- -->
+            <hr class="page-divider line large" />
             
-            <hr class="page-divider line" />
-            <!-- -->
-            <h1 class="section-title clearfix">
-                <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-user fa-stack-1x"></i></span></span>
-                <span class="title-inner">Event Price list <small> / perfect price for event</small></span>
-            </h1>
-            <div class="row price-tables">
-                <div class="col-xsp-6 col-sm-6 col-md-6 col-lg-4">
-                    <div class="price-table">
-                        <div class="price-table-header">
-                            <div class="price-label">
-                                <h2 class="price-label-title">Personal</h2>
-                            </div>
-                            <div class="price-value">
-                                <span class="price-number">111</span><span class="price-unit">$</span><span class="price-per"></span>
-                            </div>
-                        </div>
-                        <div class="price-table-rows">
-                            <div class="price-table-row"><i class="fa fa-check-circle-o"></i> Lorem ipsum dolor sit amet</div>
-                            <div class="price-table-row odd"><i class="fa fa-check-circle-o"></i> Consectetur adipiscing elit</div>
-                            <div class="price-table-row"><i class="fa fa-check-circle-o"></i> Sed vitae diam metus</div>
-                            <div class="price-table-row odd"><i class="fa fa-check-circle-o"></i> Donec cursus magna</div>
-                            <div class="price-table-row-bottom">
-                                <a class="btn btn-theme scroll-to" href="#">Register</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xsp-6 col-sm-6 col-md-6 col-lg-4">
-                    <div class="price-table featured">
-                        <div class="price-table-header">
-                            <div class="price-label">
-                                <h2 class="price-label-title">Company</h2>
-                            </div>
-                            <div class="price-value">
-                                <span class="price-number">124</span><span class="price-unit">$</span><span class="price-per"></span>
-                            </div>
-                        </div>
-                        <div class="price-table-rows">
-                            <div class="price-table-row"><i class="fa fa-check-circle-o"></i> Lorem ipsum dolor sit amet</div>
-                            <div class="price-table-row odd"><i class="fa fa-check-circle-o"></i> Consectetur adipiscing elit</div>
-                            <div class="price-table-row"><i class="fa fa-check-circle-o"></i> Sed vitae diam metus</div>
-                            <div class="price-table-row odd"><i class="fa fa-check-circle-o"></i> Donec cursus magna</div>
-                            <div class="price-table-row-bottom">
-                                <a class="btn btn-theme scroll-to" href="#">Register</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xsp-6 col-sm-6 col-md-6 col-lg-4">
-                    <div class="price-table">
-                        <div class="price-table-header">
-                            <div class="price-label">
-                                <h2 class="price-label-title">Business</h2>
-                            </div>
-                            <div class="price-value">
-                                <span class="price-number">175</span><span class="price-unit">$</span><span class="price-per"></span>
-                            </div>
-                        </div>
-                        <div class="price-table-rows">
-                            <div class="price-table-row"><i class="fa fa-check-circle-o"></i> Lorem ipsum dolor sit amet</div>
-                            <div class="price-table-row odd"><i class="fa fa-check-circle-o"></i> Consectetur adipiscing elit</div>
-                            <div class="price-table-row"><i class="fa fa-check-circle-o"></i> Sed vitae diam metus</div>
-                            <div class="price-table-row odd"><i class="fa fa-check-circle-o"></i> Donec cursus magna</div>
-                            <div class="price-table-row-bottom">
-                                <a class="btn btn-theme scroll-to" href="#">Register</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- -->
-            <hr class="page-divider line large" />
-            <!-- -->
-            <div class="row">
-                <div class="col-md-8 pull-left">
-                    <h1 class="section-title">
-                        <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-question fa-stack-1x"></i></span></span>
-                        <span class="title-inner">Event FAQS <small> / find your answers</small></span>
-                    </h1>
-                </div>
-                <div class="col-md-4 text-right-md pull-right">
-                    <a href="#" class="btn btn-theme btn-theme-lg btn-theme-transparent-grey pull-right"><i class="fa fa-pencil"></i> Open a ticket</a>
-                </div>
-            </div>
-            <div class="row faq-alt">
-                <div class="col-md-6">
-                    <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne1">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne1" aria-expanded="true" aria-controls="collapseOne1">
-                                        How to make New Event ?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseOne1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne1">
-                                <div class="panel-body">
-                                    Praesent ac sem in neque venenatis tristique. Morbi et ligula velit. Nullam a augue vel mi porta vestibulum non ac elit. Vivamus convallis tortor et. Hac habitasse platea dictumst.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingTwo1">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
-                                        How to make New Event ?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo1">
-                                <div class="panel-body">
-                                    Praesent ac sem in neque venenatis tristique. Morbi et ligula velit. Nullam a augue vel mi porta vestibulum non ac elit. Vivamus convallis tortor et. Hac habitasse platea dictumst.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingThree1">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapseThree1" aria-expanded="false" aria-controls="collapseThree1">
-                                        How to make New Event ?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseThree1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree1">
-                                <div class="panel-body">
-                                    Praesent ac sem in neque venenatis tristique. Morbi et ligula velit. Nullam a augue vel mi porta vestibulum non ac elit. Vivamus convallis tortor et. Hac habitasse platea dictumst.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne2">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
-                                        How to make New Event ?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseOne2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne2">
-                                <div class="panel-body">
-                                    Praesent ac sem in neque venenatis tristique. Morbi et ligula velit. Nullam a augue vel mi porta vestibulum non ac elit. Vivamus convallis tortor et. Hac habitasse platea dictumst.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingTwo2">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
-                                        How to make New Event ?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo2">
-                                <div class="panel-body">
-                                    Praesent ac sem in neque venenatis tristique. Morbi et ligula velit. Nullam a augue vel mi porta vestibulum non ac elit. Vivamus convallis tortor et. Hac habitasse platea dictumst.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingThree2">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree2" aria-expanded="false" aria-controls="collapseThree2">
-                                        How to make New Event ?
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseThree2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree2">
-                                <div class="panel-body">
-                                    Praesent ac sem in neque venenatis tristique. Morbi et ligula velit. Nullam a augue vel mi porta vestibulum non ac elit. Vivamus convallis tortor et. Hac habitasse platea dictumst.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- -->
-            <hr class="page-divider line large" />
-            <!-- -->
             <h1 class="section-title">
                 <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-ticket fa-stack-1x"></i></span></span>
                 <span class="title-inner">Register now <small> / dont mıss event!</small></span>
@@ -324,7 +132,19 @@
                                     <li>From {echo Framework\StringMethods::datetime_to_text($event->start)}</li>
                                     <li>To {echo Framework\StringMethods::datetime_to_text($event->end)}</li>
                                 </ul>
-                                <a href="#"><i class="fa fa-calendar"></i> Add to My Calendar</a>
+                                <div title="Add to Calendar" class="addeventatc">
+                                    Add to My Calendar
+                                    <span class="start">{$event->start}</span>
+                                    <span class="end">{$event->end}</span>
+                                    <span class="timezone">Asia/Kolkata</span>
+                                    <span class="title">{$event->title}</span>
+                                    <span class="description">{$event->description}</span>
+                                    <span class="location">{$location->street}, {$location->area}, {$location->city}</span>
+                                    <span class="organizer">MyEventGroup.com</span>
+                                    <span class="organizer_email">info@myeventgroup.com</span>
+                                    <span class="all_day_event">false</span>
+                                    <span class="date_format">YYYY-MM-DD</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -355,3 +175,6 @@
     </div>
 </section>
 <!-- /PAGE -->
+
+<!-- AddEvent -->
+<script type="text/javascript" src="https://addevent.com/libs/atc/1.6.1/atc.min.js"></script>
