@@ -1,11 +1,11 @@
 <?php
 
 /**
- * The Location Model
+ * The Place Model
  *
- * @author Hemant Mann
+ * @author Faizan Ayubi
  */
-class Location extends Shared\Model {
+class Place extends Shared\Model {
 
     /**
      * @column
@@ -18,9 +18,17 @@ class Location extends Shared\Model {
     /**
      * @column
      * @readwrite
+     * @type integer
+     * @index
+     */
+    protected $_location_id;
+
+    /**
+     * @column
+     * @readwrite
      * @type text
      */
-    protected $_address;
+    protected $_details;
 
     /**
      * @column
@@ -28,21 +36,19 @@ class Location extends Shared\Model {
      * @type text
      * @length 255
      */
-    protected $_city;
+    protected $_image;
 
     /**
      * @column
      * @readwrite
-     * @type decimal
-     * @length 18, 15
+     * @type integer
      */
-    protected $_latitude;
+    protected $_charge;
 
     /**
      * @column
      * @readwrite
-     * @type decimal
-     * @length 18, 15
+     * @type integer
      */
-    protected $_longitude;
+    protected $_peroid;
 }

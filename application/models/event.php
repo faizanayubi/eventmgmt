@@ -67,16 +67,6 @@ class Event extends Shared\Model {
      * @type text
      * @length 100
      *
-     * @label Listing Image Name
-     */
-    protected $_listingImage;
-
-    /**
-     * @column
-     * @readwrite
-     * @type text
-     * @length 100
-     *
      * @label Header Image Name
      */
     protected $_headerImage;
@@ -95,7 +85,7 @@ class Event extends Shared\Model {
      * @type integer
      * @index
      */
-    protected $_zone_id;
+    protected $_city;
 
     /**
      * @column

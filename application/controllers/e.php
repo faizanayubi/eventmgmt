@@ -1,18 +1,24 @@
 <?php
 
-use Framework\RequestMethods as RequestMethods;
-use Framework\ArrayMethods as ArrayMethods;
-use Shared\Markup as Markup;
-
 /**
  * The Events Controller
  *
  * @author Hemant Mann
  */
+use Framework\RequestMethods as RequestMethods;
+use Framework\ArrayMethods as ArrayMethods;
+use Shared\Markup as Markup;
+
 class E extends Organizer {
 
     public function index() {
-        
+        $this->seo(array(
+            "title" => "Submit Event",
+            "keywords" => "dashboard, events, create event",
+            "description" => "Contains all realtime stats",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
     }
 
     /**

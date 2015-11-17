@@ -10,8 +10,8 @@
                             <div class="container">
                                 <div class="div-table">
                                     <div class="div-cell">
-                                        <h3 class="caption-subtitle">We are Event professionals</h3>
-                                        <h4><span>You Can Find "<a href="#">Festivals</a>, <a href="#">Parties</a>, <a href="#">Conference</a>, <a href="#">Fairs</a>, <a href="#">Exhibitions</a>, <a href="#">Speakers</a> and more</span></h4>
+                                        
+                                        <!--<h3 class="caption-subtitle">We are Event professionals</h3>-->
                                         <div class="row">
                                             <div class="col-md-8 col-md-offset-2">
                                                 <form action="#" class="location-search">
@@ -19,22 +19,23 @@
                                                         <div class="input-group">
                                                             <input type="text" class="form-control text" placeholder="FIND EXPERIENCES" />
                                                             <select class="selectpicker">
-                                                                <option>LOCATION</option>
-                                                                <option>LOCATION</option>
-                                                                <option>LOCATION</option>
+                                                                <option>EVENTS</option>
+                                                                <option>PLAY</option>
+                                                                <option>SPORTS</option>
                                                             </select>
                                                             <button class="form-control button-search"><i class="fa fa-search"></i></button>
                                                         </div>
+                                                        <h4><span>You Can Find "<a href="#">Festivals</a>, <a href="#">Parties</a>, <a href="#">Conference</a>, <a href="#">Fairs</a>, <a href="#">Exhibitions</a>, <a href="#">Speakers</a> and more</span></h4>
                                                     </div>
                                                 </form>
                                             </div>
                                         </div>
+
                                         <p class="caption-text">
                                             <a class="btn btn-theme btn-theme btn-theme-dark scroll-to" href="#" data-animation="flipInY" data-animation-delay="600">Popular Events</a>
-                                            <!--
-                                                                -->
-                                            <a class="btn btn-theme btn-theme btn-theme-transparent-white" href="http://www.youtube.com/watch?v=O-zpOMYRi0w" rel="prettyPhoto" data-animation="flipInY" data-animation-delay="900">Latest Events</a>
+                                            <a class="btn btn-theme btn-theme btn-theme-transparent-white" href="/eventplace" rel="prettyPhoto" data-animation="flipInY" data-animation-delay="900">Event Places</a>
                                         </p>
+
                                     </div>
                                 </div>
                             </div>
@@ -45,6 +46,7 @@
         </section>
         <!-- /SLIDER -->
     </div>
+    
     <!-- Featured Event -->
     <section class="page-section light featured-line xs-padding">
         <div class="container">
@@ -67,6 +69,7 @@
         </div>
     </section>
     <!-- /Featured Event -->
+    
     <!-- PAGE -->
     <section class="page-section">
         <div class="container">
@@ -75,9 +78,9 @@
                     <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-star fa-stack-1x"></i></span></span>
                 </div>
                 <ul id="filtrable-events" class="filtrable clearfix">
-                    <li class="all">
+                    <!--<li class="all">
                         <a href="#" data-filter="*">All</a>
-                    </li>
+                    </li>-->
                     <li class="ticketing current">
                         <a href="#" data-filter=".ticketing">Ticketing</a>
                     </li>
@@ -92,6 +95,7 @@
                     </li>
                 </ul>
             </div>
+
             <div class="row thumbnails events vertical isotope isotope-items">
                 {foreach $e in $events}
                 <div class="col-md-6 col-sm-6 isotope-item {echo $e->type}">
@@ -258,7 +262,7 @@
             <h1 class="section-title">Create Your Own New Event</h1>
             <p>Bring people together, or turn your passion into a business. Our platform gives you everything you need to host your best event yet.</p>
             <div>
-                <a href="/e/create" class="btn btn-theme btn-theme-md">SUBMIT EVENT</a>
+                <a href="/e" class="btn btn-theme btn-theme-md">SUBMIT EVENT</a>
             </div>
         </div>
     </section>
