@@ -69,7 +69,7 @@ class Event extends Shared\Model {
      *
      * @label Header Image Name
      */
-    protected $_headerImage;
+    protected $_image;
 
     /**
      * @column

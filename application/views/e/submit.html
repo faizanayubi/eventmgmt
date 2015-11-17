@@ -1,0 +1,122 @@
+<section class="page-section image breadcrumbs overlay">
+    <div class="container">
+        <h1>SUBMIT EVENT</h1>
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="/e/all">Events</a></li>
+            <li class="active">Submit Event</li>
+        </ul>
+    </div>
+</section>
+<!-- PAGE -->
+<section class="page-section with-sidebar sidebar-right first-section light">
+    <div class="container">
+        <!-- Content -->
+        <section id="content" class="content col-sm-12 col-md-12 col-lg-12">
+            <form id="registration-form" name="registration-form" class="registration-form registration-form-alt" action="" method="post">
+                <h1 class="section-title">
+                    <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-ticket fa-stack-1x"></i></span></span>
+                    <span class="title-inner">Event Details<small></small></span>
+                </h1>
+                <div class="row">
+                    <div class="col-sm-12 form-alert"></div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group with-icon">
+                            <i class="fa fa-calendar"></i>
+                            <input type="text" class="form-control input-name" data-toggle="tooltip" title="Name is required" placeholder="Event Title" required />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group selectpicker-wrapper">
+                            <select class="selectpicker input-price" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select Your Price Tab" required>
+                                <option>Select Your Event Category</option>
+                                <option value="business">Business</option>
+                                <option value="technology">Technology</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="sports">Sports</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="fundraising">Fundraising</option>
+                                <option value="institutions">Institutions</option>
+                                <option value="art">Art</option>
+                                <option value="parties">Parties</option>
+                                <option value="food">Food</option>
+                                <option value="family">Family</option>
+                                <option value="travel">Travel</option>
+                                <option value="tradeshow">Tradeshow</option>
+                                <option value="movies">Movies</option>
+                                <option value="clubs">Clubs</option>
+                                <option value="festivals">Festivals</option>
+                                <option value="music">Music</option>
+                                <option value="religion">Religion</option>
+                                <option value="comedy">Comedy</option>
+                                <option value="community">Community</option>
+                                <option value="kids">Kids</option>
+                                <option value="newyear">Newyear</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group selectpicker-wrapper">
+                            <select class="selectpicker input-price" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select Your Event Type">
+                                <option>Select Your Event Type</option>
+                                <option value="ticketing">Ticketing</option>
+                                <option value="conference">Conference</option>
+                                <option value="charity">Charity</option>
+                                <option value="rsvp">RSVP</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 form-alert"></div>
+                    <div class="col-sm-12 col-md-12">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" name="description" placeholder="Event Description"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="page-divider transparent"/>
+                <h1 class="section-title">
+                    <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-ticket fa-stack-1x"></i></span></span>
+                    <span class="title-inner">User Details<small></small></span>
+                </h1>
+                <div class="row">
+                    <div class="col-sm-12 form-alert"></div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group with-icon">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="name" class="form-control input-name" data-toggle="tooltip" title="Name is required" placeholder="Name and Surname" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group with-icon">
+                            <i class="fa fa-globe"></i>
+                            <input type="text" name="email" class="form-control input-email" data-toggle="tooltip" title="Mail is required" placeholder="Your Mail Here" />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group with-icon">
+                            <i class="fa fa-phone"></i>
+                            <input type="tel" name="phone" class="form-control input-email" data-toggle="tooltip" title="Phone is required" placeholder="Your Mobile number Here" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 overflowed">
+                        <div class="text-center margin-top">
+                            <input type="hidden" name="action" value="submitEvent">
+                            <button class="btn btn-theme btn-theme-xl submit-button" type="submit"> Register Now <i class="fa fa-arrow-circle-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- /Content -->
+        <hr class="page-divider transparent visible-xs" />
+    </div>
+</section>
+<!-- /PAGE -->

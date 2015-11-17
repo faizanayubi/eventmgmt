@@ -11,7 +11,42 @@ use Shared\Markup as Markup;
 
 class E extends Organizer {
 
+    /**
+     * All Events List to public
+     */
     public function index() {
+        $this->seo(array(
+            "title" => "All Events List",
+            "keywords" => "events, new events, event management, create event, event tickets, book event tickets",
+            "description" => "Display all the latest events. Filter the events by categories, location and much more. Register yourself to turn your passion into your business",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
+
+        $title = RequestMethods::get("title", "");
+        $category = RequestMethods::get("category", "");
+        $type = RequestMethods::get("type", "");
+        $limit = RequestMethods::get("limit", 10);
+        $page = RequestMethods::get("page", 1);
+        $where = array(
+            "title LIKE ?" => "%{$title}%",
+            "category LIKE ?" => "%{$category}%",
+            "type LIKE ?" => "%{$type}%",
+            "live = ?" => true
+        );
+        $events = Event::all($where, array("*"), "created", "desc", $limit, $page);
+        $count = Event::count($where);
+
+        $view->set("events", $events);
+        $view->set("limit", $limit);
+        $view->set("page", $page);
+        $view->set("count", $count);
+        $view->set("title", $title);
+        $view->set("type", $type);
+        $view->set("category", $category);
+    }
+
+    public function submit() {
         $this->seo(array(
             "title" => "Submit Event",
             "keywords" => "dashboard, events, create event",
@@ -19,6 +54,33 @@ class E extends Organizer {
             "view" => $this->getLayoutView()
         ));
         $view = $this->getActionView();
+
+        if (RequestMethods::post("action") == "submitEvent") {
+            if ($this->user) {
+                $user = $this->user;
+            } else {
+                $user = new User(array(
+                    "name" => RequestMethods::post("name"),
+                    "email" => RequestMethods::post("email"),
+                    "phone" => RequestMethods::post("phone"),
+                    "password" => rand(999999,99999999),
+                    "admin" => 0
+                ));
+                $user->save();
+            }
+            $event = new Event(array(
+                "title" => RequestMethods::post("title"),
+                "type" => RequestMethods::post("type", "rsvp"),
+                "category" => RequestMethods::post("category", "entertainment"),
+                "description" => RequestMethods::post("description"),
+                "image" => $this->_upload("image", "images"),
+                "location_id" => "",
+                "city" => RequestMethods::post("city"),
+                "user_id" => $user->id,
+                "visibility" => RequestMethods::post("visibility", "private")
+            ));
+            $event->save();
+        }
     }
 
     /**
@@ -135,41 +197,6 @@ class E extends Organizer {
         $view->set("location", $location);
         $view->set("organizer", $organizer);
         $view->set("similar", $similar);
-    }
-
-    /**
-     * All Events List to public
-     */
-    public function all() {
-        $this->seo(array(
-            "title" => "All Events List",
-            "keywords" => "events, new events, event management, create event, event tickets, book event tickets",
-            "description" => "Display all the latest events. Filter the events by categories, location and much more. Register yourself to turn your passion into your business",
-            "view" => $this->getLayoutView()
-        ));
-        $view = $this->getActionView();
-
-        $title = RequestMethods::get("title", "");
-        $category = RequestMethods::get("category", "");
-        $type = RequestMethods::get("type", "");
-        $limit = RequestMethods::get("limit", 10);
-        $page = RequestMethods::get("page", 1);
-        $where = array(
-            "title LIKE ?" => "%{$title}%",
-            "category LIKE ?" => "%{$category}%",
-            "type LIKE ?" => "%{$type}%",
-            "live = ?" => true
-        );
-        $events = Event::all($where, array("*"), "created", "desc", $limit, $page);
-        $count = Event::count($where);
-
-        $view->set("events", $events);
-        $view->set("limit", $limit);
-        $view->set("page", $page);
-        $view->set("count", $count);
-        $view->set("title", $title);
-        $view->set("type", $type);
-        $view->set("category", $category);
     }
 
     /**

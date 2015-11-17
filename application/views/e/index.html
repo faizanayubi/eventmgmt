@@ -1,124 +1,129 @@
 <section class="page-section image breadcrumbs overlay">
     <div class="container">
-        <h1>SUBMIT EVENT</h1>
+        <h1>ALL EVENTs</h1>
         <ul class="breadcrumb">
-            <li><a href="/">Home</a></li>
-            <li><a href="/e/all">Events</a></li>
-            <li class="active">Submit Event</li>
+            <li><a href="/home">Home</a></li>
+            <li class="active">List Events</li>
         </ul>
     </div>
 </section>
 <!-- PAGE -->
-<section class="page-section with-sidebar sidebar-right first-section light">
+<section class="page-section with-sidebar sidebar-right first-section">
     <div class="container">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar col-sm-4 col-md-3">
+            <div class="widget">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="event-list.html#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Event Type
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <a href="/e?type=ticketing">Ticketing</a><br>
+                                <a href="/e?type=conference">Conference</a><br>
+                                <a href="/e?type=charity">Charity</a><br>
+                                <a href="/e?type=rsvp">RSVP</a><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h4 class="panel-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="event-list.html#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Categories
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                {include e/modals/categories.html}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- /Sidebar -->
+        <hr class="page-divider transparent visible-xs" />
         <!-- Content -->
-        <section id="content" class="content col-sm-12 col-md-12 col-lg-12">
-            <form id="registration-form" name="registration-form" class="registration-form registration-form-alt" action="event-single.html#" method="post">
-                <h1 class="section-title">
-                    <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-ticket fa-stack-1x"></i></span></span>
-                    <span class="title-inner">Event Details<small></small></span>
-                </h1>
-                <div class="row">
-                    <div class="col-sm-12 form-alert"></div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group with-icon">
-                            <i class="fa fa-calendar"></i>
-                            <input type="text" class="form-control input-name" data-toggle="tooltip" title="Name is required" placeholder="Event Title" />
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group selectpicker-wrapper">
-                            <select class="selectpicker input-price" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select Your Price Tab">
-                                <option>Select Your Event Category</option>
-                                <option value="business">Business</option>
-                                <option value="technology">Technology</option>
-                                <option value="entertainment">Entertainment</option>
-                                <option value="sports">Sports</option>
-                                <option value="workshop">Workshop</option>
-                                <option value="fundraising">Fundraising</option>
-                                <option value="institutions">Institutions</option>
-                                <option value="art">Art</option>
-                                <option value="parties">Parties</option>
-                                <option value="food">Food</option>
-                                <option value="family">Family</option>
-                                <option value="travel">Travel</option>
-                                <option value="tradeshow">Tradeshow</option>
-                                <option value="movies">Movies</option>
-                                <option value="clubs">Clubs</option>
-                                <option value="festivals">Festivals</option>
-                                <option value="music">Music</option>
-                                <option value="religion">Religion</option>
-                                <option value="comedy">Comedy</option>
-                                <option value="community">Community</option>
-                                <option value="kids">Kids</option>
-                                <option value="newyear">Newyear</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group selectpicker-wrapper">
-                            <select class="selectpicker input-price" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select Your Price Tab">
-                                <option>Select Your Event Type</option>
-                                <option value="ticketing">Ticketing</option>
-                                <option value="conference">Conference</option>
-                                <option value="charity">Charity</option>
-                                <option value="rsvp">RSVP</option>
-                            </select>
-                        </div>
-                    </div>
+        <section id="content" class="content col-sm-8 col-md-9">
+            <div class="listing-meta">
+                <div class="filters">
+                {if($category)}
+                    <a href="/e">{echo ucfirst($category)} <i class="fa fa-times"></i></a>
+                {/if}
                 </div>
+                <div class="options">
+                    <a class="byrevelance active" href="/e">Revelance</a>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="list-view" class="tab-pane fade active in" role="tabpanel">
+                    <div class="thumbnails events vertical">
+                        {foreach $e in $events}
+                        <div class="thumbnail no-border no-padding">
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3 col-xs-4">
+                                    <div class="media">
+                                        <a href="#" class="like"><i class="fa fa-heart"></i></a>
+                                        <img src="{echo CDN}uploads/images/{echo $e->listingImage}" alt="">
+                                        <div class="caption hovered"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-9 col-sm-9 col-xs-8">
+                                    <div class="caption">
+                                        <a href="#" class="pull-right">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fa fa-stack-2x fa-circle-thin"></i>
+                                                <i class="fa fa-stack-1x fa-share-alt"></i>
+                                            </span>
+                                        </a>
+                                        <h3 class="caption-title">
+                                            <a href="/e/details/{echo Framework\StringMethods::url($e->title)}/{echo $e->id}">{$e->title}</a>
+                                        </h3>
+                                        <p class="caption-category"><i class="fa fa-file-text-o"></i>
+                                        {echo Framework\StringMethods::datetime_to_text($e->start)} - {echo Framework\StringMethods::datetime_to_text($e->end)}</p>
+                                        {script $ticket = Ticket::first(array("event_id = ?" => $e->id), array("price", "currency"))}
+                                        {if $ticket->price == "0.00"}
+                                            <p class="caption-price">Tickets are <strong>Free!!</strong></p>
+                                        {/if}
+                                        {else}
+                                            <p class="caption-price">Tickets from {echo $ticket->currency} {echo $ticket->price}</p>
+                                        {/else}
+                                        <p class="caption-text">{echo $e->description}</p>
+                                        <p class="caption-more">
+                                            <a href="/e/details/{echo Framework\StringMethods::url($e->title)}/{echo $e->id}" class="btn btn-theme">Tickets &amp; details</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="page-divider half" />
+                        {/foreach}
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="pagination-wrapper">
+                        <ul class="pagination">
+                            {if($page != 1)}
+                                <li><a href="{echo Shared\Markup::pagination($page - 1)}"><i class="fa fa-chevron-left"></i></a></li>
+                            {/if}
+                            {if($page < $count/$limit)}
+                                <li><a href="{echo Shared\Markup::pagination($page + 1)}"><i class="fa fa-chevron-right"></i></a></li>
+                            {/if}
+                        </ul>
+                    </div>
+                    <!-- /Pagination -->
 
-                <div class="row">
-                    <div class="col-sm-12 form-alert"></div>
-                    <div class="col-sm-12 col-md-12">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3" name="description" placeholder="Event Description"></textarea>
-                        </div>
-                    </div>
                 </div>
-
-                <hr class="page-divider transparent"/>
-                <h1 class="section-title">
-                    <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-ticket fa-stack-1x"></i></span></span>
-                    <span class="title-inner">User Details<small></small></span>
-                </h1>
-                <div class="row">
-                    <div class="col-sm-12 form-alert"></div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group with-icon">
-                            <i class="fa fa-user"></i>
-                            <input type="text" class="form-control input-name" data-toggle="tooltip" title="Name is required" placeholder="Name and Surname" />
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group with-icon">
-                            <i class="fa fa-globe"></i>
-                            <input type="text" class="form-control input-email" data-toggle="tooltip" title="Mail is required" placeholder="Your Mail Here" />
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group selectpicker-wrapper">
-                            <select class="selectpicker input-price" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select Your Price Tab">
-                                <option>Select Your Price Tab</option>
-                                <option>$100</option>
-                                <option>$200</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 overflowed">
-                        <div class="text-center margin-top">
-                            <button class="btn btn-theme btn-theme-xl submit-button" type="submit"> Register Now <i class="fa fa-arrow-circle-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+            </div>
         </section>
         <!-- /Content -->
-        <hr class="page-divider transparent visible-xs" />
     </div>
 </section>
 <!-- /PAGE -->
