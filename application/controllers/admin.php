@@ -24,6 +24,19 @@ class Admin extends Organizer {
         $this->seo(array("title" => "Admin Panel", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
         
+        $users = User::count();
+        $tickets = Ticket::count();
+        $places = Place::count();
+        $locations = Location::count();
+        $events = Event::count();
+        $bookings = Booking::count();
+
+        $view->set("users", $users);
+        $view->set("tickets", $tickets);
+        $view->set("places", $places);
+        $view->set("locations", $locations);
+        $view->set("events", $events);
+        $view->set("bookings", $bookings);
     }
 
     /**

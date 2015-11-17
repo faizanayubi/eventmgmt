@@ -13,6 +13,7 @@
     <!-- /.navbar-header -->
 
     <ul class="nav navbar-top-links navbar-right">
+        <li><a href="/home"><i class="fa fa-home fa-fw"></i> Home</a></li>
         {if ($user->admin == 1)}
             <li><a href="/admin"><i class="fa fa-user-secret fa-fw"></i> Admin Panel</a></li>
         {/if}
@@ -22,10 +23,9 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
                 <li><a href="/organizer"><i class="fa fa-gear fa-fw"></i> Dashboard</a></li>
-                <li><a href="/organizer/faq"><i class="fa fa-user fa-fw"></i> Contact</a></li>
-                <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                <li><a href="/organizer/contact-us"><i class="fa fa-user fa-fw"></i> Contact</a></li>
                 <li class="divider"></li>
-                
+                <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
             </ul>
         </li>
     </ul>
