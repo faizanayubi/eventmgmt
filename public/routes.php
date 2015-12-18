@@ -32,6 +32,16 @@ $routes = array(
         "pattern" => "event-list",
         "controller" => "e",
         "action" => "index"
+    ),
+    array(
+        "pattern" => "services",
+        "controller" => "home",
+        "action" => "services"
+    ),
+    array(
+        "pattern" => "about-us",
+        "controller" => "home",
+        "action" => "about_us"
     )
 
 );

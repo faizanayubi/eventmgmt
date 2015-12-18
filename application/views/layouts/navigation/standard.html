@@ -21,15 +21,13 @@
 				<a href="#" class="menu-toggle btn"><i class="fa fa-bars"></i></a>
 				<ul class="sf-menu nav">
 					<li><a href="/home">Home</a></li>
-					<li><a href="/e">Events</a></li>
 					{if !isset($user)}
 					<li>
 						<a href="#" data-target="#popup-login" data-toggle="modal">Login</a>
 					</li>
-					<li>
-						<a href="#" data-target="#popup-register" data-toggle="modal">Register</a>
-					</li>
 					{/if}
+					<li><a href="/services">Services</a></li>
+					<li><a href="/about-us">About Us</a></li>
 					<li><a href="/contact-us">Contact Us</a></li>
 					<li class="header-search-wrapper">
 						<form action="/e/search" method="post" class="header-search-form">

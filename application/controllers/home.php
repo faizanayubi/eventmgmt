@@ -28,9 +28,29 @@ class Home extends Controller {
         $view->set("events", $events);
     }
 
+    public function services() {
+        $this->seo(array(
+            "title" => "Event Management | Services",
+            "keywords" => "post events, share events, create events",
+            "description" => "Register yourself with MyEventGroup and join the exciting world of Events",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
+    }
+
+    public function about_us() {
+        $this->seo(array(
+            "title" => "Event Management | About Us",
+            "keywords" => "post events, share events, create events",
+            "description" => "Register yourself with MyEventGroup and join the exciting world of Events",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
+    }
+
     public function contact() {
     	$this->seo(array(
-            "title" => "Event Management",
+            "title" => "Event Management | Contact Us",
             "keywords" => "post events, share events, create events",
             "description" => "Register yourself with MyEventGroup and join the exciting world of Events",
             "view" => $this->getLayoutView()
