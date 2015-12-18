@@ -224,7 +224,15 @@ class Admin extends Organizer {
         }
     }
 
-    public function sync($model) {
+    /**
+     * @before _secure, changeLayout
+     */
+    public function options() {
+        $this->seo(array("title" => "Multi purpose page", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
+        $view = $this->getActionView();
+    }
+
+    protected function sync($model) {
         $this->noview();
         $db = Framework\Registry::get("database");
         $db->sync(new $model);

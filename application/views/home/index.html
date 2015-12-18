@@ -33,7 +33,6 @@
 
                                         <p class="caption-text">
                                             <a class="btn btn-theme btn-theme btn-theme-dark scroll-to" href="/e/all" data-animation="flipInY" data-animation-delay="600">Popular Events</a>
-                                            <a class="btn btn-theme btn-theme btn-theme-transparent-white" href="/eventplace" rel="prettyPhoto" data-animation="flipInY" data-animation-delay="900">Event Places</a>
                                         </p>
 
                                     </div>
@@ -46,25 +45,27 @@
         </section>
         <!-- /SLIDER -->
     </div>
-    
+
     <!-- Featured Event -->
     <section class="page-section light featured-line xs-padding">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h1 class="section-title two-lines">
-                        <span data-animation="flipInY" data-animation-delay="300" class="icon-inner"><span class="fa-stack"><i class="fa rhex dark fa-stack-2x"></i><i class="fa fa-calendar fa-stack-1x"></i></span></span>
-                        <span data-animation="fadeInRight" data-animation-delay="500" class="title-inner"><span class="theme-color"> Featured Event </span><small>Dont Miss The Event. PHP Conference In ISTANBUL</small></span>
-                    </h1>
+                <h1 class="page-heading text-center">
+                    Welcome to MyEventGroup!!
+                </h1>
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <p>
+                        MyEventGroup is a full-service event management company in Mumbai dedicated to quality and excellence. Since our establishment, we have continuously strived towards the flawless execution of events. We manage events across all major cities in India and abroad.    
+                    </p>
+                    <p>
+                        No matter what your requirement may be, our first priority lies in gaining an in-depth understanding of how your business works, what you hope to achieve, and what we can do to deliver results that exceed all expectations.    
+                    </p>
+                    <p>
+                        At MyEventGroup, your money is important – to you and us. We ensure cost-effective service, accountability and flexibility. Most of all, we treat your event like it is ours. Whatever your budget, we have solutions you will not find elsewhere.    
+                    </p>
                 </div>
-                <div class="col-md-4">
-                    <div class="countdown-wrapper countdown-featured">
-                        <div id="defaultCountdown2" class="defaultCountdown clearfix"></div>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <a href="#" class="btn btn-theme btn-details">Tickets &amp; Details <i class="fa fa-arrow-circle-right"></i></a>
-                </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
     </section>
@@ -141,6 +142,25 @@
         </div>
     </section>
     <!-- /PAGE -->
+    
+    <!-- Gallery -->
+    <section class="page-section">
+        <div class="container text-center">
+            <div class="col-lg-3 col-md-3"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h1 class="page-heading">Gallery</h1>
+                <div class="owl-carousel img-carousel">
+                {foreach $image in $gallery}
+                    <div class="item">
+                        <img class="img-responsive" src="{echo CDN}uploads/images/{echo $image->photo}" alt="" />
+                    </div>
+                {/foreach}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Gallery -->
+
     <!-- PAGE -->
     <section class="page-section light">
         <div class="container">
@@ -262,7 +282,7 @@
             <h1 class="section-title">Create Your Own New Event</h1>
             <p>Bring people together, or turn your passion into a business. Our platform gives you everything you need to host your best event yet.</p>
             <div>
-                <a href="/e/submit" class="btn btn-theme btn-theme-md">INQUIRY</a>
+                <a href="/e/inquiry" class="btn btn-theme btn-theme-md">INQUIRY</a>
             </div>
         </div>
     </section>

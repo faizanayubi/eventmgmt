@@ -31,7 +31,7 @@ $routes = array(
     array(
         "pattern" => "event-list",
         "controller" => "e",
-        "action" => "all"
+        "action" => "index"
     )
 
 );

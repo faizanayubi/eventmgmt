@@ -19,6 +19,12 @@ class Home extends Controller {
         $view = $this->getActionView();
 
         $events = Event::all(array("live = ?" => true, "visibility = ?" => "public"), array("*"), "created", "desc", 50, 1);
+
+        //$slider = Option::all(array("key = ?" => "slider"), array("*"), "created", "desc", 10, 1);
+        $gallery = Gallery::all(array(), array("*"), "created", "desc", 10, 1);
+
+        //$view->set("slider", $slider);
+        $view->set("gallery", $gallery);
         $view->set("events", $events);
     }
 

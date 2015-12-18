@@ -46,7 +46,7 @@ class E extends Organizer {
         $view->set("category", $category);
     }
 
-    public function submit() {
+    public function inquiry() {
         $this->seo(array(
             "title" => "Submit Event",
             "keywords" => "dashboard, events, create event",
@@ -63,7 +63,7 @@ class E extends Organizer {
                     "name" => RequestMethods::post("name"),
                     "email" => RequestMethods::post("email"),
                     "phone" => RequestMethods::post("phone"),
-                    "password" => rand(999999,99999999),
+                    "password" => sha1(rand(999999,99999999)),
                     "admin" => 0
                 ));
                 $user->save();
@@ -97,6 +97,38 @@ class E extends Organizer {
 
         $events = Event::all(array("user_id = ?" => $this->user->id));
         $view->set("events", $events);
+    }
+
+    /**
+     * @before _secure, changeLayout
+     */
+    public function gallery($event_id) {
+        $this->seo(array(
+            "title" => "Dashboard | Gallery",
+            "keywords" => "dashboard, events, create event",
+            "description" => "Contains all realtime stats",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
+        $event = \Event::first(array("id = ?" => $event_id));
+        if (!$event || $event->user_id != $this->user->id) {
+            self::redirect("/organizer");
+        }
+
+        if (RequestMethods::post("action") == "uploadPhotos") {
+            $file = $this->_upload("image");
+            if ($file) {
+                $gallery = new Gallery(array(
+                    "event_id" => $event_id,
+                    "photo" => $file
+                ));
+                $gallery->save();
+            }
+            $view->set('success', "Images uploaded successfully!");
+        }
+
+        $gallery = Gallery::all(array("event_id = ?" => $event_id));
+        $view->set("gallery", $gallery);
     }
 
     /**
@@ -186,7 +218,7 @@ class E extends Organizer {
         $view = $this->getActionView();
 
         $event = Event::first(array("id = ?" => $id));
-        $location = Location::first(array("property = ?" => "event", "property_id = ?" => $event->id));
+        $location = Location::first(array("user_id = ?" => $event->user_id));
         $organizer = User::first(array("id = ?" => $event->user_id));
         $similar = Event::all(array("category = ?" => $event->category));
 

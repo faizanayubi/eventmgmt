@@ -67,9 +67,19 @@ class Event extends Shared\Model {
      * @type text
      * @length 100
      *
+     * @label Listing Image Name
+     */
+    protected $_listingImage;
+
+    /**
+     * @column
+     * @readwrite
+     * @type text
+     * @length 100
+     *
      * @label Header Image Name
      */
-    protected $_image;
+    protected $_headerImage;
 
     /**
      * @column
