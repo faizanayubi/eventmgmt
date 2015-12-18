@@ -1,0 +1,38 @@
+<div id="page-wrapper">
+    <div class="row col-lg-12">
+        <h1 class="page-header text-center">Multiple purpose Option</h1>
+        <div class="row">
+            {if isset($success)}
+            <div class="alert alert-success alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                {echo $success}
+            </div><br>
+            {/if}
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="panel panel-default panel-body">
+                    <div class="form-group">
+                        <label>Title *</label>
+                        <input type="text" name="key" class="form-control" maxlength="100" required="">
+                        <span class="help-block">Eg: enter "slider" in this field and choose image of slider from file upload</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Value </label>
+                        <input type="text" name="value" class="form-control" maxlength="100">
+                        <span class="help-block">Enter value or choose image</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Image </label>
+                        <input type="file" name="image" required="">
+                        <span class="help-block">This image will be displayed when showing events list</span>
+                    </div>
+
+                    <input type="hidden" name="action" value="option">
+                    <p style="color: red; font-weight: bold;">* fields are required.</p>
+                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check-circle"></i> Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
