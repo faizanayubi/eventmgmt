@@ -120,4 +120,11 @@ class Ticket extends Shared\Model {
      */
     protected $_serviceFee;
 
+    /**
+     * @column
+     * @readwrite
+     * @type text
+     */
+    protected $_paylink;
+
 }

@@ -1,12 +1,14 @@
 <?php
 
-use Framework\RequestMethods as RequestMethods;
-
 /**
  * The Event Tickets Controller
  *
  * @author Hemant Mann
  */
+use Framework\RequestMethods as RequestMethods;
+use Framework\Registry as Registry;
+use \Curl\Curl;
+
 class EventTicket extends E {
 
     /**
@@ -84,6 +86,41 @@ class EventTicket extends E {
 
         $ticket->save();
         return $ticket;
+    }
+
+    protected function payLink($charge, $purpose, $purpose_id) {
+        $configuration = Registry::get("configuration");
+        $imojo = $configuration->parse("configuration/payment");
+        $curl = new Curl();
+        $curl->setHeader('X-Api-Key', $imojo->payment->instamojo->key);
+        $curl->setHeader('X-Auth-Token', $imojo->payment->instamojo->auth);
+        $curl->post('https://www.instamojo.com/api/1.1/payment-requests/', array(
+            "purpose" => "Appointment",
+            "amount" => $charge,
+            "buyer_name" => $this->user->name,
+            "email" => $this->user->email,
+            "phone" => $this->user->phone,
+            "redirect_url" => "http://healthlitmus.com/appointments/success",
+            "webhook_url" => "http://healthlitmus.com/appointments/success",
+            "allow_repeated_payments" => false
+        ));
+
+        $payment = $curl->response;
+        if ($payment->success == "true") {
+            $instamojo = new Instamojo(array(
+                "user_id" => $this->user->id,
+                "payment_request_id" => $payment->payment_request->id,
+                "amount" => $payment->payment_request->amount,
+                "purpose" => $purpose,
+                "purpose_id" => $purpose_id,
+                "status" => $payment->payment_request->status,
+                "longurl" => $payment->payment_request->longurl,
+                "live" => 1
+            ));
+            $instamojo->save();
+
+            return $instamojo->longurl;
+        }
     }
 
 }
