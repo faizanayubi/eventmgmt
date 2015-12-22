@@ -7,6 +7,7 @@
  */
 use Framework\RequestMethods as RequestMethods;
 use Framework\Registry as Registry;
+use \Curl\Curl;
 
 class EventTicket extends E {
 
@@ -57,6 +58,7 @@ class EventTicket extends E {
 
     public function success() {
         $this->noview();
+        $configuration = Registry::get("configuration");
         $payment_request_id = RequestMethods::get("payment_request_id");
 
         if ($payment_request_id) {
@@ -88,7 +90,7 @@ class EventTicket extends E {
                     "user" => $user,
                 ));
 
-                self::redirect("/booking/". $booking->id);
+                self::redirect("/eventticket/booking/". $booking->id);
             }
 
         }

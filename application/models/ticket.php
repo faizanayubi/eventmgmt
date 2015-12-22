@@ -108,7 +108,7 @@ class Ticket extends Shared\Model {
         $payment = $curl->response;
         if ($payment->success == "true") {
             $instamojo = new Instamojo(array(
-                "user_id" => $this->user->id,
+                "user_id" => $user->id,
                 "payment_request_id" => $payment->payment_request->id,
                 "amount" => $payment->payment_request->amount,
                 "purpose" => "event",

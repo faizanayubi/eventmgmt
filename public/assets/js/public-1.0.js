@@ -174,8 +174,6 @@ function getFBInfo() {
 				if (data == "Success") {
 					window.location.href = "/organizer/";
 				} else {
-					// $('#alertMessage').html("Something went wrong");
-					// $('#alertModal').modal('show');
 					alert('something went wrong');
 				}
 			}
