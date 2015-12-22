@@ -73,13 +73,18 @@ class E extends Organizer {
                 "type" => RequestMethods::post("type", "rsvp"),
                 "category" => "inquiry",
                 "description" => RequestMethods::post("description"),
-                "image" => "",
+                "start" => "",
+                "end" => "",
+                "listingImage" => "",
+                "headerImage" => "",
                 "location_id" => "",
                 "city" => RequestMethods::post("city"),
                 "user_id" => $user->id,
                 "visibility" => RequestMethods::post("visibility", "private")
             ));
             $event->save();
+
+            $view->set("message", "Saved Successfully, Our representative will call you within 24 Hours, Check your Email");
         }
     }
 
