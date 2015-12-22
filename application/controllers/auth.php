@@ -46,10 +46,13 @@ class Auth extends Shared\Controller {
                 $sendgrid = $this->sendgrid();
                 $email = new \SendGrid\Email();
                 $email->setSmtpapiTos($emails)
-                        ->setFrom('info@likesbazar.in')
-                        ->setFromName("Likesbazar Team")
+                        ->setFrom('info@myeventgroup.com')
+                        ->setFromName("MyEventGroup Team")
                         ->setSubject($options["subject"])
                         ->setHtml($body);
+                if(isset($options["attachment"])) {
+                    $email->setAttachment($options["attachment"]);
+                }
                 $sendgrid->send($email);
                 break;
         }
