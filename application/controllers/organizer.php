@@ -46,6 +46,13 @@ class Organizer extends Auth {
                 ));
 
                 $user->save();
+
+                $this->notify(array(
+                    "template" => "userRegister",
+                    "subject" => "Welcome to MyEventGroup.com",
+                    "user" => $user
+                ));
+
                 $this->setUser($user);
                 self::redirect("/organizer");
             } else {
@@ -119,6 +126,12 @@ class Organizer extends Auth {
                     "admin" => false
                 ));
                 $user->save();
+
+                $this->notify(array(
+                    "template" => "userRegister",
+                    "subject" => "Welcome to MyEventGroup.com",
+                    "user" => $user
+                ));
             }
             $this->setUser($user);
             echo "Success";
