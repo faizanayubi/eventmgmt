@@ -24,15 +24,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Currency *</label>
-                        <select class="form-control" name="currency" required="">
-                            <option value="INR" {if $ticket->currency == "INR"}selected=""{/if}>INR</option>
-                            <option value="USD" {if $ticket->currency == "USD"}selected=""{/if}>USD</option>
-                        </select>
-                        <span class="help-block">Price of the ticket in which currency (INR = "Indian Rupee"), (USD = "US Dollar")</span>
-                    </div>
-
-                    <div class="form-group">
                         <label>Quantity *</label>
                         <input type="text" name="quantity" value="{$ticket->quantity}" required="" class="form-control" maxlength="11">
                         <span class="help-block">Number of Tickets of the event available for purchase</span>
@@ -51,24 +42,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Description</label>
-                        <textarea class="form-control editor" name="description" rows="5">{echo $ticket->description}</textarea>
-                        <span class="help-block">Description of the event</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fa fa-calendar fa-fw"></i> Start Date-Time</label>
-                        <input type="text" placeholder="YY-MM-DD HH:MM:SS" style="width: 500px" value="{echo $ticket->start}" name="start" class="form-control" />
-                        <span class="help-block">Timings for starting ticket booking</span>
-                    </div>
-
-                    <div class="form-group">
-                        <label><i class="fa fa-calendar fa-fw"></i> End Date-Time</label>
-                        <input type="text" placeholder="YY-MM-DD HH:MM:SS" value="{echo $ticket->end}" style="width: 500px" name="end" class="form-control" />
-                        <span class="help-block">Timings till the ticket can be booked</span>
-                    </div>
-                    
-                    <div class="form-group">
                         <label for="Visibility">Allow Cancellation</label>
                         <div class="radio">
                             <label><input type="radio" name="cancel" value="1" {if $ticket->allowCancellation}checked=""{/if}>True</label>
@@ -76,16 +49,6 @@
                         <div class="radio">
                             <label><input type="radio" name="cancel" value="0" {if !$ticket->allowCancellation}checked=""{/if}>false</label>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Servie Fee *</label>
-                        <select class="form-control" name="serviceFee" required="">
-                            <option value="1" {if $ticket->serviceFee == "1"}selected=""{/if}>Absorb the fees into the ticket price</option>
-                            <option value="2" {if $ticket->serviceFee == "2"}selected=""{/if}>Absorb gateway fee and pass on our fee to the buyer</option>
-                            <option value="3" {if $ticket->serviceFee == "3"}selected=""{/if}>Pass on the fees to the buyer</option>
-                        </select>
-                        <span class="help-block">MyEventGroup.com Service Charges</span>
                     </div>
 
                     <input type="hidden" name="action" value="updateTicket">

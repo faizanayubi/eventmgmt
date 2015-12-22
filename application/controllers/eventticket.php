@@ -120,12 +120,7 @@ class EventTicket extends E {
 
         $ticket->name = RequestMethods::post("name");
         $ticket->price = RequestMethods::post("price");
-        $ticket->currency = RequestMethods::post("currency");
-        $ticket->description = RequestMethods::post("description");
-        $ticket->start = RequestMethods::post("start", date('Y-m-d H:i:s'));
-        $ticket->end = RequestMethods::post("end", $event->end);
         $ticket->allowCancellation = RequestMethods::post("cancel");
-        $ticket->serviceFee = RequestMethods::post("serviceFee");
         $ticket->quantity = RequestMethods::post("quantity");
         $ticket->min_quantity = RequestMethods::post("minQuantity", "1");
         $ticket->max_quantity = RequestMethods::post("maxQuantity", "10");
