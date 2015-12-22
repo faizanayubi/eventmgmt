@@ -7,10 +7,9 @@
  */
 use Framework\Registry as Registry;
 use Framework\RequestMethods as RequestMethods;
-use Shared\Controller as Controller;
 use Shared\Markup as Markup;
 
-class Organizer extends Controller {
+class Organizer extends Auth {
 
     /**
      * @readwrite
@@ -26,8 +25,6 @@ class Organizer extends Controller {
 
         $events = Event::count(array("user_id = ?" => $this->user->id));
         $view->set('events', $events);
-
-        // if (isset($id)) { $this->switchorg($id);}
     }
 
     public function register() {
@@ -171,18 +168,5 @@ class Organizer extends Controller {
         $this->defaultLayout = "layouts/organizer";
         $this->setLayout();
     }
-
-    /*
-    protected function switchorg($organization_id) {
-        $session = Registry::get("session");
-        $member = $session->get("member");
-
-        foreach ($member as $mem) {
-            if ($organization_id == $mem->organization->id) {
-                $session->set("organizer", $mem);
-                self::redirect("/organizer");
-            }
-        }
-    }*/
 
 }

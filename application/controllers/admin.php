@@ -11,14 +11,9 @@ use Framework\RequestMethods as RequestMethods;
 class Admin extends Organizer {
 
     /**
-     * @readwrite
-     */
-    protected $_organizer;
-
-    /**
      * Method which sets data stats for admin dashboard
      * 
-     * @before _secure, changeLayout
+     * @before _secure, adminLayout
      */
     public function index() {
         $this->seo(array("title" => "Admin Panel", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
@@ -44,7 +39,7 @@ class Admin extends Organizer {
      * @param type $model the data model
      * @param type $property the property of modal
      * @param type $val the value of property
-     * @before _secure, changeLayout
+     * @before _secure, adminLayout
      */
     public function search($model = NULL, $property = NULL, $val = 0, $page=1) {
         $this->seo(array("title" => "Search", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
@@ -96,7 +91,7 @@ class Admin extends Organizer {
     /**
      * Shows any data info
      * 
-     * @before _secure, changeLayout
+     * @before _secure, adminLayout
      * @param type $model the model to which shhow info
      * @param type $id the id of object model
      */
@@ -132,7 +127,7 @@ class Admin extends Organizer {
     /**
      * Updates any data provide with model and id
      * 
-     * @before _secure, changeLayout
+     * @before _secure, adminLayout
      * @param type $model the model object to be updated
      * @param type $id the id of object
      */
@@ -166,7 +161,7 @@ class Admin extends Organizer {
     /**
      * Updates any data provide with model and id
      * 
-     * @before _secure, changeLayout
+     * @before _secure, adminLayout
      * @param type $model the model object to be updated
      * @param type $id the id of object
      */
@@ -182,29 +177,7 @@ class Admin extends Organizer {
     }
 
     /**
-     * @before _secure, changeLayout
-     */
-    public function stats() {
-        $this->seo(array("title" => "Stats", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
-        $view = $this->getActionView();
-        if (RequestMethods::get("action") == "getStats") {
-            $startdate = RequestMethods::get("startdate");
-            $enddate = RequestMethods::get("enddate");
-            $property = ucfirst(RequestMethods::get("property"));
-            $property_id = ucfirst(RequestMethods::get("property_id"));
-
-            $diff = date_diff(date_create($startdate), date_create($enddate));
-            for ($i = 0; $i < $diff->format("%a"); $i++) {
-                $date = date('Y-m-d', strtotime($startdate . " +{$i} day"));
-                $count = Stat::count(array("created = ?" => $date, "property = ?" => $property, "property_id = ?" => $property_id));
-                $obj[] = array('y' => $date, 'a' => $count);
-            }
-            $view->set("data", \Framework\ArrayMethods::toObject($obj));
-        }
-    }
-
-    /**
-     * @before _secure, changeLayout
+     * @before _secure, adminLayout
      */
     public function data() {
         $this->seo(array("title" => "Data Analysis", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
@@ -225,9 +198,9 @@ class Admin extends Organizer {
     }
 
     /**
-     * @before _secure, changeLayout
+     * @before _secure, adminLayout
      */
-    public function options() {
+    public function slider() {
         $this->seo(array("title" => "Multi purpose page", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
@@ -251,19 +224,10 @@ class Admin extends Organizer {
         }
     }
 
-    public function sync($model) {
+    protected function sync($model) {
         $this->noview();
         $db = Framework\Registry::get("database");
         $db->sync(new $model);
-    }
-    
-    public function changeLayout() {
-        $this->defaultLayout = "layouts/admin";
-        $this->setLayout();
-
-        if ($this->user->admin != 1) {
-            self::redirect("/404");
-        }
     }
 
 }

@@ -100,6 +100,25 @@ class E extends Organizer {
     }
 
     /**
+     * @before _secure, adminLayout
+     */
+    public function all() {
+        $this->seo(array("title" => "Manage Events", "view" => $this->getLayoutView()));
+        $view = $this->getActionView();
+
+        $page = RequestMethods::get("page", 1);
+        $limit = RequestMethods::get("limit", 10);
+        
+        $events = Event::all(array(), array("title", "start", "listingImage", "city", "user_id"), "created", "desc", $limit, $page);
+        $count = Event::count();
+
+        $view->set("events", $events);
+        $view->set("page", $page);
+        $view->set("count", $count);
+        $view->set("limit", $limit);
+    }
+
+    /**
      * @before _secure, changeLayout
      */
     public function gallery($event_id) {
@@ -229,27 +248,6 @@ class E extends Organizer {
         $view->set("location", $location);
         $view->set("organizer", $organizer);
         $view->set("similar", $similar);
-    }
-
-    /**
-     * The method checks whether a file has been uploaded. If it has, the method attempts to move the file to a permanent location.
-     * @param string $name
-     * @param string $type files or images
-     *
-     * @return string|boolean Returns the file name on moving the file successfully else return false
-     */
-    protected function _upload($name, $type = "images") {
-    	if (isset($_FILES[$name])) {
-            $file = $_FILES[$name];
-            $path = APP_PATH . "/public/assets/uploads/{$type}/";
-            $extension = pathinfo($file["name"], PATHINFO_EXTENSION);
-            $filename = Markup::generateSalt() . ".{$extension}";
-            if (move_uploaded_file($file["tmp_name"], $path . $filename)) {
-                return $filename;
-            } else {
-                return FALSE;
-            }
-        }
     }
 
     protected function save($event = null) {
