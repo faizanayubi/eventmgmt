@@ -12,11 +12,6 @@ use Shared\Markup as Markup;
 class Organizer extends Auth {
 
     /**
-     * @readwrite
-     */
-    protected $_organizer;
-
-    /**
      * @before _secure, changeLayout
      */
     public function index($id = NULL) {
@@ -86,11 +81,6 @@ class Organizer extends Auth {
         }
     }
 
-    public function logout() {
-        $this->setUser(false);
-        self::redirect("/login");
-    }
-
     /**
      * @before _secure, changeLayout
      */
@@ -112,34 +102,7 @@ class Organizer extends Auth {
             $view->set("user", $user);
         }
     }
-
-    /**
-     * @before _secure, changeLayout
-     */
-    public function resources() {
-        $this->seo(array("title" => "organizer Resources", "keywords" => "faq", "description" => "Frequently asked Questions", "view" => $this->getLayoutView()));
-        $view = $this->getActionView();
-    }
-
-    public function widget($organization_id = NULL) {
-        $this->willRenderLayoutView = false;
-        $view = $this->getActionView();
-        if ($organization_id != NULL) {
-            $organization = Organization::first(array("id = ?" => $organization_id), array("id", "name", "website", "type", "image"));
-            $view->set("organization", $organization);
-        }
-    }
-
-    public function about() {
-        $this->seo(array(
-            "title" => "Why use our platform?",
-            "keywords" => "event management",
-            "description" => "Description of our platform",
-            "view" => $this->getLayoutView()
-        ));
-        $view = $this->getActionView();
-    }
-
+    
     public function fbLogin() {
         $this->noview();
         $session = Registry::get("session");

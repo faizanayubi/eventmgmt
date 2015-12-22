@@ -197,33 +197,6 @@ class Admin extends Organizer {
         }
     }
 
-    /**
-     * @before _secure, adminLayout
-     */
-    public function slider() {
-        $this->seo(array("title" => "Multi purpose page", "keywords" => "admin", "description" => "admin", "view" => $this->getLayoutView()));
-        $view = $this->getActionView();
-
-        if (RequestMethods::post("action") == "option") {
-            $key = strtolower(RequestMethods::post("key"));
-            $value = RequestMethods::post("value");
-            if ($key == "slider") {
-                $option = new Option(array(
-                    "key" => $key,
-                    "value" => $this->_upload("image")
-                ));
-            } else {
-                $option = new Option(array(
-                    "key" => $key,
-                    "value" => $value
-                ));    
-            }
-            $option->save();
-
-            $view->set("success", "$key added successfully!");
-        }
-    }
-
     protected function sync($model) {
         $this->noview();
         $db = Framework\Registry::get("database");

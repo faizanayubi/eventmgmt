@@ -47,6 +47,11 @@ namespace Shared {
             $this->defaultExtension = "json";
         }
 
+        public function logout() {
+            $this->setUser(false);
+            self::redirect("/login");
+        }
+
         /**
          * @protected
          */
