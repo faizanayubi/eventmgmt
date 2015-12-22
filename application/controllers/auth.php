@@ -27,7 +27,7 @@ class Auth extends Shared\Controller {
     protected function getBody($options) {
         $template = $options["template"];
         $view = new Framework\View(array(
-            "file" => APP_PATH . "/application/views/layouts/email/{$template}.html"
+            "file" => APP_PATH . "/application/views/layouts/other/{$template}.html"
         ));
         foreach ($options as $key => $value) {
             $view->set($key, $value);

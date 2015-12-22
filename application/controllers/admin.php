@@ -157,6 +157,28 @@ class Admin extends Organizer {
         $view->set("model", $model);
         $view->set("id", $id);
     }
+
+    /**
+     * Edits the Value and redirects user back to Referer
+     * 
+     * @before _secure, changeLayout, _admin
+     * @param type $model
+     * @param type $id
+     * @param type $property
+     * @param type $value
+     */
+    public function edit($model, $id, $property, $value) {
+        $this->JSONview();
+        $view = $this->getActionView();
+
+        $object = $model::first(array("id = ?" => $id));
+        $object->$property = $value;
+        $object->save();
+
+        $view->set("object", $object);
+
+        self::redirect($_SERVER['HTTP_REFERER']);
+    }
     
     /**
      * Updates any data provide with model and id
@@ -197,7 +219,18 @@ class Admin extends Organizer {
         }
     }
 
-    protected function sync($model) {
+    /**
+     * @before _secure
+     */
+    public function fields($model = "user") {
+        $this->noview();
+        $class = ucfirst($model);
+        $object = new $class;
+
+        echo json_encode($object->columns);
+    }
+
+    public function sync($model) {
         $this->noview();
         $db = Framework\Registry::get("database");
         $db->sync(new $model);
