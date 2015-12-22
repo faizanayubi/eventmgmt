@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ticket</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>Event</td>
+			<td>{$event->title}</td>
+		</tr>
+		<tr>
+			<td>Location</td>
+			<td>{$location->address}, {$location->city}</td>
+		</tr>
+		<tr>
+			<td>Time</td>
+			<td>{$event->start} to {$event->end}</td>
+		</tr>
+		<tr>
+			<td>Price</td>
+			<td>INR {$ticket->price}</td>
+		</tr>
+		<tr>
+			<td>Attendee</td>
+			<td>{$user->name}</td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td>{$user->email}</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><small>{$booking->created}</small></td>
+		</tr>
+	</table>
+	<br><hr>
+	<center><a href="/">Go to Home</a></center>
+</body>
+</html>

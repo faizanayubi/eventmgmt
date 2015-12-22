@@ -1,0 +1,34 @@
+Hello!<br>
+{$user->username}<br>
+<br>
+Your ticket for the {$event->title} has been made<br>
+<table>
+	<tr>
+		<td>Event</td>
+		<td>{$event->title}</td>
+	</tr>
+	<tr>
+		<td>Location</td>
+		<td>{$location->address}, {$location->city}</td>
+	</tr>
+	<tr>
+		<td>Time</td>
+		<td>{$event->start} to {$event->end}</td>
+	</tr>
+	<tr>
+		<td>Price</td>
+		<td>INR {$ticket->price}</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><small>{$booking->created}</small></td>
+	</tr>
+</table>
+<br>
+To Print Online click <a href="http://myeventgroup.com/booking/{$booking->id}">here</a><br>
+<br>
+<br>
+Regards,<br>
+MyEventGroup Team<br>
+
+<small>If you are not the intended user, please ignore this email</small>

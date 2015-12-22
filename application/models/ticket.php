@@ -5,7 +5,11 @@
  *
  * @author Hemant Mann
  */
+use Framework\Registry as Registry;
+use \Curl\Curl;
+
 class Ticket extends Shared\Model {
+
     /**
      * @column
      * @readwrite
@@ -65,66 +69,58 @@ class Ticket extends Shared\Model {
     /**
      * @column
      * @readwrite
-     * @type text
-     * @length 10
-     *
-     * @label INR|USD
-     */
-    protected $_currency;
-
-    /**
-     * @column
-     * @readwrite
-     * @type text
-     *
-     * @label Description of Ticket (Optional)
-     */
-    protected $_description;
-
-    /**
-     * @column
-     * @readwrite
-     * @type datetime
-     *
-     * @label Default today's date (Optional)
-     */
-    protected $_start;
-
-    /**
-     * @column
-     * @readwrite
-     * @type datetime
-     *
-     * @label Default event end date (Optional)
-     */
-    protected $_end;
-
-    /**
-     * @column
-     * @readwrite
      * @type boolean
      *
      * @label true|false
      */
     protected $_allowCancellation;
 
-    /**
-     * @column
-     * @readwrite
-     * @type text
-     * @length 2
-     *
-     * @label 1|2|3
-     * [1: Absorb the fees into the ticket price, 2: Absorb gateway 
-     * fee and pass on our fee to the buyer, 3: Pass on the fees to the buyer]
-     */
-    protected $_serviceFee;
+    public function book($user, $tickets=1) {
+        $booking = new Booking(array(
+            "amount" => $tickets*$this->price,
+            "tickets" => $tickets,
+            "event_id" => $this->event_id,
+            "user_id" => $user->id,
+            "paylink" => $this->payLink($user)
+        ));
+        $booking->save();
 
-    /**
-     * @column
-     * @readwrite
-     * @type text
-     */
-    protected $_paylink;
+        return $booking->paylink;
+    }
+
+    protected function payLink($user) {
+        $configuration = Registry::get("configuration");
+        $imojo = $configuration->parse("configuration/payment");
+        $curl = new Curl();
+        $curl->setHeader('X-Api-Key', $imojo->payment->instamojo->key);
+        $curl->setHeader('X-Auth-Token', $imojo->payment->instamojo->auth);
+        $curl->post('https://www.instamojo.com/api/1.1/payment-requests/', array(
+            "purpose" => "Event",
+            "amount" => $this->price,
+            "buyer_name" => $user->name,
+            "email" => $user->email,
+            "phone" => $user->phone,
+            "redirect_url" => "http://myeventgroup.com/eventticket/success",
+            "webhook_url" => "http://myeventgroup.com/eventticket/success",
+            "allow_repeated_payments" => false
+        ));
+
+        $payment = $curl->response;
+        if ($payment->success == "true") {
+            $instamojo = new Instamojo(array(
+                "user_id" => $this->user->id,
+                "payment_request_id" => $payment->payment_request->id,
+                "amount" => $payment->payment_request->amount,
+                "purpose" => "event",
+                "purpose_id" => $this->event_id,
+                "status" => $payment->payment_request->status,
+                "longurl" => $payment->payment_request->longurl,
+                "live" => 1
+            ));
+            $instamojo->save();
+
+            return $instamojo->longurl;
+        }
+    }
 
 }

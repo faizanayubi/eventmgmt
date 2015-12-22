@@ -7,7 +7,6 @@
  */
 use Framework\RequestMethods as RequestMethods;
 use Framework\Registry as Registry;
-use \Curl\Curl;
 
 class EventTicket extends E {
 
@@ -20,12 +19,7 @@ class EventTicket extends E {
         if (!$event) {
             self::redirect("/e/manage");
         }
-        $this->seo(array(
-            "title" => "Dashboard | Create Event Ticket",
-            "keywords" => "dashboard",
-            "description" => "Contains all realtime stats",
-            "view" => $this->getLayoutView()
-        ));
+        $this->seo(array("title" => "Create Event Ticket","view" => $this->getLayoutView()));
         $view = $this->getActionView();
         $view->set("event", $event);
 
@@ -50,12 +44,7 @@ class EventTicket extends E {
         if (!$ticket || !$event) {
             self::redirect("/e/manage");
         }
-    	$this->seo(array(
-    		"title" => "Dashboard | Update Event Ticket",
-    		"keywords" => "dashboard",
-    		"description" => "Contains all realtime stats",
-    		"view" => $this->getLayoutView()
-    	));
+    	$this->seo(array("title" => "Update Event Ticket","view" => $this->getLayoutView()));
         $view = $this->getActionView();
 
         if (RequestMethods::post("action") == "updateTicket") {
@@ -64,6 +53,64 @@ class EventTicket extends E {
         }
         $view->set("ticket", $ticket);
         $view->set("event", $event);
+    }
+
+    public function success() {
+        $this->noview();
+        $payment_request_id = RequestMethods::get("payment_request_id");
+
+        if ($payment_request_id) {
+            $instamojo = Instamojo::first(array("payment_request_id = ?" => $payment_request_id));
+
+            if ($instamojo) {
+                $imojo = $configuration->parse("configuration/payment");
+                $curl = new Curl();
+                $curl->setHeader('X-Api-Key', $imojo->payment->instamojo->key);
+                $curl->setHeader('X-Auth-Token', $imojo->payment->instamojo->auth);
+                $curl->get('https://www.instamojo.com/api/1.1/payment-requests/'.$payment_request_id.'/');
+                $payment = $curl->response;
+
+                $instamojo->status = $payment->payment_request->status;
+                $instamojo->save();
+
+                $booking = Booking::first(array("user_id = ?" => $instamojo->user_id, "event_id = ?" => $instamojo->purpose_id));
+                $event = \Event::first(array("id = ?" => $booking->event_id), array("id", "start", "end", "title"));
+                $location = Location::first(array("id = ?" => $event->location_id), array("address", "city"));
+                $ticket = \Ticket::first(array("event_id = ?" => $event->id), array("price"));
+                $user = User::first(array("id = ?" => $instamojo->user_id));
+                $this->notify(array(
+                    "template" => "confirmTicket",
+                    "subject" => "Your Event Ticket",
+                    "booking" => $booking,
+                    "event" => $even,
+                    "location" => $location,
+                    "ticket" => $ticket,
+                    "user" => $user,
+                ));
+
+                self::redirect("/booking/". $booking->id);
+            }
+
+        }
+    }
+
+    public function booking($id) {
+        $this->defaultLayout = "layouts/other/ticket";
+        $this->setLayout();
+        $this->seo(array("title" => "Ticket","view" => $this->getLayoutView()));
+
+        $view = $this->getActionView();
+        $booking = Booking::first(array("id = ?" => $id));
+        $event = \Event::first(array("id = ?" => $booking->event_id), array("id", "start", "end", "title"));
+        $location = Location::first(array("id = ?" => $event->location_id), array("address", "city"));
+        $ticket = \Ticket::first(array("event_id = ?" => $event->id), array("price"));
+        $user = User::first(array("id = ?" => $booking->user_id), array("name", "email"));
+
+        $view->set("ticket", $ticket);
+        $view->set("event", $event);
+        $view->set("location", $location);
+        $view->set("user", $user);
+        $view->set("booking", $booking);
     }
 
     protected function save($event, $ticket = null) {
@@ -86,41 +133,6 @@ class EventTicket extends E {
 
         $ticket->save();
         return $ticket;
-    }
-
-    protected function payLink($charge, $purpose, $purpose_id) {
-        $configuration = Registry::get("configuration");
-        $imojo = $configuration->parse("configuration/payment");
-        $curl = new Curl();
-        $curl->setHeader('X-Api-Key', $imojo->payment->instamojo->key);
-        $curl->setHeader('X-Auth-Token', $imojo->payment->instamojo->auth);
-        $curl->post('https://www.instamojo.com/api/1.1/payment-requests/', array(
-            "purpose" => "Appointment",
-            "amount" => $charge,
-            "buyer_name" => $this->user->name,
-            "email" => $this->user->email,
-            "phone" => $this->user->phone,
-            "redirect_url" => "http://healthlitmus.com/appointments/success",
-            "webhook_url" => "http://healthlitmus.com/appointments/success",
-            "allow_repeated_payments" => false
-        ));
-
-        $payment = $curl->response;
-        if ($payment->success == "true") {
-            $instamojo = new Instamojo(array(
-                "user_id" => $this->user->id,
-                "payment_request_id" => $payment->payment_request->id,
-                "amount" => $payment->payment_request->amount,
-                "purpose" => $purpose,
-                "purpose_id" => $purpose_id,
-                "status" => $payment->payment_request->status,
-                "longurl" => $payment->payment_request->longurl,
-                "live" => 1
-            ));
-            $instamojo->save();
-
-            return $instamojo->longurl;
-        }
     }
 
 }

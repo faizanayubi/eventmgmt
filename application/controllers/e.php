@@ -232,24 +232,54 @@ class E extends Organizer {
         $view->set("bookings", $b);
     }
 
-    public function details($title, $id) {
+    public function details($title, $id = NULL) {
+        if ($id == NULL) {
+            self::redirect("/");
+        }
+        $event = Event::first(array("id = ?" => $id));
+        $ticket = Ticket::first(array("event_id = ?" => $event->id));
+        $location = Location::first(array("user_id = ?" => $event->user_id));
     	$this->seo(array(
-    		"title" => "Event Details",
+    		"title" => $event->title,
     		"keywords" => "dashboard, events, create event",
-    		"description" => "Contains all realtime stats",
+    		"description" => strip_tags(substr($event->description, 0, 150)),
     		"view" => $this->getLayoutView()
     	));
         $view = $this->getActionView();
 
-        $event = Event::first(array("id = ?" => $id));
-        $location = Location::first(array("user_id = ?" => $event->user_id));
         $organizer = User::first(array("id = ?" => $event->user_id));
         $similar = Event::all(array("category = ?" => $event->category));
 
-        if (!$event) {
-            self::redirect("/");
+        if (RequestMethods::post("action") == "booking") {
+            $booking = Booking::first(array("user_id = ?" => $this->user->id, "event_id = ?" => $event->id));
+            if ($booking) {
+                $link = $booking->paylink;
+            } else {
+                if ($this->user) {
+                    $user = $this->user;
+                } else{
+                    $user = new User(array(
+                        "name" => RequestMethods::post("name"),
+                        "email" => RequestMethods::post("email"),
+                        "phone" => RequestMethods::post("phone"),
+                        "password" => sha1(100000, 999999),
+                        "admin" => false
+                    ));
+                    $user->save();
+                    $this->notify(array(
+                        "template" => "userRegister",
+                        "subject" => "Welcome to MyEventGroup.com",
+                        "user" => $user
+                    ));
+                }
+
+                $link = $ticket->book($user);
+            }
+            self::redirect($link);
         }
+
         $view->set("event", $event);
+        $view->set("ticket", $ticket);
         $view->set("location", $location);
         $view->set("organizer", $organizer);
         $view->set("similar", $similar);

@@ -6,6 +6,7 @@
  * @author Hemant Mann
  */
 class Booking extends Shared\Model {
+
 	/**
 	 * @column
 	 * @readwrite
@@ -34,12 +35,11 @@ class Booking extends Shared\Model {
 	protected $_event_id;
 
 	/**
-	 * @column
-	 * @readwrite
-	 * @type text
-	 * @length 100
-	 */
-	protected $_status;
+     * @column
+     * @readwrite
+     * @type text
+     */
+    protected $_paylink;
 
 	/**
 	 * @column
@@ -48,25 +48,5 @@ class Booking extends Shared\Model {
 	 * @index
 	 */
 	protected $_user_id;
-
-	/**
-	 * @column
-	 * @readwrite
-	 * @type text
-	 * @length 10
-	 *
-	 * @label Currency [INR|USD|EUR]
-	 */
-	protected $_currency;
-
-	/**
-	 * @column
-	 * @readwrite
-	 * @type text
-	 * @length 50
-	 *
-	 * @label Payment Gateway [MASTER|MAESTRO, without MASTER|MAESTRO]
-	 */
-	protected $_pg;
 
 }

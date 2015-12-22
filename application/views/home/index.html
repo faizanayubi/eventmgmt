@@ -290,12 +290,12 @@
                                         <i class="fa fa-file-text-o"></i>
                                         {echo Framework\StringMethods::datetime_to_text($e->start)}
                                     </p>
-                                    {script $ticket = Ticket::first(array("event_id = ?" => $e->id), array("price", "currency"))}
+                                    {script $ticket = Ticket::first(array("event_id = ?" => $e->id), array("price"))}
                                     {if $ticket->price == "0.00"}
                                     <p class="caption-price">Tickets are <strong>Free!!</strong></p>
                                     {/if}
                                     {else}
-                                    <p class="caption-price">Tickets from {echo $ticket->currency} {echo $ticket->price}</p>
+                                    <p class="caption-price">Tickets from INR {echo $ticket->price}</p>
                                     {/else}
                                     <p class="caption-text">{echo strip_tags(substr($e->description, 0, 150))}</p>
                                     <p class="caption-more">

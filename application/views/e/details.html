@@ -1,11 +1,5 @@
-<section class="page-section image breadcrumbs overlay">
+<section class="page-section">
     <div class="container">
-        <h1>EVENT DETAILs</h1>
-        <ul class="breadcrumb">
-            <li><a href="/home">Home</a></li>
-            <li><a href="/e/all">Events</a></li>
-            <li class="active">{echo $event->title}</li>
-        </ul>
     </div>
 </section>
 <!-- PAGE -->
@@ -30,34 +24,32 @@
             
             <h1 class="section-title">
                 <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-ticket fa-stack-1x"></i></span></span>
-                <span class="title-inner">Register now <small> / dont mıss event!</small></span>
+                <span class="title-inner">Event Tickets <small> / dont mıss event!</small></span>
             </h1>
-            <form id="registration-form" name="registration-form" class="registration-form registration-form-alt" action="#" method="post">
+            <form id="registration-form" name="registration-form" class="registration-form registration-form-alt" action="" method="post">
                 <div class="row">
                     <div class="col-sm-12 form-alert"></div>
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group with-icon">
                             <i class="fa fa-user"></i>
-                            <input type="text" class="form-control input-name" data-toggle="tooltip" title="Name is required" placeholder="Name and Surname" />
+                            <input type="text" name="name" class="form-control input-name" data-toggle="tooltip" title="Name is required" placeholder="Name and Surname" />
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group with-icon">
                             <i class="fa fa-globe"></i>
-                            <input type="text" class="form-control input-email" data-toggle="tooltip" title="Mail is required" placeholder="Your Mail Here" />
+                            <input type="text" name="email" class="form-control input-email" data-toggle="tooltip" title="Mail is required" placeholder="Your Mail Here" />
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
-                        <div class="form-group selectpicker-wrapper">
-                            <select class="selectpicker input-price" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select Your Price Tab">
-                                <option>Select Your Price Tab</option>
-                                <option>$100</option>
-                                <option>$200</option>
-                            </select>
+                        <div class="form-group with-icon">
+                            <i class="fa fa-phone"></i>
+                            <input type="tel" name="phone" class="form-control input-email" data-toggle="tooltip" title="Phone is required" placeholder="Your Mobile number Here" />
                         </div>
                     </div>
                     <div class="col-md-12 overflowed">
                         <div class="text-center margin-top">
+                            <input type="hidden" name="action" value="booking">
                             <button class="btn btn-theme btn-theme-xl submit-button" type="submit"> Register Now <i class="fa fa-arrow-circle-right"></i></button>
                         </div>
                     </div>
@@ -90,14 +82,14 @@
                                     </h3>
                                     <p class="caption-category"><i class="fa fa-file-text-o"></i> {echo Framework\StringMethods::only_date($e->start)}</p>
                                     <p class="caption-category"> <i class="fa fa-map-marker"></i> Manhattan / New York</p>
-                                    {script $ticket = Ticket::first(array("event_id = ?" => $e->id), array("price", "currency"))}
+                                    {script $ticket = Ticket::first(array("event_id = ?" => $e->id), array("price"))}
                                     {if $ticket->price == 0}
                                     <p class="caption-price">Tickets are <strong>Free!!</strong></p>
                                     {/if}
                                     {else}
-                                    <p class="caption-price">Tickets from {echo $ticket->currency} {echo $ticket->price}</p>
+                                    <p class="caption-price">Tickets from INR {echo $ticket->price}</p>
                                     {/else}
-                                    <p class="caption-text">{$e->description}</p>
+                                    <p class="caption-text">{echo strip_tags(substr($e->description, 0, 150))}</p>
                                     <p class="caption-more">
                                         <a href="/e/details/{echo Framework\StringMethods::url($e->title)}/{echo $e->id}" class="btn btn-theme">Tickets &amp; details</a>
                                     </p>
@@ -159,12 +151,7 @@
                         <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
                             <div class="panel-body">
                                 <p>{echo $organizer->name}</p>
-                                <ul>
-                                    <li><i class="fa fa-facebook"></i> facebook.com/imorganiser</li>
-                                    <li><i class="fa fa-twitter"></i> @imorganiser</li>
-                                    <li><i class="fa fa-globe"></i> http://www.organiserweb.com</li>
-                                </ul>
-                                <a href="#" class="btn btn-theme btn-theme-grey-dark btn-theme-md">Send Message <i class="fa fa-plus-circle"></i></a>
+                                <!--<a href="#" class="btn btn-theme btn-theme-grey-dark btn-theme-md">Send Message <i class="fa fa-plus-circle"></i></a>-->
                             </div>
                         </div>
                     </div>
