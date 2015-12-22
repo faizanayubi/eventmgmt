@@ -71,9 +71,9 @@ class E extends Organizer {
             $event = new Event(array(
                 "title" => RequestMethods::post("title"),
                 "type" => RequestMethods::post("type", "rsvp"),
-                "category" => RequestMethods::post("category", "entertainment"),
+                "category" => "inquiry",
                 "description" => RequestMethods::post("description"),
-                "image" => $this->_upload("image", "images"),
+                "image" => "",
                 "location_id" => "",
                 "city" => RequestMethods::post("city"),
                 "user_id" => $user->id,

@@ -121,77 +121,17 @@
             <!-- /FOOTER -->
 
             <div class="to-top"><i class="fa fa-angle-up"></i></div>
-
+        
 
         </div> <!-- /Wrap all content -->
         
-        <!-- Popup: Login -->
-        <div class="modal fade login-register" id="popup-login" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg" id="main-slider">                 
-                <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <div class="form-background">
-                    <div class="col-sm-12 popup-form">
-                        <div class="form-header color">
-                            <h1 class="section-title">
-                                <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-ticket fa-stack-1x"></i></span></span>
-                                <span class="title-inner">Login</span>
-                            </h1>
-                        </div>
-                        <form method="post" action="/login" class="registration-form">
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <input type="text" name="email" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Email is required">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <input type="password" name="password" required="required" placeholder="password" title="" data-toggle="tooltip" class="form-control input-password" data-original-title="Password">
-                                </div>
-                            </div>
-                            <input type="hidden" name="action" value="login">
-                            <div class="col-sm-12">
-                                <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-theme btn-block submit-button" data-animation-delay="100" data-animation="flipInY"> Login <i class="fa fa-arrow-circle-right"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="form-footer text-center col-sm-12" style="background-color: #0d1d31;">
-                            <button id="fbLogin" type="submit" class="btn btn-theme btn-theme-dark btn-block submit-button" data-animation-delay="100" data-animation="flipInY"><i class="fa fa-facebook"></i> Login with facebook</button>
-                        </div>
-                    </div> 
-                </div>
-            </div>
-        </div>
-        <!-- /Popup: Login -->
-
-        <!-- JS Global -->
-        <!--[if lt IE 9]><script src="{echo CDN}plugins/jquery/jquery-1.11.1.min.js"></script><![endif]-->
+        {include layouts/other/login.html}
         
-        <script src="{echo CDN}plugins/jquery/jquery-2.1.1.min.js"></script>
-        <script src="{echo CDN}plugins/jquery-ui-1.11.4.custom/jquery-ui.min.js"></script>
-        <script src="{echo CDN}plugins/modernizr.custom.js"></script>
-        <script src="{echo CDN}plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="{echo CDN}plugins/bootstrap-select/bootstrap-select.min.js"></script>
-        <script src="{echo CDN}plugins/superfish/js/superfish.js"></script>
-        <script src="{echo CDN}plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
-        <script src="{echo CDN}plugins/placeholdem.min.js"></script>
-        <script src="{echo CDN}plugins/jquery.smoothscroll.min.js"></script>
-        <script src="{echo CDN}plugins/jquery.easing.min.js"></script>
-        <script src="{echo CDN}plugins/smooth-scrollbar.min.js"></script>
-
-        <!-- JS Page Level -->
-        <script src="{echo CDN}plugins/owlcarousel2/owl.carousel.min.js"></script>
-        <script src="{echo CDN}plugins/waypoints/waypoints.min.js"></script>
-        <script src="{echo CDN}plugins/countdown/jquery.plugin.min.js"></script>
-        <script src="{echo CDN}plugins/countdown/jquery.countdown.min.js"></script>
-        <script src="{echo CDN}plugins/isotope/jquery.isotope.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-
-        <!--<script src="{echo CDN}js/theme-ajax-mail.js"></script>-->
-        <script src="{echo CDN}js/theme.js"></script>
+        <!-- JS Global -->
         <script src="{echo CDN}js/main.js"></script>
-        <script src="{echo CDN}js/model.js"></script>
-        <script src="{echo CDN}js/public.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script src="{echo CDN}js/theme.js"></script>
+        <script src="{echo CDN}js/public-1.0.js"></script>
     </body>
 
 </html>

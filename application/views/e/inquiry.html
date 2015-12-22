@@ -23,45 +23,21 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group with-icon">
                             <i class="fa fa-calendar"></i>
-                            <input type="text" class="form-control input-name" data-toggle="tooltip" title="Name is required" placeholder="Event Title" required />
+                            <input type="text" name="title" class="form-control input-name" data-toggle="tooltip" title="Name is required" placeholder="Event Title" required />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group with-icon">
+                            <i class="fa fa-globe"></i>
+                            <input type="text" name="city" class="form-control input-name" data-toggle="tooltip" title="City is required" placeholder="Event City Here" />
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group selectpicker-wrapper">
-                            <select class="selectpicker input-price" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select Your Price Tab" required>
-                                <option>Select Your Event Category</option>
-                                <option value="business">Business</option>
-                                <option value="technology">Technology</option>
-                                <option value="entertainment">Entertainment</option>
-                                <option value="sports">Sports</option>
-                                <option value="workshop">Workshop</option>
-                                <option value="fundraising">Fundraising</option>
-                                <option value="institutions">Institutions</option>
-                                <option value="art">Art</option>
-                                <option value="parties">Parties</option>
-                                <option value="food">Food</option>
-                                <option value="family">Family</option>
-                                <option value="travel">Travel</option>
-                                <option value="tradeshow">Tradeshow</option>
-                                <option value="movies">Movies</option>
-                                <option value="clubs">Clubs</option>
-                                <option value="festivals">Festivals</option>
-                                <option value="music">Music</option>
-                                <option value="religion">Religion</option>
-                                <option value="comedy">Comedy</option>
-                                <option value="community">Community</option>
-                                <option value="kids">Kids</option>
-                                <option value="newyear">Newyear</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4">
-                        <div class="form-group selectpicker-wrapper">
-                            <select class="selectpicker input-price" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select Your Event Type">
+                            <select class="selectpicker input-price" name="type" data-live-search="true" data-width="100%" data-toggle="tooltip" title="Select Your Event Type">
                                 <option>Select Your Event Type</option>
                                 <option value="ticketing">Ticketing</option>
-                                <option value="conference">Conference</option>
+                                <option value="conference">Open</option>
                                 <option value="rsvp">RSVP</option>
                             </select>
                         </div>
@@ -92,7 +68,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="form-group with-icon">
-                            <i class="fa fa-globe"></i>
+                            <i class="fa fa-envelope"></i>
                             <input type="text" name="email" class="form-control input-email" data-toggle="tooltip" title="Mail is required" placeholder="Your Mail Here" />
                         </div>
                     </div>
