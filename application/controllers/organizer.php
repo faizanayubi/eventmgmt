@@ -140,6 +140,14 @@ class Organizer extends Auth {
         }
     }
 
+    /**
+     * @before _secure, changeLayout
+     */
+    public function payments() {
+        $this->seo(array("title" => "Event Attendees", "view" => $this->getLayoutView()));
+        $view = $this->getActionView();
+    }
+
     public function changeLayout() {
         $this->defaultLayout = "layouts/organizer";
         $this->setLayout();

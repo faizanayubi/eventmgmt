@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                     {foreach $booking in $bookings}
-                    {script $user = User::first(array("id = ?" => $booking->user_id), array("name", "email", "phone"));}
+                    {script $user = User::first(array("id = ?" => $booking->user_id), array("name", "email", "phone"))}
                     <tr>
                         <td>{echo $booking->id}</td>
                         <td>{echo $user->name}</td>
