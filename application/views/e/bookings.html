@@ -1,0 +1,30 @@
+<div id="page-wrapper">
+    <div class="row col-lg-12">
+        <h1 class="page-header text-center">Bookings</h1>
+        <div class="panel panel-default">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Booking Id</th>
+                        <th>Event</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach $b in $bookings}
+                    <tr>
+                        <td>{echo $b->id}</td>
+                        <td>{echo $b->event}</td>
+                        <td>{echo $b->user}</td>
+                        <td>{echo $b->user_email}</td>
+                        <td>{echo Framework\StringMethods::only_date($b->created)}</td>
+                    </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header text-center">Events</h1>
+            <div class="panel panel-default">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>S. No.</th>
+                            <th>Title</th>                            
+                            <th>User</th>
+                            <th>Posted</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {script $i = 1}
+                        {foreach $e in $events}
+                        <tr>
+                            <td>{echo $i}</td>
+                            <td><a href="/e/details/{echo Framework\StringMethods::url($e->title)}/{echo $e->id}" target="_blank" >{echo $e->title}</a></td>
+                            {script $usr = User::first(array("id = ?" => $e->user_id), array("name", "id"))}
+                            <td>{echo $usr->name}</td>
+                            <td>{echo Framework\StringMethods::only_date($e->created)}</td>
+                            <td>
+                                {if $e->live}
+                                <a href="/admin/edit/event/{echo $e->id}/live/1" class="btn btn-xs btn-warning"><i class="fa fa-ban"></i> Disapprove</a>
+                                {/if} {else}
+                                <a href="/admin/edit/event/{echo $e->id}/live/0" class="btn btn-xs btn-success"><i class="fa fa-check"></i> Approve</a>
+                                {/else}
+                            </td>
+                        </tr>
+                        {script ++$i}
+                        {/foreach}
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </div>
+</div>

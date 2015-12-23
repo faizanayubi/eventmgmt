@@ -114,7 +114,7 @@ class E extends Organizer {
         $page = RequestMethods::get("page", 1);
         $limit = RequestMethods::get("limit", 10);
         
-        $events = Event::all(array(), array("title", "start", "listingImage", "city", "user_id"), "created", "desc", $limit, $page);
+        $events = Event::all(array(), array("*"), "created", "desc", $limit, $page);
         $count = Event::count();
 
         $view->set("events", $events);
@@ -201,9 +201,9 @@ class E extends Organizer {
     }
 
     /**
-     * @before _secure, changeLayout
+     * @before _secure, adminLayout, _admin
      */
-    public function bookings($evtId) {
+    public function bookings() {
     	$this->seo(array(
     		"title" => "Dashboard | View Bookings",
     		"keywords" => "dashboard, events, create event",
@@ -212,7 +212,7 @@ class E extends Organizer {
     	));
         $view = $this->getActionView();
 
-        $bookings = Booking::all(array("event_id = ?" => $evtId));
+        $bookings = Booking::all(array());
         if (empty($bookings)) {
             self::redirect("/e/manage");
         }
@@ -221,10 +221,15 @@ class E extends Organizer {
         $total = 0;
         foreach ($bookings as $booking) {
         	$usr = User::first(array("id = ?" => $booking->user_id), array("name", "email"));
+            $evt = Event::first(array("id = ?" => $booking->event_id), array("title", "id"));
         	$b[] = array(
+                "id" => $booking->id,
         		"user" => $usr->name,
+                "user_email" => $usr->email,
         		"tickets" => $booking->tickets,
-        		"status" => $booking->status
+                "event" => $evt->title,
+                "event_id" => $evt->id,
+                "created" => $booking->created
         	);
         	++$total;
         }
@@ -313,6 +318,7 @@ class E extends Organizer {
         $event->description = RequestMethods::post("description", "");
         $event->start = RequestMethods::post("start");
         $event->end = RequestMethods::post("end");
+        $event->live = false;
         $event->visibility = RequestMethods::post("visibility", "public");
         $event->user_id = $this->user->id;
         $event->location_id = $location->id;

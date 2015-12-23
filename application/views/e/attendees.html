@@ -27,12 +27,12 @@
                 </thead>
                 <tbody>
                     {foreach $booking in $bookings}
-                    {script $user = User::first(array("id = ?" => $booking->user_id), array("name", "email", "phone"))}
+                    {script $usr = User::first(array("id = ?" => $booking->user_id), array("name", "email", "phone"))}
                     <tr>
                         <td>{echo $booking->id}</td>
-                        <td>{echo $user->name}</td>
-                        <td>{echo $user->email}</td>
-                        <td>{echo $user->phone}</td>
+                        <td>{echo $usr->name}</td>
+                        <td>{echo $usr->email}</td>
+                        <td>{echo $usr->phone}</td>
                         <td>{echo $booking->created}</td>
                     </tr>
                     {/foreach}
