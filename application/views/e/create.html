@@ -52,12 +52,12 @@
 
                     <div class="form-group">
                         <label><i class="fa fa-calendar fa-fw"></i> Start Date-Time *</label>
-                        <input type="text" placeholder="YY-MM-DD HH:MM:SS" required="" style="width: 500px" name="start" class="form-control" />
+                        <input type="datetime" placeholder="YY-MM-DD HH:MM:SS" required="" style="width: 500px" name="start" class="form-control" />
                     </div>
 
                     <div class="form-group">
                         <label><i class="fa fa-calendar fa-fw"></i> End Date-Time *</label>
-                        <input type="text" placeholder="YY-MM-DD HH:MM:SS" required="" style="width: 500px" name="end" class="form-control" />
+                        <input type="datetime" placeholder="YY-MM-DD HH:MM:SS" required="" style="width: 500px" name="end" class="form-control" />
                     </div>
                     
                     <div class="form-group">
@@ -69,6 +69,8 @@
                             <label><input type="radio" name="visibility" value="private">Private</label>
                         </div>    
                     </div>
+
+
 
                     <input type="hidden" name="action" value="createEvent">
                     <p style="color: red; font-weight: bold;">* fields are required.</p>
