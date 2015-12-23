@@ -97,11 +97,10 @@ class EventTicket extends E {
     }
 
     public function booking($id) {
-        $this->defaultLayout = "layouts/other/ticket";
-        $this->setLayout();
-        $this->seo(array("title" => "Ticket","view" => $this->getLayoutView()));
+        $view = new Framework\View(array(
+            "file" => APP_PATH . "/application/views/layouts/other/ticket.html"
+        ));
 
-        $view = $this->getActionView();
         $booking = Booking::first(array("id = ?" => $id));
         $event = \Event::first(array("id = ?" => $booking->event_id), array("id", "start", "end", "title"));
         $location = Location::first(array("id = ?" => $event->location_id), array("address", "city"));
@@ -113,6 +112,8 @@ class EventTicket extends E {
         $view->set("location", $location);
         $view->set("user", $user);
         $view->set("booking", $booking);
+
+        echo $view->render();
     }
 
     protected function save($event, $ticket = null) {
