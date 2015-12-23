@@ -1,5 +1,11 @@
 <section class="page-section">
 </section>
+{if isset($message)}
+<div class="alert alert-success alert-dismissible fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+    {echo $message}
+</div>
+{/if}
 <!-- PAGE -->
 <section class="page-section with-sidebar sidebar-right first-section">
     <div class="container">
@@ -44,7 +50,7 @@
 <section class="page-section color">
     <div class="container">
         <!-- Contact form -->
-        <form name="af-form" method="post" action="contact-us.html#contact" class="af-form row" id="af-form">
+        <form name="af-form" method="post" action="" class="af-form row" id="af-form">
             <div class="col-sm-12 af-outer af-required">
                 <div class="form-group af-inner">
                     <input type="text" name="name" id="name" placeholder="Type Your Name..." value="" size="30" data-toggle="tooltip" title="Name is required" class="form-control placeholder" />
@@ -62,7 +68,7 @@
             </div>
             <div class="col-sm-12 af-outer af-required text-center">
                 <div class="form-group af-inner">
-                    <input type="submit" name="submit" class="form-button form-button-submit btn btn-theme btn-theme-lg btn-theme-transparent" id="submit_btn" value="Send message" />
+                    <input type="submit" name="submit" class="form-button form-button-submit btn btn-theme btn-theme-lg btn-theme-transparent" id="submit_btn" value="Send" />
                 </div>
             </div>
         </form>

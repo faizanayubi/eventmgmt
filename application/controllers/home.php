@@ -5,9 +5,9 @@
  *
  * @author Faizan Ayubi
  */
-use Shared\Controller as Controller;
+use Framework\RequestMethods as RequestMethods;
 
-class Home extends Controller {
+class Home extends Auth {
 
     public function index() {
         $this->seo(array(
@@ -66,6 +66,18 @@ class Home extends Controller {
             "view" => $this->getLayoutView()
         ));
         $view = $this->getActionView();
+
+        if (RequestMethods::post("submit") == "Send") {
+            $this->notify(array(
+                "template" => "message",
+                "subject" => "You have received a message",
+                "cmessage" => RequestMethods::post("message"),
+                "sender" => RequestMethods::post("name"). ", " . RequestMethods::post("email"),
+                "user" => User::first(array("id = ?" => 1))
+            ));
+
+            $view->set("message", "Your message has been received, we will contact you within 24 hours.");
+        }
     }
 
 }
