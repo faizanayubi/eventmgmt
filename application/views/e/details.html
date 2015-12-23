@@ -1,3 +1,11 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=583482395136457";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, "script", "facebook-jssdk"));</script>
 <section class="page-section">
     <div class="container">
     </div>
@@ -18,6 +26,7 @@
                 <span class="icon-inner"><span class="fa-stack"><i class="fa rhex fa-stack-2x"></i><i class="fa fa-star fa-stack-1x"></i></span></span>
                 <span class="title-inner">{echo $event->title}</small></span>
             </h1>
+            <div class="fb-like" data-href="{echo URL}" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
             <p class="font_roboto font_size16">{echo $event->description}</p>
             <hr class="page-divider transparent" />
             <hr class="page-divider line large" />
@@ -120,8 +129,7 @@
                         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <ul>
-                                    <li>{$location->street}</li>
-                                    <li>{$location->area}</li>
+                                    <li>{$location->address}</li>
                                     <li>{$location->city}</li>
                                     <li>From {echo Framework\StringMethods::datetime_to_text($event->start)}</li>
                                     <li>To {echo Framework\StringMethods::datetime_to_text($event->end)}</li>
@@ -133,7 +141,7 @@
                                     <span class="timezone">Asia/Kolkata</span>
                                     <span class="title">{$event->title}</span>
                                     <span class="description">{$event->description}</span>
-                                    <span class="location">{$location->street}, {$location->area}, {$location->city}</span>
+                                    <span class="location">{$location->address}, {$location->city}</span>
                                     <span class="organizer">MyEventGroup.com</span>
                                     <span class="organizer_email">info@myeventgroup.com</span>
                                     <span class="all_day_event">false</span>
