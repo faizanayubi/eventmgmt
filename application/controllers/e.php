@@ -178,6 +178,7 @@ class E extends Organizer {
      */
     public function edit($id) {
     	$event = \Event::first(array("id = ?" => $id));
+        $location = Location::first(array("id = ?" => $event->location_id));
         if (!$event) {
             self::redirect("/e/manage");
         }
@@ -191,11 +192,12 @@ class E extends Organizer {
         $view = $this->getActionView();
 
     	if (RequestMethods::post("action") == "updateEvent") {
-    		$event = $this->save($event);
+    		$event = $this->save($event, $location);
     		$view->set("message", "Event has been updated");
     	}
 
     	$view->set("e", $event);
+        $view->set("location", $location);
     }
 
     /**
@@ -285,13 +287,25 @@ class E extends Organizer {
         $view->set("similar", $similar);
     }
 
-    protected function save($event = null) {
+    protected function save($event = null, $location = null) {
         if (!$event) {
             $event = new \Event(array(
                 "listingImage" => $this->_upload("listingImage"),
                 "headerImage" => $this->_upload("headerImage")
             ));
         }
+
+        if (!$location) {
+            $location = new Location(array(
+                "latitude" => "",
+                "longitude" => ""
+            ));
+        }
+
+        $location->address = RequestMethods::post("address");
+        $location->city = RequestMethods::post("city");
+        $location->user_id = $this->user->id;
+        $location->save();
 
         $event->title = RequestMethods::post("title");
         $event->type = RequestMethods::post("type");
@@ -301,9 +315,27 @@ class E extends Organizer {
         $event->end = RequestMethods::post("end");
         $event->visibility = RequestMethods::post("visibility", "public");
         $event->user_id = $this->user->id;
+        $event->location_id = $location->id;
         
         $event->save();
         return $event;
+    }
+
+    /**
+     * @before _secure, changeLayout
+     */
+    public function attendees() {
+        $this->seo(array("title" => "Event Attendees", "view" => $this->getLayoutView()));
+        $view = $this->getActionView();
+
+        $event_id = RequestMethods::get("event_id");
+
+        $events = Event::all(array("user_id = ?" => $this->user->id), array("title", "id"));
+        $bookings = Booking::all(array("event_id = ?" => $event_id), array("user_id", "created", "id"));
+
+        $view->set("events", $events);
+        $view->set("bookings", $bookings);
+        $view->set("event_id", $event_id);
     }
 
 }

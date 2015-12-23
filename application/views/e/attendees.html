@@ -1,0 +1,44 @@
+<div id="page-wrapper">
+    <div class="row col-lg-12">
+        <h1 class="page-header text-center">Attendees</h1>
+        <form class="form-inline text-center" role="form" method="get" action="">
+            <div class="form-group">
+                <div class="input-group">
+                    <select class="form-control" name="event_id" value="{$event_id}">
+                    {foreach $event in $events}
+                        <option value="{$event->id}">{$event->title}</option>
+                    {/foreach}
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Show</button>
+        </form>
+        <hr>
+        <div class="panel panel-default">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {foreach $booking in $bookings}
+                    {script $user = User::first(array("id = ?" => $booking->user_id), array("name", "email", "phone"));}
+                    <tr>
+                        <td>{echo $booking->id}</td>
+                        <td>{echo $user->name}</td>
+                        <td>{echo $user->email}</td>
+                        <td>{echo $user->phone}</td>
+                        <td>{echo $booking->created}</td>
+                    </tr>
+                    {/foreach}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
