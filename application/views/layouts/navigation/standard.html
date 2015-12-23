@@ -20,23 +20,15 @@
 			<nav class="navigation closed clearfix">
 				<a href="#" class="menu-toggle btn"><i class="fa fa-bars"></i></a>
 				<ul class="sf-menu nav">
-					<li><a href="/home">Home</a></li>
+					<li><a href="/services">Services</a></li>
+					<li><a href="/features">Features</a></li>
+					<li><a href="/about-us">About</a></li>
+					<li><a href="/contact-us">Contact</a></li>
 					{if !isset($user)}
 					<li>
 						<a href="#" data-target="#popup-login" data-toggle="modal">Login</a>
 					</li>
 					{/if}
-					<li><a href="/services">Services</a></li>
-					<li><a href="/about-us">About</a></li>
-					<li><a href="/contact-us">Contact</a></li>
-					<li class="header-search-wrapper">
-						<form action="/e/search" method="post" class="header-search-form">
-							<input type="text" name="q" class="form-control header-search" placeholder="Search"/>
-							<input type="hidden" name="action" value="search">
-							<input type="submit" hidden="hidden"/>
-						</form>
-					</li>
-					<li><a href="https://www.facebook.com/myeventgroup" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a></li>
 					{if isset($user)}
 					<li>
 						<a href="#" class="btn btn-theme btn-submit-event">

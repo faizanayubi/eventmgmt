@@ -30,7 +30,17 @@ class Home extends Controller {
 
     public function services() {
         $this->seo(array(
-            "title" => "Event Management | Services",
+            "title" => "Services Event Management",
+            "keywords" => "post events, share events, create events",
+            "description" => "Register yourself with MyEventGroup and join the exciting world of Events",
+            "view" => $this->getLayoutView()
+        ));
+        $view = $this->getActionView();
+    }
+
+    public function features() {
+        $this->seo(array(
+            "title" => "Features Event Management",
             "keywords" => "post events, share events, create events",
             "description" => "Register yourself with MyEventGroup and join the exciting world of Events",
             "view" => $this->getLayoutView()
@@ -40,7 +50,7 @@ class Home extends Controller {
 
     public function about_us() {
         $this->seo(array(
-            "title" => "Event Management | About Us",
+            "title" => "About Us Event Management",
             "keywords" => "post events, share events, create events",
             "description" => "Register yourself with MyEventGroup and join the exciting world of Events",
             "view" => $this->getLayoutView()
@@ -50,7 +60,7 @@ class Home extends Controller {
 
     public function contact() {
     	$this->seo(array(
-            "title" => "Event Management | Contact Us",
+            "title" => "Contact Us Event Management",
             "keywords" => "post events, share events, create events",
             "description" => "Register yourself with MyEventGroup and join the exciting world of Events",
             "view" => $this->getLayoutView()
