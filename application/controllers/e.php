@@ -67,6 +67,13 @@ class E extends Organizer {
                     "admin" => 0
                 ));
                 $user->save();
+
+                $this->notify(array(
+                    "template" => "userRegister",
+                    "subject" => "Welcome to MyEventGroup.com",
+                    "user" => $user
+                ));
+                 
             }
             $event = new Event(array(
                 "title" => RequestMethods::post("title"),
